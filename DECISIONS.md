@@ -13,3 +13,5 @@ Append-only. One line per decision or in-place change. Newest at the bottom.
 | D7 | 2026-09-17 | design | DGS brand dark theme (navy / blue / orange) sampled from the brochure, not the eCDFP theme | Instructor decision |
 | D8 | 2026-09-17 | structure | Project instructions rebuilt as one file `00_INSTRUCTIONS.md`, merging the two earlier drafts; `PROJECT.md` becomes live status only | Two overlapping instruction files caused drift |
 | D9 | 2026-09-17 | teaching | In-class teaching order compressed to 8 of the 12 framework parts; case study, deep dive, quiz and transition move to the student pack | Fit 4 published hours into 3 live hours |
+| D10 | 2026-09-17 | site | The site never numbers sessions — pages are *Unit NN* inside a module, so the public structure matches the published 6 modules / 35 topics | Keep the compressed delivery invisible to students |
+| D11 | 2026-09-17 | env | The folder mount blocks deletes, so git leaves `.git/index.lock` behind after a commit. Delete permission must be requested once per session, then the locks and `tmp_obj_*` files cleared | Otherwise the next commit fails |

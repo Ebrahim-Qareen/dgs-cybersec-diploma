@@ -21,7 +21,7 @@
 | Phase 2 — lab setup guide | NOT STARTED |
 | Phase 3 — sessions L01–L18 | NOT STARTED |
 | Phase 4 — projects P1–P6 | NOT STARTED |
-| Phase 5 — publish | Local commit only — never pushed |
+| Phase 5 — publish | First local commit `0b9cfde` · remote set · **not pushed yet** |
 
 ## Session status
 
@@ -51,13 +51,13 @@
 ```
 00_INSTRUCTIONS.md · PROJECT.md · DECISIONS.md · README.md · .gitignore
 Resources/          source PDFs (gitignored)
-design/             roadmap_analysis.md · topic_map.md · lab_register.md · self_study_register.md · design_system.md
+design/             roadmap_analysis.md · topic_map.md · lab_register.md · self_study_register.md · design_system.md · session_template.html
 knowledge_base/     (empty)
 lab/                (empty)
 packages/           (empty)
 projects/           (empty)
-docs/               index.html · roadmap.html · assets/css/dgs.css · labs/ · projects/ · resources/ · downloads/
-testing/            (empty)
+docs/               index.html · roadmap.html · labs/ · projects/ · resources/tools.html · resources/practice.html · assets/css/dgs.css · downloads/ · .nojekyll
+testing/            verify.py (quality gate)
 tools/              (empty)
 ```
 

@@ -289,6 +289,9 @@ Never run two extractors on the same source.
 - The device mount **writes but cannot delete** without explicit permission — build generators and scratch files in the cloud container, never inside the project tree.
 - Use python read-modify-write, not `sed -i`, on mounted files.
 - Never run git commands that remove refs or objects on the mount. `gc.auto=0` is set at init.
+- After every commit on the mount, clear the leftovers git could not delete:
+  `rm -f .git/*.lock .git/objects/*.lock && find .git -name 'tmp_obj_*' -delete` — request delete permission for
+  `E:\Work\DGS Academy` once per session first, or the next commit fails on `index.lock`.
 - `git push` has **no credentials** here. Commit locally; Ebrahim pushes from GitHub Desktop or PowerShell.
 - **Never push without a fresh explicit go-ahead from Ebrahim**, for every push.
 - Pre-commit credential + PII scan is a release gate.
