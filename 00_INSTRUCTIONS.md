@@ -368,8 +368,8 @@ Create a folder only when first used and update `PROJECT.md` in the same commit.
 ## Part 15 — Kick-off Prompt (paste at the start of a new chat)
 
 ```
-Read 00_INSTRUCTIONS.md and DECISIONS.md fully before anything else.
-Tell me which phase we are in from PROJECT.md, then continue from there.
+Read 00_INSTRUCTIONS.md, PROJECT.md and steps/README.md before anything else.
+Tell me the current step and continue it. Update the step file in the same commit as the work.
 Never mention the 2-month delivery in any student-facing file.
 Keep replies short: DONE/ISSUE first, then the next step, then what I must decide.
 Verify with hashes and counts before calling anything done.

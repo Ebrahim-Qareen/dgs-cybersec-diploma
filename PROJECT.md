@@ -49,7 +49,8 @@
 ## Folder map (paths that exist today)
 
 ```
-00_INSTRUCTIONS.md · PROJECT.md · DECISIONS.md · README.md · .gitignore
+00_INSTRUCTIONS.md · PROJECT.md · DECISIONS.md · README.md · CLAUDE_PROJECT_SETUP.md · .gitignore
+steps/              README.md · 01_scaffold … 07_handover — one file per step (Goal · Done · Doing · Next)
 Resources/          source PDFs (gitignored)
 design/             roadmap_analysis.md · topic_map.md · lab_register.md · self_study_register.md · design_system.md · session_template.html
 knowledge_base/     00_source_inventory.md
