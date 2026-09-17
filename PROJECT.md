@@ -53,7 +53,7 @@
 steps/              README.md · 01_scaffold … 07_handover — one file per step (Goal · Done · Doing · Next)
 Resources/          source PDFs (gitignored)
 design/             roadmap_analysis.md · topic_map.md · lab_register.md · self_study_register.md · design_system.md · session_template.html
-knowledge_base/     00_source_inventory.md
+knowledge_base/     00_source_inventory.md · Session_01.md
 lab/                (empty)
 packages/           (empty)
 projects/           (empty)
