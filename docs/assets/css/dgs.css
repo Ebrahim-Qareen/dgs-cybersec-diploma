@@ -155,7 +155,7 @@ pre code{background:none;border:0;padding:0}
 section[id]{scroll-margin-top:86px}
 
 /* ---------- cards ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(clamp(260px,22vw,340px),1fr));gap:18px;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:22px}
 .grid-2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
   padding:22px;box-shadow:var(--depth);position:relative;overflow:hidden;
@@ -269,13 +269,13 @@ details.q[open]{border-color:var(--green)}
 .prevnext a:hover{text-decoration:none;border-color:var(--sky)}
 .prevnext a span{font:700 .68rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
 .prevnext a.next{text-align:right;margin-left:auto}
-.sess-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(250px,20vw,320px),1fr));
-  gap:16px;margin-top:22px}
+.sess-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:22px}
 .sess-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
   padding:18px 20px;box-shadow:var(--depth);position:relative;overflow:hidden;
   transition:transform .16s ease,border-color .16s ease}
 .sess-card:hover{transform:translateY(-3px);border-color:var(--line-soft)}
 .sess-card .rail{position:absolute;inset:0 auto 0 0;width:3px}
 .sess-card .num{font:750 1.5rem/1 var(--mono);color:var(--text-4)}
-.sess-card h3{font-size:1rem;margin:.4em 0 .3em}
+.sess-card h3{font-size:1rem;margin:.4em 0 .3em;color:var(--text)}
+.sess-card:hover h3{color:var(--sky)}
 .sess-card .meta{font:600 .74rem/1.4 var(--mono);color:var(--text-3)}

@@ -2,11 +2,14 @@
 """Build every page under docs/ from one layout + the design/ data files.
 Run from the repo root:  python3 tools/build_site.py
 Owner skill: dgs-session-html. Never hand-edit a generated page — edit here."""
+import hashlib
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
+# every page links the stylesheet with its content hash, so a redeploy never serves stale CSS
+CSS_VER = hashlib.sha256((ROOT / "docs/assets/css/dgs.css").read_bytes()).hexdigest()[:8]
 
 NAV = [("Home", "index.html", "home"), ("Curriculum", "roadmap.html", "roadmap"),
        ("Sessions", "sessions.html", "sessions"),
@@ -36,6 +39,7 @@ MODULES = [
 
 def layout(title, desc, active, depth, body, wide_footer=True):
     p = depth
+    CSS_VER = globals()["CSS_VER"]
     CUR = ' aria-current="page"'
     nav = "\n".join(
         '      <a href="{}{}"{}>{}</a>'.format(p, href, CUR if key == active else "", label)
@@ -48,7 +52,7 @@ def layout(title, desc, active, depth, body, wide_footer=True):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="icon" href="{p}assets/img/favicon.png" type="image/png">
-<link rel="stylesheet" href="{p}assets/css/dgs.css">
+<link rel="stylesheet" href="{p}assets/css/dgs.css?v={CSS_VER}">
 </head>
 <body>
 <header class="topbar">
