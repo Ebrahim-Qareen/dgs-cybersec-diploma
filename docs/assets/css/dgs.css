@@ -381,3 +381,9 @@ section.page > :first-child{margin-top:0}
   background:var(--bg-alt);border:1px solid var(--line-soft);color:var(--text)}
 .timer button.t-start{background:var(--orange);border-color:var(--orange);color:#0b1220}
 .break-page .box{text-align:left;max-width:640px;margin:22px auto 0}
+
+/* ---------- diagram sizing (session pages) ---------- */
+.diagram svg{width:100%;height:auto;display:block;margin:0 auto;max-width:var(--dmax,900px)}
+.diagram.d-s{--dmax:520px}.diagram.d-m{--dmax:720px}.diagram.d-l{--dmax:980px}
+.diagram figcaption{text-align:center}
+.pages .diagram{margin:18px 0}

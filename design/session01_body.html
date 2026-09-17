@@ -53,7 +53,7 @@
   <div class="sec-head sh-m1"><span class="tag m1">Part A</span><h2>The CIA triad</h2></div>
   <p class="lead">Security protects three things about your data: keep it private, keep it correct, keep it
   reachable. Think of your bank account.</p>
-  {{SVG:cia-triad}}
+  <figure class="diagram d-s">{{SVG:cia-triad}}<figcaption>Three promises about data. Name the pillar an attack breaks before anything else.</figcaption></figure>
   <div class="grid grid-2">
     <div class="box"><b>Confidentiality</b> &mdash; only you see your balance. Broken by data theft.</div>
     <div class="box"><b>Integrity</b> &mdash; your balance shows the right number. Broken by tampering.</div>
@@ -65,7 +65,7 @@
 
 <section class="page" data-title="A · Four words &amp; the SOC">
   <div class="sec-head sh-m1"><span class="tag m1">Part A</span><h2>The four words analysts use every day</h2></div>
-  {{SVG:vuln-threat-exploit-risk}}
+  <figure class="diagram d-m">{{SVG:vuln-threat-exploit-risk}}<figcaption>A weakness + someone to use it + a working attack = harm.</figcaption></figure>
   <p>A <b>vulnerability</b> is a weakness (a broken lock). A <b>threat</b> is who might use it (a burglar
   nearby). An <b>exploit</b> is the actual break-in. <b>Risk</b> is the harm when it works. Weakness plus a
   motivated attacker plus a working exploit equals risk.</p>
@@ -91,7 +91,7 @@
 
 <section class="page" data-title="Your lab &amp; tools">
   <div class="sec-head sh-m1"><h2>Your lab</h2><span class="note">where you will do all of this</span></div>
-  {{SVG:hypervisor}}
+  <figure class="diagram d-m">{{SVG:hypervisor}}<figcaption>A VM is a whole computer inside yours. Snapshots let you undo anything.</figcaption></figure>
   <div class="box box-note"><div class="box-title">Note</div>
   You run everything inside a virtual machine (a full computer inside your computer) using <b>VMware</b>. This
   session uses <b>DGS-WS01</b>, a Windows endpoint on the isolated lab network <code>10.10.10.0/24</code>.
@@ -130,7 +130,7 @@
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Inside Windows</h2></div>
   <p class="lead">Windows runs almost every corporate desktop, so it is where most alerts come from. You do not
   need to know every part &mdash; you need to know what <em>normal</em> looks like, so <em>abnormal</em> jumps out.</p>
-  {{SVG:windows-arch-stack}}
+  <figure class="diagram d-s">{{SVG:windows-arch-stack}}<figcaption>Your programs live at the top; malware wants to get below the line.</figcaption></figure>
   <p>Your programs run in <b>user mode</b>. The kernel and drivers run below, in <b>kernel mode</b>, talking to
   the hardware through the <b>HAL</b>. Malware wants to move down this stack &mdash; the lower it gets, the
   harder it is to see and remove.</p>
@@ -145,7 +145,7 @@
   <p>Every program that runs is a <b>process</b>, and each process is started by another one &mdash; its
   <b>parent</b>. Drawn out, this is the <b>process tree</b>. Attackers hide inside trusted names, so the
   <em>shape</em> of the tree gives them away.</p>
-  {{SVG:process-tree}}
+  <figure class="diagram d-m">{{SVG:process-tree}}<figcaption>Same names, different shape. The tree on the right is an attack.</figcaption></figure>
   <div class="box box-flag"><div class="box-title">Red flag</div>
   <ul>
     <li>Office app starting a shell: <code>WINWORD.EXE &rarr; powershell.exe</code></li>
@@ -162,7 +162,7 @@
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Persistence &mdash; how malware survives a reboot</h2></div>
   <p>Attackers do not want to run once; they want to run every time the machine starts. They plant themselves
   in a handful of known places. One tool, <b>Autoruns</b>, checks all of them.</p>
-  {{SVG:persistence-map}}
+  <figure class="diagram d-m">{{SVG:persistence-map}}<figcaption>Six places to survive a reboot — one tool checks them all.</figcaption></figure>
   <div class="grid grid-2">
     <div class="box box-attacker"><div class="box-title">Attacker view</div>
     The easiest win is a <b>Run key</b> or the <b>Startup folder</b> &mdash; no admin needed. With admin they prefer
@@ -199,7 +199,7 @@
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Every attack has a detection</h2></div>
   <p>This is the rule for the whole diploma: you never learn an attack without the thing that catches it and
   its MITRE ATT&amp;CK ID.</p>
-  {{SVG:attack-eventid-timeline}}
+  <figure class="diagram d-m">{{SVG:attack-eventid-timeline}}<figcaption>Each attacker step leaves a numbered event behind.</figcaption></figure>
   <div class="table-wrap"><table>
     <thead><tr><th>Attacker does&hellip;</th><th>The SOC sees&hellip;</th><th>ATT&amp;CK</th></tr></thead>
     <tbody>
