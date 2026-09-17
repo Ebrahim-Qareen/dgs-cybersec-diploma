@@ -685,9 +685,18 @@ def build_sessions_index():
         "All sessions of the DGS Academy Cyber Security Diploma, in teaching order.",
         "sessions", "", body))
 
+_C2PA = re.compile(r"<metadata>.*?</metadata>|\s*xmlns:c2pa=\"[^\"]*\"", re.S)
+def clean_svgs():
+    """The desktop bridge stamps every SVG it writes with a C2PA manifest (~8 KB). Strip it in place so the
+    repo and the inlined pages stay lean. Idempotent; run at every build."""
+    for p in sorted(DOCS.rglob("*.svg")):
+        t = p.read_text(encoding="utf-8"); c = _C2PA.sub("", t)
+        if c != t:
+            p.write_text(c, encoding="utf-8"); print("  cleaned {} ({:,} -> {:,} bytes)".format(p.relative_to(ROOT), len(t), len(c)))
+
 def inline_svg(n, name):
     p = DOCS / ("assets/svg/L%02d" % n) / (name + ".svg")
-    return p.read_text(encoding="utf-8").strip()
+    return _C2PA.sub("", p.read_text(encoding="utf-8")).strip()
 
 def _expand_session_body(raw, labs_tbl, prevnext, n):
     """Expand tokens, then (if the body is written as <section class="page" data-title=...> blocks)
@@ -822,6 +831,7 @@ def build_404():
 
 if __name__ == "__main__":
     print("building docs/ ...")
+    clean_svgs()
     build_home(); build_roadmap(); build_labs(); build_projects(); build_tools(); build_practice()
     build_sessions_index(); build_session_pages(); build_404()
     print("done.")

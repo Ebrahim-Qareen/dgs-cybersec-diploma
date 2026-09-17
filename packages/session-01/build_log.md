@@ -13,5 +13,8 @@ ADA decks extracted to `Resources/extract/L01/` (13 docs); condensed to `knowled
 - Page rendered headless (Chromium) — 7 diagrams + logo band + labs + challenge + cheat sheet + 12 quiz items render correctly in dark theme.
 - Instructor-private files (instructor_guide, quiz key, challenge key) kept in `packages/`, never copied to `docs/`.
 
+## Interactivity (added)
+- 34 clickable diagram nodes across 7 diagrams, each with a simple explanation; 10-question MCQ page with feedback + score; 2 break pages with timers. Playwright walk: 21 pages, all nodes open a panel, MCQ logic verified, 0 console errors.
+
 ## Open
 - Tool GUI screenshots (Process Explorer / Autoruns / Event Viewer) to be captured on the real lab VM in Phase 2 and added to the page's evidence spots.

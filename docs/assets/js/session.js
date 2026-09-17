@@ -81,5 +81,62 @@
     paint();
   });
 
+  // ---- interactive diagrams: click any [data-explain] node -> explanation panel inside the same figure
+  function closeExplain(fig) {
+    var p = fig.querySelector(".explain-panel"); if (p) { p.hidden = true; p.innerHTML = ""; }
+    Array.prototype.forEach.call(fig.querySelectorAll("[data-explain].sel"), function (n) { n.classList.remove("sel"); });
+  }
+  function openExplain(node) {
+    var fig = node.closest("figure"); if (!fig) return;
+    var key = node.getAttribute("data-explain");
+    var src = fig.querySelector('.explain-data [data-key="' + key + '"]');
+    var panel = fig.querySelector(".explain-panel");
+    if (!src || !panel) return;
+    if (node.classList.contains("sel")) { closeExplain(fig); return; }
+    closeExplain(fig);
+    node.classList.add("sel");
+    panel.innerHTML = '<button class="x" type="button" aria-label="Close">&times;</button>' + src.innerHTML;
+    panel.hidden = false;
+    panel.querySelector(".x").addEventListener("click", function () { closeExplain(fig); });
+  }
+  document.addEventListener("click", function (e) {
+    var n = e.target.closest && e.target.closest("[data-explain]"); if (n) { openExplain(n); }
+  });
+  document.addEventListener("keydown", function (e) {
+    if ((e.key === "Enter" || e.key === " ") && e.target.hasAttribute && e.target.hasAttribute("data-explain")) { e.preventDefault(); openExplain(e.target); }
+  });
+
+  // ---- MCQ engine: .mcq[data-answer] > .opts > button[data-opt]; .fb feedback; .mcq-score inside the same .quiz
+  Array.prototype.forEach.call(document.querySelectorAll(".quiz"), function (quiz) {
+    var items = Array.prototype.slice.call(quiz.querySelectorAll(".mcq"));
+    var score = quiz.querySelector(".mcq-score"), reset = quiz.querySelector(".mcq-reset");
+    var done = 0, right = 0;
+    function paint() { if (score) score.textContent = right + " / " + items.length + " correct" + (done < items.length ? "  ·  " + (items.length - done) + " left" : "  ·  done"); }
+    items.forEach(function (m) {
+      var ans = m.getAttribute("data-answer");
+      Array.prototype.forEach.call(m.querySelectorAll("button[data-opt]"), function (btn) {
+        btn.addEventListener("click", function () {
+          if (m.classList.contains("answered")) return;
+          m.classList.add("answered"); done++;
+          var ok = btn.getAttribute("data-opt") === ans; if (ok) right++;
+          btn.classList.add(ok ? "right" : "wrong");
+          var c = m.querySelector('button[data-opt="' + ans + '"]'); if (c) c.classList.add("right");
+          var fb = m.querySelector(".fb"); if (fb) { fb.hidden = false; fb.classList.add(ok ? "ok" : "no"); }
+          paint();
+        });
+      });
+    });
+    if (reset) reset.addEventListener("click", function () {
+      done = 0; right = 0;
+      items.forEach(function (m) {
+        m.classList.remove("answered");
+        Array.prototype.forEach.call(m.querySelectorAll("button[data-opt]"), function (b) { b.classList.remove("right", "wrong"); });
+        var fb = m.querySelector(".fb"); if (fb) { fb.hidden = true; fb.classList.remove("ok", "no"); }
+      });
+      paint();
+    });
+    paint();
+  });
+
   show(idx(), false);
 })();
