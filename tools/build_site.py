@@ -100,7 +100,7 @@ def build_home():
     body = f"""<main>
 <section class="wrap hero">
   <span class="kicker">Professional Diploma</span>
-  <h1>Cyber Security Diploma — <span class="accent">Blue Team &amp; Security Operations</span></h1>
+  <h1>Cyber Security Diploma<br><span class="accent">Blue Team &amp; Security Operations</span></h1>
   <p class="lead">A hands-on, career-focused program that trains you to monitor, detect, investigate and
   respond to real cyber threats — built entirely around practical labs and real investigations. You finish
   with detections you wrote yourself and investigations you can show an interviewer.</p>

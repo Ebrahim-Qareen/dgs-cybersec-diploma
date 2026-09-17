@@ -37,7 +37,7 @@
 
   --radius:14px;
   --radius-sm:9px;
-  --maxw:1560px;
+  --maxw:min(1860px,94vw);
   --gutter:clamp(16px,2.2vw,34px);
   --prose:92ch;
   --depth:inset 0 1px 0 rgba(255,255,255,.05),0 2px 14px rgba(0,0,0,.4);
@@ -107,7 +107,7 @@ pre code{background:none;border:0;padding:0}
 
 /* ---------- hero ---------- */
 .hero{padding-block:clamp(34px,5vw,64px) clamp(18px,2.4vw,30px)}
-.hero h1{max-width:20ch}
+.hero h1{max-width:26ch}
 .hero .lead{max-width:82ch}
 .kicker{display:inline-block;font:700 .72rem/1 var(--mono);letter-spacing:.16em;
   text-transform:uppercase;color:var(--orange);background:rgba(228,132,36,.1);
