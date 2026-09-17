@@ -215,7 +215,7 @@ def build_roadmap():
         nodes = "\n".join(f"""    <div class="node"><span class="n">Topic {i}</span>
       <h3>{t}</h3><p>{d}</p></div>""" for i, (t, d) in enumerate(TOPICS[m], 1))
         secs.append(f"""<section class="wrap section" id="m{m}">
-  <div class="sec-head"><span class="tag m{m}">Module {m}</span><h2>{name}</h2>
+  <div class="sec-head sh-m{m}"><span class="tag m{m}">Module {m}</span><h2>{name}</h2>
     <span class="note">{hours} hours &middot; {sess} sessions &middot; {labs} labs &middot; 1 project</span></div>
   <p class="lead">{sub}</p>
   <div class="rail-list">
@@ -230,6 +230,10 @@ def build_roadmap():
   catches it and its MITRE ATT&amp;CK technique — and nothing is taught twice.</p>
   <div class="cta-row"><a class="btn btn-primary" href="labs/index.html">See the labs</a>
     <a class="btn" href="projects/index.html">See the projects</a></div>
+  <div class="jump">
+    <a href="#m1">01 Foundation</a><a href="#m2">02 SOC &amp; SIEM</a><a href="#m3">03 Detection</a>
+    <a href="#m4">04 Hunting</a><a href="#m5">05 IR &amp; Forensics</a><a href="#m6">06 Malware</a>
+  </div>
 </section>
 {"".join(secs)}
 <section class="wrap section-sm">
@@ -267,7 +271,7 @@ def build_labs():
             .format(i, t, cls, label, _cell_tool(tool), _cell_att(att))
             for i, (t, (label, cls), tool, att) in enumerate(buckets[m], 1))
         secs.append(f"""<section class="wrap section-sm" id="m{m}">
-  <div class="sec-head"><span class="tag m{m}">Module {m}</span><h2>{name}</h2>
+  <div class="sec-head sh-m{m}"><span class="tag m{m}">Module {m}</span><h2>{name}</h2>
     <span class="note">{len(buckets[m])} labs</span></div>
   <div class="table-wrap"><table>
     <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead>
@@ -288,6 +292,10 @@ def build_labs():
     <div class="stat"><div class="n">36</div><div class="l">Guided in class</div></div>
     <div class="stat"><div class="n">6</div><div class="l">Lab machines</div></div>
     <div class="stat"><div class="n">100%</div><div class="l">Legal targets</div></div>
+  </div>
+  <div class="jump">
+    <a href="#m1">01 Foundation</a><a href="#m2">02 SOC &amp; SIEM</a><a href="#m3">03 Detection</a>
+    <a href="#m4">04 Hunting</a><a href="#m5">05 IR &amp; Forensics</a><a href="#m6">06 Malware</a>
   </div>
 </section>
 {"".join(secs)}
@@ -446,7 +454,23 @@ def build_practice():
         "Where to keep practising: platforms, free rooms and the certifications to aim for next.",
         "practice", "../", body))
 
+# ------------------------------------------------------------------ 404
+def build_404():
+    body = """<main>
+<section class="wrap hero">
+  <span class="kicker">404</span>
+  <h1>That page is not here</h1>
+  <p class="lead">The link is wrong, or the page has moved. Everything on the site is reachable from the
+  curriculum.</p>
+  <div class="cta-row"><a class="btn btn-primary" href="/dgs-cybersec-diploma/roadmap.html">Go to the curriculum</a>
+    <a class="btn" href="/dgs-cybersec-diploma/index.html">Back to the home page</a></div>
+</section>
+</main>"""
+    write("404.html", layout("Page not found — DGS Cyber Security Diploma",
+        "That page does not exist on the DGS Academy Cyber Security Diploma site.", "", "/dgs-cybersec-diploma/", body))
+
+
 if __name__ == "__main__":
     print("building docs/ ...")
-    build_home(); build_roadmap(); build_labs(); build_projects(); build_tools(); build_practice()
+    build_home(); build_roadmap(); build_labs(); build_projects(); build_tools(); build_practice(); build_404()
     print("done.")

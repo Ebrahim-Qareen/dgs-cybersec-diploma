@@ -48,6 +48,7 @@ print("\n== html links ==")
 for p in sorted((ROOT/"docs").rglob("*.html")):
     for href in re.findall(r'href="([^"#?]+)"', p.read_text(encoding="utf-8")):
         if href.startswith(("http://","https://","mailto:")): continue
+        if href.startswith("/"): continue          # 404.html uses site-absolute paths
         chk((p.parent/href).resolve().exists(), f"{p.relative_to(ROOT)} -> {href}")
     for src in re.findall(r'src="([^"#?]+)"', p.read_text(encoding="utf-8")):
         if src.startswith(("http://","https://","data:")):
