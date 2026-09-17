@@ -694,14 +694,14 @@ def _expand_session_body(raw, labs_tbl, prevnext, n):
     wrap it in the paged layout: sticky left agenda, one page shown at a time, prev/next pager."""
     raw = raw.replace("{{LABS}}", labs_tbl).replace("{{PREVNEXT}}", prevnext)
     raw = re.sub(r"\{\{SVG:([a-z0-9-]+)\}\}", lambda mm: inline_svg(n, mm.group(1)), raw)
-    titles = re.findall(r'<section class="page" data-title="([^"]*)">', raw)
+    titles = [m[1] for m in re.findall(r'<section class="page((?: [a-z-]+)*)" data-title="([^"]*)"([^>]*)>', raw)]
     if not titles:
         return raw
     i = [0]
     def _id(mm):
         i[0] += 1
-        return '<section class="page" id="p{}" data-title="{}">'.format(i[0], mm.group(1))
-    raw = re.sub(r'<section class="page" data-title="([^"]*)">', _id, raw)
+        return '<section class="page{}" id="p{}" data-title="{}"{}>'.format(mm.group(1), i[0], mm.group(2), mm.group(3))
+    raw = re.sub(r'<section class="page((?: [a-z-]+)*)" data-title="([^"]*)"([^>]*)>', _id, raw)
     agenda = "\n".join('      <a data-page href="#p{0}"><span class="n">{0:02d}</span><span>{1}</span></a>'
                        .format(k + 1, t) for k, t in enumerate(titles))
     return """<main>

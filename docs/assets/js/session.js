@@ -58,5 +58,28 @@
   var tg = document.querySelector(".agenda-toggle");
   if (tg) tg.addEventListener("click", function () { document.body.classList.toggle("agenda-open"); });
 
+
+  // break timer: <section class="page" data-timer="15"> gets a mm:ss countdown with Start / Pause / Reset
+  Array.prototype.forEach.call(document.querySelectorAll("section.page[data-timer]"), function (sec) {
+    var mins = parseInt(sec.getAttribute("data-timer"), 10) || 15;
+    var box = sec.querySelector(".timer"); if (!box) return;
+    var disp = box.querySelector(".t-display"), st = box.querySelector(".t-start"), rs = box.querySelector(".t-reset");
+    var left = mins * 60, id = null;
+    function paint() {
+      var m = Math.floor(left / 60), s = left % 60;
+      disp.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+      box.classList.toggle("done", left === 0);
+    }
+    function stop() { if (id) { clearInterval(id); id = null; } st.textContent = "Start"; }
+    st.addEventListener("click", function () {
+      if (id) { stop(); return; }
+      if (left === 0) left = mins * 60;
+      st.textContent = "Pause";
+      id = setInterval(function () { if (left > 0) { left--; paint(); } if (left === 0) stop(); }, 1000);
+    });
+    rs.addEventListener("click", function () { stop(); left = mins * 60; paint(); });
+    paint();
+  });
+
   show(idx(), false);
 })();

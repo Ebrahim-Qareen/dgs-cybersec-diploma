@@ -81,6 +81,51 @@
   services online. You are training for the Tier 1 seat where alerts land first.</div>
 </section>
 
+<section class="page break-page" data-title="Break 1" data-timer="15">
+  <span class="kicker">Break</span>
+  <h2>Take a breather</h2>
+  <p class="lead">15 minutes. Stand up, water, eyes off the screen.</p>
+  <div class="timer"><div class="t-display">15:00</div><div class="t-row"><button class="t-start" type="button">Start</button><button class="t-reset" type="button">Reset</button></div></div>
+  <div class="box box-note"><div class="box-title">When we come back</div>Lab A &mdash; you will boot your own lab machine and read it like an analyst.</div>
+</section>
+
+<section class="page" data-title="Your lab &amp; tools">
+  <div class="sec-head sh-m1"><h2>Your lab</h2><span class="note">where you will do all of this</span></div>
+  {{SVG:hypervisor}}
+  <div class="box box-note"><div class="box-title">Note</div>
+  You run everything inside a virtual machine (a full computer inside your computer) using <b>VMware</b>. This
+  session uses <b>DGS-WS01</b>, a Windows endpoint on the isolated lab network <code>10.10.10.0/24</code>.
+  Nothing you do touches a real network. Bring the prepared lab image ready to start &mdash; setup is done
+  before class, not in it.</div>
+  <h3>Tools you will use</h3>
+  <div class="logo-band">
+    <span class="chip"><img src="../assets/img/L01/logos/vmware.svg" alt=""><b>VMware</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/linux.svg" alt=""><b>Linux</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/ubuntu.svg" alt=""><b>Ubuntu</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/kalilinux.svg" alt=""><b>Kali</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/python.svg" alt=""><b>Python</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/gnubash.svg" alt=""><b>Bash</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/wireshark.svg" alt=""><b>Wireshark</b></span>
+  </div>
+  <p class="muted" style="margin-top:12px">Built-in Windows tools (Task Manager, Event Viewer, Registry Editor)
+  and the free Microsoft Sysinternals tools (Process Explorer, Autoruns, TCPView) are used from inside the VM.</p>
+</section>
+
+<section class="page" data-title="Lab A · in class">
+  <div class="sec-head sh-m1"><h2>Lab A &mdash; get the lab running</h2><span class="note">guided, in class</span></div>
+{{LABS}}
+<div class="box box-lab"><div class="box-title">Lab A &mdash; in class &middot; get the lab running</div>
+  <ol class="steps">
+    <li><b>Start the VM.</b> Open VMware, power on <b>DGS-WS01</b>, and log in.</li>
+    <li><b>Confirm the network.</b> Open a command prompt and run <code>ipconfig</code>. Your address should be
+    on <code>10.10.10.0/24</code>.</li>
+    <li><b>Take a snapshot</b> called <code>CLEAN</code>, so you can always return to a known-good state.</li>
+    <li><b>Read the system.</b> Run <code>systeminfo</code> and <code>whoami /priv</code>. Note the OS version
+    and your privileges.</li>
+  </ol></div>
+  <div class="box box-take"><div class="box-title">Deliverable</div>One line: your IP, OS version, and whether you are admin.</div>
+</section>
+
 <section class="page" data-title="B · Inside Windows">
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Inside Windows</h2></div>
   <p class="lead">Windows runs almost every corporate desktop, so it is where most alerts come from. You do not
@@ -166,41 +211,17 @@
     </tbody></table></div>
 </section>
 
-<section class="page" data-title="Your lab &amp; tools">
-  <div class="sec-head sh-m1"><h2>Your lab</h2><span class="note">where you will do all of this</span></div>
-  {{SVG:hypervisor}}
-  <div class="box box-note"><div class="box-title">Note</div>
-  You run everything inside a virtual machine (a full computer inside your computer) using <b>VMware</b>. This
-  session uses <b>DGS-WS01</b>, a Windows endpoint on the isolated lab network <code>10.10.10.0/24</code>.
-  Nothing you do touches a real network. Bring the prepared lab image ready to start &mdash; setup is done
-  before class, not in it.</div>
-  <h3>Tools you will use</h3>
-  <div class="logo-band">
-    <span class="chip"><img src="../assets/img/L01/logos/vmware.svg" alt=""><b>VMware</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/linux.svg" alt=""><b>Linux</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/ubuntu.svg" alt=""><b>Ubuntu</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/kalilinux.svg" alt=""><b>Kali</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/python.svg" alt=""><b>Python</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/gnubash.svg" alt=""><b>Bash</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/wireshark.svg" alt=""><b>Wireshark</b></span>
-  </div>
-  <p class="muted" style="margin-top:12px">Built-in Windows tools (Task Manager, Event Viewer, Registry Editor)
-  and the free Microsoft Sysinternals tools (Process Explorer, Autoruns, TCPView) are used from inside the VM.</p>
+<section class="page break-page" data-title="Break 2" data-timer="15">
+  <span class="kicker">Break</span>
+  <h2>Second break</h2>
+  <p class="lead">15 minutes. Stand up, water, eyes off the screen.</p>
+  <div class="timer"><div class="t-display">15:00</div><div class="t-row"><button class="t-start" type="button">Start</button><button class="t-reset" type="button">Reset</button></div></div>
+  <div class="box box-note"><div class="box-title">When we come back</div>Lab B and the challenge &mdash; your first real triage.</div>
 </section>
 
-<section class="page" data-title="Labs in class">
-  <div class="sec-head sh-m1"><h2>Labs in this session</h2><span class="note">guided in class, then yours to finish</span></div>
-{{LABS}}
-  <div class="box box-lab"><div class="box-title">Lab A &mdash; in class &middot; get the lab running</div>
-  <ol class="steps">
-    <li><b>Start the VM.</b> Open VMware, power on <b>DGS-WS01</b>, and log in.</li>
-    <li><b>Confirm the network.</b> Open a command prompt and run <code>ipconfig</code>. Your address should be
-    on <code>10.10.10.0/24</code>.</li>
-    <li><b>Take a snapshot</b> called <code>CLEAN</code>, so you can always return to a known-good state.</li>
-    <li><b>Read the system.</b> Run <code>systeminfo</code> and <code>whoami /priv</code>. Note the OS version
-    and your privileges.</li>
-  </ol></div>
-  <div class="box box-lab"><div class="box-title">Lab B &mdash; in class &middot; normal vs suspicious process</div>
+<section class="page" data-title="Lab B · in class">
+  <div class="sec-head sh-m1"><h2>Lab B &mdash; normal vs suspicious process</h2><span class="note">guided start, finish on your own</span></div>
+<div class="box box-lab"><div class="box-title">Lab B &mdash; in class &middot; normal vs suspicious process</div>
   <ol class="steps">
     <li>Open <b>Process Explorer</b> as administrator and find the process tree.</li>
     <li>Pick any process. Check four things: <b>path</b>, <b>company / signature</b>, <b>command line</b>,
@@ -208,22 +229,7 @@
     <li>Right-click &rarr; <b>Properties</b>. Look at the <b>Image</b> and <b>TCP/IP</b> tabs.</li>
     <li>Write one sentence: is it normal or suspicious, and <em>why</em>. Evidence, then conclusion.</li>
   </ol></div>
-</section>
-
-<section class="page" data-title="At-home task (free)">
-  <div class="sec-head sh-m1"><h2>At-home task</h2><span class="note">free &middot; finish before next session</span></div>
-  <div class="box box-lab"><div class="box-title">Your task<span class="free">free lab</span></div>
-  Finish these after class on the same VM, then bring your notes to the next session.
-  <ol class="steps">
-    <li><b>Persistence hunt.</b> Open <b>Autoruns</b>, turn on <em>Hide Microsoft entries</em>, and list every
-    unsigned start-up item. For each, write its location and whether it looks safe.</li>
-    <li><b>Accounts &amp; UAC.</b> Run <code>net user</code> and <code>net localgroup administrators</code>.
-    Note who is an admin. Then trigger a UAC prompt and describe when Windows asks for approval.</li>
-    <li><b>Free practice room.</b> Complete <b>TryHackMe &mdash; Windows Fundamentals 1</b> (free) and note the
-    keyboard shortcut that opens Task Manager.</li>
-  </ol></div>
-  <div class="box box-take"><div class="box-title">What to hand in</div>
-  One page: your Autoruns table, the admin list, and one sentence on UAC. Findings first, your opinion second.</div>
+  <div class="box box-take"><div class="box-title">Deliverable</div>A short table of 3 processes with path, signature, command line, parent &mdash; and a one-line verdict for each. On a clean host you should see signed Microsoft binaries from <code>System32</code> with sensible parents.</div>
 </section>
 
 <section class="page" data-title="Challenge">
@@ -309,6 +315,22 @@
   <details class="q"><summary>Practical 2 &mdash; on DGS-WS01</summary>
   In Process Explorer, find a process running from a user folder. Record its path, publisher, command line and
   parent, then give a one-line verdict with your reason.</details>
+</section>
+
+<section class="page" data-title="At-home task (free)">
+  <div class="sec-head sh-m1"><h2>At-home task</h2><span class="note">free &middot; finish before next session</span></div>
+  <div class="box box-lab"><div class="box-title">Your task<span class="free">free lab</span></div>
+  Finish these after class on the same VM, then bring your notes to the next session.
+  <ol class="steps">
+    <li><b>Persistence hunt.</b> Open <b>Autoruns</b>, turn on <em>Hide Microsoft entries</em>, and list every
+    unsigned start-up item. For each, write its location and whether it looks safe.</li>
+    <li><b>Accounts &amp; UAC.</b> Run <code>net user</code> and <code>net localgroup administrators</code>.
+    Note who is an admin. Then trigger a UAC prompt and describe when Windows asks for approval.</li>
+    <li><b>Free practice room.</b> Complete <b>TryHackMe &mdash; Windows Fundamentals 1</b> (free) and note the
+    keyboard shortcut that opens Task Manager.</li>
+  </ol></div>
+  <div class="box box-take"><div class="box-title">What to hand in</div>
+  One page: your Autoruns table, the admin list, and one sentence on UAC. Findings first, your opinion second.</div>
 </section>
 
 <section class="page" data-title="Takeaways &amp; next">

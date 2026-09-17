@@ -367,3 +367,17 @@ section.page > :first-child{margin-top:0}
   .js section.page.active{display:block}
   .page-layout{display:block}
 }
+
+/* ---------- break page + timer ---------- */
+.break-page{text-align:center;padding:30px 0 10px}
+.break-page .kicker{display:inline-block}
+.break-page h2{font-size:2rem;margin:.3em 0}
+.timer{margin:22px auto 0;max-width:420px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--depth)}
+.timer .t-display{font:750 4rem/1 var(--mono);color:var(--orange);letter-spacing:.02em}
+.timer.done .t-display{color:var(--green)}
+.timer .t-row{display:flex;gap:10px;justify-content:center;margin-top:16px}
+.timer button{appearance:none;cursor:pointer;font:600 .9rem/1 var(--font);padding:10px 18px;border-radius:var(--radius);
+  background:var(--bg-alt);border:1px solid var(--line-soft);color:var(--text)}
+.timer button.t-start{background:var(--orange);border-color:var(--orange);color:#0b1220}
+.break-page .box{text-align:left;max-width:640px;margin:22px auto 0}

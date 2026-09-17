@@ -6,7 +6,7 @@
 <title>Session 01 — Security Foundations & Windows Internals — DGS Cyber Security Diploma</title>
 <meta name="description" content="Session 01 of the DGS Academy Cyber Security Diploma.">
 <link rel="icon" href="../assets/img/favicon.png" type="image/png">
-<link rel="stylesheet" href="../assets/css/dgs.css?v=275255a1">
+<link rel="stylesheet" href="../assets/css/dgs.css?v=78f6e3f4">
 </head>
 <body>
 <header class="topbar">
@@ -39,18 +39,21 @@
       <a data-page href="#p3"><span class="n">03</span><span>Why it matters</span></a>
       <a data-page href="#p4"><span class="n">04</span><span>A · The CIA triad</span></a>
       <a data-page href="#p5"><span class="n">05</span><span>A · Four words &amp; the SOC</span></a>
-      <a data-page href="#p6"><span class="n">06</span><span>B · Inside Windows</span></a>
-      <a data-page href="#p7"><span class="n">07</span><span>B · The process tree</span></a>
-      <a data-page href="#p8"><span class="n">08</span><span>B · Persistence</span></a>
-      <a data-page href="#p9"><span class="n">09</span><span>B · What the SOC sees</span></a>
-      <a data-page href="#p10"><span class="n">10</span><span>B · Attack ↔ detection</span></a>
-      <a data-page href="#p11"><span class="n">11</span><span>Your lab &amp; tools</span></a>
-      <a data-page href="#p12"><span class="n">12</span><span>Labs in class</span></a>
-      <a data-page href="#p13"><span class="n">13</span><span>At-home task (free)</span></a>
-      <a data-page href="#p14"><span class="n">14</span><span>Challenge</span></a>
-      <a data-page href="#p15"><span class="n">15</span><span>Cheat sheet</span></a>
-      <a data-page href="#p16"><span class="n">16</span><span>Check yourself</span></a>
-      <a data-page href="#p17"><span class="n">17</span><span>Takeaways &amp; next</span></a>
+      <a data-page href="#p6"><span class="n">06</span><span>Break 1</span></a>
+      <a data-page href="#p7"><span class="n">07</span><span>Your lab &amp; tools</span></a>
+      <a data-page href="#p8"><span class="n">08</span><span>Lab A · in class</span></a>
+      <a data-page href="#p9"><span class="n">09</span><span>B · Inside Windows</span></a>
+      <a data-page href="#p10"><span class="n">10</span><span>B · The process tree</span></a>
+      <a data-page href="#p11"><span class="n">11</span><span>B · Persistence</span></a>
+      <a data-page href="#p12"><span class="n">12</span><span>B · What the SOC sees</span></a>
+      <a data-page href="#p13"><span class="n">13</span><span>B · Attack ↔ detection</span></a>
+      <a data-page href="#p14"><span class="n">14</span><span>Break 2</span></a>
+      <a data-page href="#p15"><span class="n">15</span><span>Lab B · in class</span></a>
+      <a data-page href="#p16"><span class="n">16</span><span>Challenge</span></a>
+      <a data-page href="#p17"><span class="n">17</span><span>Cheat sheet</span></a>
+      <a data-page href="#p18"><span class="n">18</span><span>Check yourself</span></a>
+      <a data-page href="#p19"><span class="n">19</span><span>At-home task (free)</span></a>
+      <a data-page href="#p20"><span class="n">20</span><span>Takeaways &amp; next</span></a>
     </nav>
     <div class="pages">
 <section class="page" id="p1" data-title="Cover">
@@ -178,7 +181,76 @@
   services online. You are training for the Tier 1 seat where alerts land first.</div>
 </section>
 
-<section class="page" id="p6" data-title="B · Inside Windows">
+<section class="page break-page" id="p6" data-title="Break 1" data-timer="15">
+  <span class="kicker">Break</span>
+  <h2>Take a breather</h2>
+  <p class="lead">15 minutes. Stand up, water, eyes off the screen.</p>
+  <div class="timer"><div class="t-display">15:00</div><div class="t-row"><button class="t-start" type="button">Start</button><button class="t-reset" type="button">Reset</button></div></div>
+  <div class="box box-note"><div class="box-title">When we come back</div>Lab A &mdash; you will boot your own lab machine and read it like an analyst.</div>
+</section>
+
+<section class="page" id="p7" data-title="Your lab &amp; tools">
+  <div class="sec-head sh-m1"><h2>Your lab</h2><span class="note">where you will do all of this</span></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" aria-label="Type 1 vs Type 2 hypervisor" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYToxOWIwODE5NC01MDU1LTRmOWUtYjVjZS0zZDQzYzQ2ODVjMWIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaPmRrKlNXO7fkAgj2DPcfqcAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo4MDQzNWJiOC01YzU3LTQyOWUtYTFkNC1jZmRmZTdhN2RiZTVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoG/UgjldXjy0K82oaqNlWrAAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggaaJlI3xiVeav8pXA4ze699ijPj2ajd35muso7HOr+D6kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaCFJJplOYNEsm5LKa/6iidAAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCBdjX5oc4ftyGwU7A29cm9a63wfb0/ILz2tKXhrNej5Y2RuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBixZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjE5YjA4MTk0LTUwNTUtNGY5ZS1iNWNlLTNkNDNjNDY4NWMxYi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjZjOGM0YjhhLTVkNGUtNDcyNi1hOTZlLTZhYmY0ZGJkZDAwY3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBpomUjfGJV5q/ylcDjN7r32KM+PZqN3fma6yjsc6v4PqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggiM6uLizZlU1AMtK4dft6nt+X6H8JOYvksTHQ2C89Mx+iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggCP1u+Y13XnBg0zcXcnyxXNojDj0zfvGHrGkUQcSZXw90Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQOdidXB6DX9/LdEkYNikEvuoCe149v9rsrcTgy1DRQX6D2hZrDG/ImbitC6/fw7R8bgM3xe8FqsYZ4F2GcOiC84=</c2pa:manifest></metadata>
+<title>Type 1 vs Type 2 Hypervisor</title>
+<defs><style>
+.t{fill:#e8eef6;font-family:system-ui,Arial,sans-serif;font-weight:600}
+.m{fill:#9fb3c8;font-family:system-ui,Arial,sans-serif}
+</style></defs>
+<text class="t" x="160" y="28" text-anchor="middle" font-size="15">Type 1 (bare metal)</text>
+<rect x="40" y="40" width="240" height="34" rx="6" fill="#185490"/><text class="t" x="160" y="63" text-anchor="middle" font-size="13">VM   VM   VM</text>
+<rect x="40" y="80" width="240" height="30" rx="6" fill="#0C3060"/><text class="t" x="160" y="100" text-anchor="middle" font-size="12">Hypervisor (ESXi/Hyper-V)</text>
+<rect x="40" y="116" width="240" height="30" rx="6" fill="#33507a"/><text class="t" x="160" y="136" text-anchor="middle" font-size="12">Hardware</text>
+<text class="t" x="460" y="28" text-anchor="middle" font-size="15">Type 2 (hosted)</text>
+<rect x="340" y="40" width="240" height="34" rx="6" fill="#185490"/><text class="t" x="460" y="63" text-anchor="middle" font-size="13">VM   VM</text>
+<rect x="340" y="80" width="240" height="30" rx="6" fill="#E48424"/><text x="460" y="100" text-anchor="middle" font-size="12" fill="#0b1220" font-family="system-ui">VMware Workstation / VirtualBox</text>
+<rect x="340" y="116" width="240" height="30" rx="6" fill="#0C3060"/><text class="t" x="460" y="136" text-anchor="middle" font-size="12">Host OS (Windows)</text>
+<rect x="340" y="152" width="240" height="30" rx="6" fill="#33507a"/><text class="t" x="460" y="172" text-anchor="middle" font-size="12">Hardware</text>
+<text class="m" x="310" y="230" text-anchor="middle" font-size="12">DGS lab uses Type 2 on student laptops; host-only 10.10.10.0/24</text>
+</svg>
+  <div class="box box-note"><div class="box-title">Note</div>
+  You run everything inside a virtual machine (a full computer inside your computer) using <b>VMware</b>. This
+  session uses <b>DGS-WS01</b>, a Windows endpoint on the isolated lab network <code>10.10.10.0/24</code>.
+  Nothing you do touches a real network. Bring the prepared lab image ready to start &mdash; setup is done
+  before class, not in it.</div>
+  <h3>Tools you will use</h3>
+  <div class="logo-band">
+    <span class="chip"><img src="../assets/img/L01/logos/vmware.svg" alt=""><b>VMware</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/linux.svg" alt=""><b>Linux</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/ubuntu.svg" alt=""><b>Ubuntu</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/kalilinux.svg" alt=""><b>Kali</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/python.svg" alt=""><b>Python</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/gnubash.svg" alt=""><b>Bash</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/wireshark.svg" alt=""><b>Wireshark</b></span>
+  </div>
+  <p class="muted" style="margin-top:12px">Built-in Windows tools (Task Manager, Event Viewer, Registry Editor)
+  and the free Microsoft Sysinternals tools (Process Explorer, Autoruns, TCPView) are used from inside the VM.</p>
+</section>
+
+<section class="page" id="p8" data-title="Lab A · in class">
+  <div class="sec-head sh-m1"><h2>Lab A &mdash; get the lab running</h2><span class="note">guided, in class</span></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Lab</th><th>What you do</th><th>Format</th><th>Tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>Lab verification — VMs, snapshots, `10.10.10.0/24` connectivity check</td><td><span class="pill guided">Guided</span></td><td>VMware</td><td>&mdash;</td></tr>
+      <tr><td>B</td><td>Windows process and service inspection — normal vs suspicious</td><td><span class="pill guided">Guided</span></td><td>Task Manager, Process Explorer</td><td>&mdash;</td></tr>
+      <tr><td>C</td><td>Registry walkthrough — autorun keys and what they tell an analyst</td><td><span class="pill task">Practical task</span></td><td>Registry Editor</td><td><span class="att">T1547</span></td></tr>
+      <tr><td>D</td><td>Accounts, privileges and UAC behaviour on DGS-WS01</td><td><span class="pill task">Practical task</span></td><td>Windows local users</td><td><span class="att">T1078</span></td></tr>
+      <tr><td>E</td><td>CIA triad and security control mapping worksheet</td><td><span class="pill self">Self-paced</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+    </tbody></table></div>
+<div class="box box-lab"><div class="box-title">Lab A &mdash; in class &middot; get the lab running</div>
+  <ol class="steps">
+    <li><b>Start the VM.</b> Open VMware, power on <b>DGS-WS01</b>, and log in.</li>
+    <li><b>Confirm the network.</b> Open a command prompt and run <code>ipconfig</code>. Your address should be
+    on <code>10.10.10.0/24</code>.</li>
+    <li><b>Take a snapshot</b> called <code>CLEAN</code>, so you can always return to a known-good state.</li>
+    <li><b>Read the system.</b> Run <code>systeminfo</code> and <code>whoami /priv</code>. Note the OS version
+    and your privileges.</li>
+  </ol></div>
+  <div class="box box-take"><div class="box-title">Deliverable</div>One line: your IP, OS version, and whether you are admin.</div>
+</section>
+
+<section class="page" id="p9" data-title="B · Inside Windows">
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Inside Windows</h2></div>
   <p class="lead">Windows runs almost every corporate desktop, so it is where most alerts come from. You do not
   need to know every part &mdash; you need to know what <em>normal</em> looks like, so <em>abnormal</em> jumps out.</p>
@@ -197,7 +269,7 @@
   The <b>Registry</b> (<code>HKLM</code>, <code>HKCU</code>) is the settings database malware writes to for persistence.</div>
 </section>
 
-<section class="page" id="p7" data-title="B · The process tree">
+<section class="page" id="p10" data-title="B · The process tree">
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Processes and the process tree</h2></div>
   <p>Every program that runs is a <b>process</b>, and each process is started by another one &mdash; its
   <b>parent</b>. Drawn out, this is the <b>process tree</b>. Attackers hide inside trusted names, so the
@@ -239,7 +311,7 @@
   &rarr; <b>parent</b>. Process Explorer shows all four in one window.</div>
 </section>
 
-<section class="page" id="p8" data-title="B · Persistence">
+<section class="page" id="p11" data-title="B · Persistence">
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Persistence &mdash; how malware survives a reboot</h2></div>
   <p>Attackers do not want to run once; they want to run every time the machine starts. They plant themselves
   in a handful of known places. One tool, <b>Autoruns</b>, checks all of them.</p>
@@ -261,7 +333,7 @@
   </div>
 </section>
 
-<section class="page" id="p9" data-title="B · What the SOC sees">
+<section class="page" id="p12" data-title="B · What the SOC sees">
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>What the SOC actually sees</h2></div>
   <div class="box box-evidence"><div class="box-title">Evidence &mdash; Windows Security log &mdash; Event ID 4688 &mdash; T1059.001</div>
   4688 New Process &nbsp;|&nbsp; Account: DGS\j.hassan &nbsp;|&nbsp; Host: DGS-WS01 (10.10.10.21)<br>
@@ -284,7 +356,7 @@
     </tbody></table></div>
 </section>
 
-<section class="page" id="p10" data-title="B · Attack ↔ detection">
+<section class="page" id="p13" data-title="B · Attack ↔ detection">
   <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Every attack has a detection</h2></div>
   <p>This is the rule for the whole diploma: you never learn an attack without the thing that catches it and
   its MITRE ATT&amp;CK ID.</p>
@@ -308,65 +380,17 @@
     </tbody></table></div>
 </section>
 
-<section class="page" id="p11" data-title="Your lab &amp; tools">
-  <div class="sec-head sh-m1"><h2>Your lab</h2><span class="note">where you will do all of this</span></div>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" aria-label="Type 1 vs Type 2 hypervisor" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYToxOWIwODE5NC01MDU1LTRmOWUtYjVjZS0zZDQzYzQ2ODVjMWIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaPmRrKlNXO7fkAgj2DPcfqcAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo4MDQzNWJiOC01YzU3LTQyOWUtYTFkNC1jZmRmZTdhN2RiZTVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoG/UgjldXjy0K82oaqNlWrAAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggaaJlI3xiVeav8pXA4ze699ijPj2ajd35muso7HOr+D6kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaCFJJplOYNEsm5LKa/6iidAAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCBdjX5oc4ftyGwU7A29cm9a63wfb0/ILz2tKXhrNej5Y2RuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBixZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjE5YjA4MTk0LTUwNTUtNGY5ZS1iNWNlLTNkNDNjNDY4NWMxYi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjZjOGM0YjhhLTVkNGUtNDcyNi1hOTZlLTZhYmY0ZGJkZDAwY3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBpomUjfGJV5q/ylcDjN7r32KM+PZqN3fma6yjsc6v4PqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggiM6uLizZlU1AMtK4dft6nt+X6H8JOYvksTHQ2C89Mx+iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggCP1u+Y13XnBg0zcXcnyxXNojDj0zfvGHrGkUQcSZXw90Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQOdidXB6DX9/LdEkYNikEvuoCe149v9rsrcTgy1DRQX6D2hZrDG/ImbitC6/fw7R8bgM3xe8FqsYZ4F2GcOiC84=</c2pa:manifest></metadata>
-<title>Type 1 vs Type 2 Hypervisor</title>
-<defs><style>
-.t{fill:#e8eef6;font-family:system-ui,Arial,sans-serif;font-weight:600}
-.m{fill:#9fb3c8;font-family:system-ui,Arial,sans-serif}
-</style></defs>
-<text class="t" x="160" y="28" text-anchor="middle" font-size="15">Type 1 (bare metal)</text>
-<rect x="40" y="40" width="240" height="34" rx="6" fill="#185490"/><text class="t" x="160" y="63" text-anchor="middle" font-size="13">VM   VM   VM</text>
-<rect x="40" y="80" width="240" height="30" rx="6" fill="#0C3060"/><text class="t" x="160" y="100" text-anchor="middle" font-size="12">Hypervisor (ESXi/Hyper-V)</text>
-<rect x="40" y="116" width="240" height="30" rx="6" fill="#33507a"/><text class="t" x="160" y="136" text-anchor="middle" font-size="12">Hardware</text>
-<text class="t" x="460" y="28" text-anchor="middle" font-size="15">Type 2 (hosted)</text>
-<rect x="340" y="40" width="240" height="34" rx="6" fill="#185490"/><text class="t" x="460" y="63" text-anchor="middle" font-size="13">VM   VM</text>
-<rect x="340" y="80" width="240" height="30" rx="6" fill="#E48424"/><text x="460" y="100" text-anchor="middle" font-size="12" fill="#0b1220" font-family="system-ui">VMware Workstation / VirtualBox</text>
-<rect x="340" y="116" width="240" height="30" rx="6" fill="#0C3060"/><text class="t" x="460" y="136" text-anchor="middle" font-size="12">Host OS (Windows)</text>
-<rect x="340" y="152" width="240" height="30" rx="6" fill="#33507a"/><text class="t" x="460" y="172" text-anchor="middle" font-size="12">Hardware</text>
-<text class="m" x="310" y="230" text-anchor="middle" font-size="12">DGS lab uses Type 2 on student laptops; host-only 10.10.10.0/24</text>
-</svg>
-  <div class="box box-note"><div class="box-title">Note</div>
-  You run everything inside a virtual machine (a full computer inside your computer) using <b>VMware</b>. This
-  session uses <b>DGS-WS01</b>, a Windows endpoint on the isolated lab network <code>10.10.10.0/24</code>.
-  Nothing you do touches a real network. Bring the prepared lab image ready to start &mdash; setup is done
-  before class, not in it.</div>
-  <h3>Tools you will use</h3>
-  <div class="logo-band">
-    <span class="chip"><img src="../assets/img/L01/logos/vmware.svg" alt=""><b>VMware</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/linux.svg" alt=""><b>Linux</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/ubuntu.svg" alt=""><b>Ubuntu</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/kalilinux.svg" alt=""><b>Kali</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/python.svg" alt=""><b>Python</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/gnubash.svg" alt=""><b>Bash</b></span>
-    <span class="chip"><img src="../assets/img/L01/logos/wireshark.svg" alt=""><b>Wireshark</b></span>
-  </div>
-  <p class="muted" style="margin-top:12px">Built-in Windows tools (Task Manager, Event Viewer, Registry Editor)
-  and the free Microsoft Sysinternals tools (Process Explorer, Autoruns, TCPView) are used from inside the VM.</p>
+<section class="page break-page" id="p14" data-title="Break 2" data-timer="15">
+  <span class="kicker">Break</span>
+  <h2>Second break</h2>
+  <p class="lead">15 minutes. Stand up, water, eyes off the screen.</p>
+  <div class="timer"><div class="t-display">15:00</div><div class="t-row"><button class="t-start" type="button">Start</button><button class="t-reset" type="button">Reset</button></div></div>
+  <div class="box box-note"><div class="box-title">When we come back</div>Lab B and the challenge &mdash; your first real triage.</div>
 </section>
 
-<section class="page" id="p12" data-title="Labs in class">
-  <div class="sec-head sh-m1"><h2>Labs in this session</h2><span class="note">guided in class, then yours to finish</span></div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Lab</th><th>What you do</th><th>Format</th><th>Tool</th><th>ATT&amp;CK</th></tr></thead>
-    <tbody>
-      <tr><td>A</td><td>Lab verification — VMs, snapshots, `10.10.10.0/24` connectivity check</td><td><span class="pill guided">Guided</span></td><td>VMware</td><td>&mdash;</td></tr>
-      <tr><td>B</td><td>Windows process and service inspection — normal vs suspicious</td><td><span class="pill guided">Guided</span></td><td>Task Manager, Process Explorer</td><td>&mdash;</td></tr>
-      <tr><td>C</td><td>Registry walkthrough — autorun keys and what they tell an analyst</td><td><span class="pill task">Practical task</span></td><td>Registry Editor</td><td><span class="att">T1547</span></td></tr>
-      <tr><td>D</td><td>Accounts, privileges and UAC behaviour on DGS-WS01</td><td><span class="pill task">Practical task</span></td><td>Windows local users</td><td><span class="att">T1078</span></td></tr>
-      <tr><td>E</td><td>CIA triad and security control mapping worksheet</td><td><span class="pill self">Self-paced</span></td><td>&mdash;</td><td>&mdash;</td></tr>
-    </tbody></table></div>
-  <div class="box box-lab"><div class="box-title">Lab A &mdash; in class &middot; get the lab running</div>
-  <ol class="steps">
-    <li><b>Start the VM.</b> Open VMware, power on <b>DGS-WS01</b>, and log in.</li>
-    <li><b>Confirm the network.</b> Open a command prompt and run <code>ipconfig</code>. Your address should be
-    on <code>10.10.10.0/24</code>.</li>
-    <li><b>Take a snapshot</b> called <code>CLEAN</code>, so you can always return to a known-good state.</li>
-    <li><b>Read the system.</b> Run <code>systeminfo</code> and <code>whoami /priv</code>. Note the OS version
-    and your privileges.</li>
-  </ol></div>
-  <div class="box box-lab"><div class="box-title">Lab B &mdash; in class &middot; normal vs suspicious process</div>
+<section class="page" id="p15" data-title="Lab B · in class">
+  <div class="sec-head sh-m1"><h2>Lab B &mdash; normal vs suspicious process</h2><span class="note">guided start, finish on your own</span></div>
+<div class="box box-lab"><div class="box-title">Lab B &mdash; in class &middot; normal vs suspicious process</div>
   <ol class="steps">
     <li>Open <b>Process Explorer</b> as administrator and find the process tree.</li>
     <li>Pick any process. Check four things: <b>path</b>, <b>company / signature</b>, <b>command line</b>,
@@ -374,25 +398,10 @@
     <li>Right-click &rarr; <b>Properties</b>. Look at the <b>Image</b> and <b>TCP/IP</b> tabs.</li>
     <li>Write one sentence: is it normal or suspicious, and <em>why</em>. Evidence, then conclusion.</li>
   </ol></div>
+  <div class="box box-take"><div class="box-title">Deliverable</div>A short table of 3 processes with path, signature, command line, parent &mdash; and a one-line verdict for each. On a clean host you should see signed Microsoft binaries from <code>System32</code> with sensible parents.</div>
 </section>
 
-<section class="page" id="p13" data-title="At-home task (free)">
-  <div class="sec-head sh-m1"><h2>At-home task</h2><span class="note">free &middot; finish before next session</span></div>
-  <div class="box box-lab"><div class="box-title">Your task<span class="free">free lab</span></div>
-  Finish these after class on the same VM, then bring your notes to the next session.
-  <ol class="steps">
-    <li><b>Persistence hunt.</b> Open <b>Autoruns</b>, turn on <em>Hide Microsoft entries</em>, and list every
-    unsigned start-up item. For each, write its location and whether it looks safe.</li>
-    <li><b>Accounts &amp; UAC.</b> Run <code>net user</code> and <code>net localgroup administrators</code>.
-    Note who is an admin. Then trigger a UAC prompt and describe when Windows asks for approval.</li>
-    <li><b>Free practice room.</b> Complete <b>TryHackMe &mdash; Windows Fundamentals 1</b> (free) and note the
-    keyboard shortcut that opens Task Manager.</li>
-  </ol></div>
-  <div class="box box-take"><div class="box-title">What to hand in</div>
-  One page: your Autoruns table, the admin list, and one sentence on UAC. Findings first, your opinion second.</div>
-</section>
-
-<section class="page" id="p14" data-title="Challenge">
+<section class="page" id="p16" data-title="Challenge">
   <div class="sec-head sh-m1"><h2>Challenge &mdash; first triage</h2><span class="note">put it together</span></div>
   <div class="box box-flag"><div class="box-title">The scenario</div>
   An alert fires on <b>DGS-WS01</b>. A user opened an email attachment named <code>invoice.docx</code>. Minutes
@@ -415,7 +424,7 @@
   intrusion, not noise. Write findings (what you saw) separately from your conclusion (what it means).</p></details>
 </section>
 
-<section class="page" id="p15" data-title="Cheat sheet">
+<section class="page" id="p17" data-title="Cheat sheet">
   <div class="sec-head sh-m1"><h2>Cheat sheet</h2><span class="note">fits one page</span>
     <button class="btn-print" type="button" data-print>Print</button></div>
   <div class="split">
@@ -447,7 +456,7 @@
   </div>
 </section>
 
-<section class="page" id="p16" data-title="Check yourself">
+<section class="page" id="p18" data-title="Check yourself">
   <div class="sec-head sh-m1"><h2>Check yourself</h2><span class="note">answers hidden &mdash; try first</span></div>
   <details class="q"><summary>1. Which part of the CIA triad does ransomware attack most directly?</summary>
   Availability &mdash; it makes your files unusable until you pay. It can hit Integrity too.</details>
@@ -477,7 +486,23 @@
   parent, then give a one-line verdict with your reason.</details>
 </section>
 
-<section class="page" id="p17" data-title="Takeaways &amp; next">
+<section class="page" id="p19" data-title="At-home task (free)">
+  <div class="sec-head sh-m1"><h2>At-home task</h2><span class="note">free &middot; finish before next session</span></div>
+  <div class="box box-lab"><div class="box-title">Your task<span class="free">free lab</span></div>
+  Finish these after class on the same VM, then bring your notes to the next session.
+  <ol class="steps">
+    <li><b>Persistence hunt.</b> Open <b>Autoruns</b>, turn on <em>Hide Microsoft entries</em>, and list every
+    unsigned start-up item. For each, write its location and whether it looks safe.</li>
+    <li><b>Accounts &amp; UAC.</b> Run <code>net user</code> and <code>net localgroup administrators</code>.
+    Note who is an admin. Then trigger a UAC prompt and describe when Windows asks for approval.</li>
+    <li><b>Free practice room.</b> Complete <b>TryHackMe &mdash; Windows Fundamentals 1</b> (free) and note the
+    keyboard shortcut that opens Task Manager.</li>
+  </ol></div>
+  <div class="box box-take"><div class="box-title">What to hand in</div>
+  One page: your Autoruns table, the admin list, and one sentence on UAC. Findings first, your opinion second.</div>
+</section>
+
+<section class="page" id="p20" data-title="Takeaways &amp; next">
   <div class="sec-head sh-m1"><h2>Key takeaways</h2></div>
   <div class="box box-take"><div class="box-title">Remember</div>
   <ul>
