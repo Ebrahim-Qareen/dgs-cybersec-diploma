@@ -315,7 +315,7 @@ def deps_svg():
   <g class="reveal in">
     <rect x="20" y="{y0}" width="300" height="32" rx="8" fill="{ca}" fill-opacity=".12" stroke="{ca}" stroke-width="1.5"/>
     <text x="34" y="{yt}" fill="#E6EEF8" font-size="12.5" font-weight="600">{a}</text>
-    <path d="M330 {yc} H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <path d="M330 {yc} H 400" stroke="#4FB8F0" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arr)"/>
     <rect x="410" y="{y0}" width="330" height="32" rx="8" fill="{cb}" fill-opacity=".12" stroke="{cb}" stroke-width="1.5"/>
     <text x="424" y="{yt}" fill="#E6EEF8" font-size="12.5" font-weight="600">{b}</text>
     <text x="760" y="{yt}" fill="#7E93B5" font-size="11" class="mono">M{ma} → M{mb}</text>
