@@ -77,7 +77,7 @@ def layout(title, desc, active, depth, body, wide_footer=True):
   </div>
 </footer>
 <script>
-(function(){{var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){{els.forEach(function(e){{e.classList.add('in')}});return;}}
+(function(){{document.documentElement.classList.add('js');var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){{els.forEach(function(e){{e.classList.add('in')}});return;}}
 var io=new IntersectionObserver(function(en){{en.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target);}}}})}},{{threshold:.15}});
 els.forEach(function(e){{io.observe(e)}});}})();
 </script>

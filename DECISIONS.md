@@ -23,3 +23,6 @@ Append-only. One line per decision or in-place change. Newest at the bottom.
 | D17 | 2026-09-17 | site | The logo appears only in the top bar and footer plate — no logo card in the hero; the hero is one full-width text block | Instructor's design call |
 | D18 | 2026-09-17 | design | Content canvas widened: max width 1320px → 1560px, smaller gutters, prose cap 78ch → 92ch, denser card grid | Content was using too little of the screen |
 | D19 | 2026-09-17 | gate | Quality gate no longer blocks the session count in student-facing files (D16 makes it public); it still blocks '2 month', 'compress' and 'because of time' | D16 |
+| D20 | 2026-09-17 | design | Logo shown on dark surfaces as `dgs-logo-dark.png` (navy remapped to brand blue, no white plate); the original stays for print/light use | Instructor wants logo and page colours to match |
+| D21 | 2026-09-17 | site | Curriculum page carries inline-SVG diagrams (module climb, analyst loop, dependency map, module icons) with CSS motion and an opt-in scroll reveal; no external assets | Page was text-only |
+| D22 | 2026-09-17 | intake | Source trees inventoried and mapped to the 18 sessions in `knowledge_base/00_source_inventory.md`; raw extraction goes to `Resources/extract/` (gitignored) via `tools/extract_source.py`; condensed notes only in `knowledge_base/` | Start of Phase 3 intake |

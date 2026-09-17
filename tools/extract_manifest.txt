@@ -1,0 +1,88 @@
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/First Month/Intro to Cyber secuirty/Matrial/Introduction to Cyber Security.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/First Month/Intro to Cyber secuirty/Matrial/intro-to-cybersecurity.html
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/First Month/Opreating System/Matrial/Windows.pdf
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/First Month/Opreating System/Lab/Windows Lab/Windows_Labs_.pdf
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Intro to cybersecurity/Intro To CyberSecuirty.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Matrial/Virtual Machines.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Matrial/Process Explorer.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Matrial/Autoruns.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Matrial/TCPView.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Tool/Windows 10 .pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/install/Kali Linux Install Steps.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 1.pptx
+L01|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 3.pptx
+L02|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/First Month/Opreating System/Matrial/Linux Opreating System Fundamentals .pdf
+L02|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Tool/Ubuntu.pptx
+L02|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Tool/Kali linux.pptx
+L02|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Sites/Linux_Shell.pdf
+L02|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 4.pptx
+L02|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Matrial/OSQuery.pptx
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/Intro to Network/Introduction to Computer Networks.pdf
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/Introduction to OSI Model/Introduction to OSI Model.pdf
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/OSI Model Journey/Matrial/OSI Model Journey.pptx
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/Layer 2  (Data Link Layer)/Matrial/Layer 2  (Data Link Layer).pptx
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/Layer 3 (Network Layer)/Matrial/Layer 3 (Network Layer).pptx
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/Layer 4 ( Transport Layer )/Matrial/Layer 4 (Transport Layer).pptx
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/Layer 7 ( Application )/Matrial/Layer 7 (Application Layer).pptx
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Second Month/Tools/Matrial/WireShark.pptx
+L03|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Protocols/Doc/Protocols.pdf
+L04|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/First Month/Opreating System/Matrial/Active Directory Fundamentals.pdf
+L04|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Network Security/Matrial/ComTIA Security+/07- Implementing Authentication Controls.pdf
+L04|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Network Security/Matrial/ComTIA Security+/08- Implementing Identity and Account Management Controls.pdf
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Logs/Logs.pptx
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Logs/Lab Log Universe/Log_Universe.pdf
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/web_attacks_lecture.html
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/phishing_guide.html
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 5.pptx
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 10.pptx
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Intro to cybersecurity/Project/project.ppt.pptx
+L05|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/First Month/Opreating System/Project/Opreating System Project.pptx
+L06|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Matrial/Blue Team Report.pptx
+L06|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Matrial/Preparation for Security control.pptx
+L06|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Network Security/Matrial/Comparing Security Roles and Security Controls.pptx
+L06|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 2.pptx
+L06|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Webinar/WebinarFile-SOC Analysis-G012.pdf
+L06|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/SOC.Analysis-Diploma2025-2026.pdf
+L07|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Matrial/Sysmon.pptx
+L07|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Incident Response Lifecycle ​& Event IDs/Incident Response Lifecycle ​& Event IDs.pptx
+L07|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 11.pptx
+L07|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 12.pptx
+L08|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Matrial/SIEM (Security Information and Event Management).pptx
+L08|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Task/Splunk Exploring Lab.pptx
+L08|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Task/Splunk 3.pptx
+L08|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Project/Splunk Certificate.pptx
+L09|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Task/Task 4.pptx
+L09|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Task/Task 5.pptx
+L09|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Task/Task 6.pptx
+L10|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Matrial/SOAR (Security Orchestration, Automation, and Response).pptx
+L11|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Attacks/Attack Lab.pptx
+L11|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 14.pptx
+L11|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 15.pptx
+L11|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Network Security/Matrial/ComTIA Security+/04- Identifying Social Engineering and Malware.pdf
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Tasks/Team Task – MiTM (ARP Spoofing  Poisoning) Attack.pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Tasks/DNS Spoofing Attack.pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Tools/Tasks/DoS Attack Simulation (Denial of Service).pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Task/DNS Spoofing Attack – Detection and Defense using pfSense & Snort.pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Task/Detecting and Blocking DoS Attacks using pfSense Firewall and Snort IDS.pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Thierd Month/Second Month ( Security Control )/Project/MiTM (ARP Spoofing & Poisoning) Attack, Detection And Response.pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Thierd Month/Second Month ( Security Control )/Project/DNS Spoofing – Attack, Detection and Defense .pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Thierd Month/Second Month ( Security Control )/Project/Attacks, Detecting and Blocking DoS Attacks .pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Thierd Month/Second Month ( Security Control )/IDS&IPS/Matrial/IDS & IPS - Intrusion Detection & Prevention.pptx
+L12|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Thierd Month/Second Month ( Security Control )/Firewall/Matrial/Firewall.pptx
+L13|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Matrial/NDR, EDR, and XDR — Unified Threat Detection & Response.pptx
+L13|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Security Controls/Matrial/IDS & IPS (Intrusion Detection and Prevention Systems).pptx
+L14|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Fourth Month/Cyber Threat Intelligence (C.T.I)/Matrial/ckc_part0_story.html
+L14|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Fourth Month/Cyber Threat Intelligence (C.T.I)/Matrial/ckc_part1_killchain.html
+L14|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Fourth Month/Cyber Threat Intelligence (C.T.I)/Matrial/ckc_part2_attack.html
+L14|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Fourth Month/Cyber Threat Intelligence (C.T.I)/Matrial/ckc_part3_car_d3fend.html
+L14|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Fourth Month/Cyber Threat Intelligence (C.T.I)/Matrial/ckc_part4_other_projects.html
+L14|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 13.pptx
+L15|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Fourth Month/Cyber Threat Intelligence (C.T.I)/Matrial/Cyber Threat Intelligence (C.T.I).pptx
+L15|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Network Security/Matrial/Explaining Threat Actors and Threat Intelligence.pptx
+L15|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/Thierd Month/Second Month ( Network Secuirty )/Email Security/Matrial/Email Security.pptx
+L16|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Network Security/Matrial/ComTIA Security+/17- Performing Incident Response.pdf
+L16|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 16.pptx
+L16|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Final Project/Final project Blue Team.pptx
+L17|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Soc Analysis Diploma - 4 Months/digital_forensics_lecture.html
+L17|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/Network Security/Matrial/ComTIA Security+/18- Explaining Digital Forensics.pdf
+L18|/sessions/rcw-01fr7vaq9eprdbfqszxeccgh/mnt/Cyber Security/Cyber secuirty Diplom/Definsife/CyberOps/Matrial/Chapter 14.pptx

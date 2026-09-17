@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Phase | **1 — Design** (awaiting approval of the 18-session live map) |
+| Phase | **3 — Sessions: intake** (source inventory done, extraction in progress, L01 first) |
 | Published program | 6 modules · 48 sessions × 4 h · 192 h · 79 labs · 6 projects |
 | Live delivery | 18 sessions × 6 h over 9 weeks (instructor-private) |
 | Repo | `Ebrahim-Qareen/dgs-cybersec-diploma` (public) |
@@ -52,13 +52,13 @@
 00_INSTRUCTIONS.md · PROJECT.md · DECISIONS.md · README.md · .gitignore
 Resources/          source PDFs (gitignored)
 design/             roadmap_analysis.md · topic_map.md · lab_register.md · self_study_register.md · design_system.md · session_template.html
-knowledge_base/     (empty)
+knowledge_base/     00_source_inventory.md
 lab/                (empty)
 packages/           (empty)
 projects/           (empty)
 docs/               index.html · roadmap.html · labs/ · projects/ · resources/tools.html · resources/practice.html · assets/css/dgs.css · downloads/ · .nojekyll
 testing/            verify.py (quality gate)
-tools/              (empty)
+tools/              build_site.py · extract_source.py · extract_all.py · extract_manifest.txt
 ```
 
 ## Open decisions
