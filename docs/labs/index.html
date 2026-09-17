@@ -5,158 +5,177 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Labs — DGS Cyber Security Diploma</title>
 <meta name="description" content="All 79 hands-on labs of the DGS Academy Cyber Security Diploma, grouped by module.">
+<link rel="icon" href="../assets/img/favicon.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/dgs.css">
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <div class="brand"><span class="dot"></span> DGS ACADEMY</div>
-  <nav class="main">
-    <a href="../index.html">Home</a>
-    <a href="../roadmap.html">Curriculum</a>
-    <a href="index.html" class="active">Labs</a>
-    <a href="../projects/index.html">Projects</a>
-    <a href="../resources/tools.html">Tools</a>
-    <a href="../resources/practice.html">Practice</a>
-  </nav>
-</div></header>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../index.html">
+      <span class="plate"><img src="../assets/img/dgs-logo.png" alt="DGS Academy"></span>
+      <span class="brand-text"><b>Cyber Security Diploma</b><span>DGS Academy</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="../roadmap.html">Curriculum</a>
+      <a href="../labs/index.html" aria-current="page">Labs</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../resources/tools.html">Tools</a>
+      <a href="../resources/practice.html">Practice</a>
+    </nav>
+  </div>
+</header>
 
-<main class="wrap">
-  <section class="hero">
-    <div class="eyebrow">Hands-on</div>
-    <h1>79 practical labs</h1>
-    <p class="lead">Every topic in the diploma is practised, not just explained. Labs run in your own local lab environment or against public training datasets &mdash; never against systems you do not own.</p>
-  </section>
-
+<main>
+<section class="wrap hero">
+  <span class="kicker">Hands-on</span>
+  <h1>79 practical labs</h1>
+  <p class="lead">Every topic in the diploma is practised, not just explained. Labs run in your own local lab
+  environment or against public training datasets — never against systems you do not own.</p>
+</section>
+<section class="wrap section-sm">
   <div class="stats">
     <div class="stat"><div class="n">79</div><div class="l">Labs</div></div>
-    <div class="stat"><div class="n">6</div><div class="l">Modules</div></div>
+    <div class="stat"><div class="n">36</div><div class="l">Guided in class</div></div>
     <div class="stat"><div class="n">6</div><div class="l">Lab machines</div></div>
     <div class="stat"><div class="n">100%</div><div class="l">Legal targets</div></div>
   </div>
-
-  <h2 id="m1"><span class="tag m1">Module 1</span> Foundation</h2>
-  <p class="meta">24 labs</p>
+</section>
+<section class="wrap section-sm" id="m1">
+  <div class="sec-head"><span class="tag m1">Module 1</span><h2>Foundation Phase</h2>
+    <span class="note">24 labs</span></div>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead><tbody>
-      <tr><td>1</td><td>Lab verification — VMs, snapshots, `10.10.10.0/24` connectivity check</td><td>Guided</td><td>VMware</td><td>&mdash;</td></tr>
-      <tr><td>2</td><td>Windows process and service inspection — normal vs suspicious</td><td>Guided</td><td>Task Manager, Process Explorer</td><td>&mdash;</td></tr>
-      <tr><td>3</td><td>Registry walkthrough — autorun keys and what they tell an analyst</td><td>Practical task</td><td>Registry Editor</td><td>T1547</td></tr>
-      <tr><td>4</td><td>Accounts, privileges and UAC behaviour on DGS-WS01</td><td>Practical task</td><td>Windows local users</td><td>T1078</td></tr>
-      <tr><td>5</td><td>CIA triad and security control mapping worksheet</td><td>Self-paced</td><td>&mdash;</td><td>&mdash;</td></tr>
-      <tr><td>6</td><td>Linux filesystem, users and permissions on DGS-LNX01</td><td>Guided</td><td>bash</td><td>&mdash;</td></tr>
-      <tr><td>7</td><td>PowerShell for analysts — processes, services, event log queries</td><td>Guided</td><td>PowerShell</td><td>&mdash;</td></tr>
-      <tr><td>8</td><td>Service and log inspection with `systemctl` and `journalctl`</td><td>Practical task</td><td>journalctl</td><td>&mdash;</td></tr>
-      <tr><td>9</td><td>Bash triage one-liners on `auth.log`</td><td>Self-paced</td><td>bash</td><td>T1110</td></tr>
-      <tr><td>10</td><td>Python script to parse an alert CSV</td><td>Self-paced</td><td>Python</td><td>&mdash;</td></tr>
-      <tr><td>11</td><td>IP addressing and subnet plan for the DGS lab</td><td>Guided</td><td>ipcalc</td><td>&mdash;</td></tr>
-      <tr><td>12</td><td>Capture and dissect a TCP handshake and HTTP request</td><td>Guided</td><td>Wireshark</td><td>&mdash;</td></tr>
-      <tr><td>13</td><td>DNS and DHCP traffic analysis from a provided capture</td><td>Practical task</td><td>Wireshark</td><td>T1071.004</td></tr>
-      <tr><td>14</td><td>Identify SMB and RDP sessions in traffic</td><td>Practical task</td><td>Wireshark</td><td>T1021</td></tr>
-      <tr><td>15</td><td>OSI layer mapping drill with tcpdump filters</td><td>Self-paced</td><td>tcpdump</td><td>&mdash;</td></tr>
-      <tr><td>16</td><td>Domain join and AD object tour — users, groups, OUs, GPO</td><td>Guided</td><td>AD DS, ADUC</td><td>&mdash;</td></tr>
-      <tr><td>17</td><td>Kerberos authentication observed — `klist` and Event IDs 4768/4769</td><td>Guided</td><td>Event Viewer</td><td>&mdash;</td></tr>
-      <tr><td>18</td><td>NTLM vs Kerberos from captured authentication logs</td><td>Practical task</td><td>Event Viewer</td><td>T1550</td></tr>
-      <tr><td>19</td><td>LDAP queries and enumeration awareness</td><td>Self-paced</td><td>ldapsearch</td><td>T1087.002</td></tr>
-      <tr><td>20</td><td>Windows logon investigation — 4624 / 4625 / 4672</td><td>Guided</td><td>Event Viewer</td><td>T1078</td></tr>
-      <tr><td>21</td><td>HTTP anatomy and web server log reading</td><td>Guided</td><td>Apache logs, dev tools</td><td>&mdash;</td></tr>
-      <tr><td>22</td><td>Linux authentication and syslog investigation</td><td>Practical task</td><td>journalctl</td><td>T1110</td></tr>
-      <tr><td>23</td><td>Spot the attack in a provided web access log</td><td>Practical task</td><td>Apache logs</td><td>T1190</td></tr>
-      <tr><td>24</td><td>OWASP Top 10 awareness map — attack to log evidence</td><td>Self-paced</td><td>DVWA</td><td>T1190</td></tr>
+    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Lab verification — VMs, snapshots, `10.10.10.0/24` connectivity check</td><td><span class="pill guided">Guided</span></td><td>VMware</td><td>&mdash;</td></tr>
+      <tr><td>2</td><td>Windows process and service inspection — normal vs suspicious</td><td><span class="pill guided">Guided</span></td><td>Task Manager, Process Explorer</td><td>&mdash;</td></tr>
+      <tr><td>3</td><td>Registry walkthrough — autorun keys and what they tell an analyst</td><td><span class="pill task">Practical task</span></td><td>Registry Editor</td><td><span class="att">T1547</span></td></tr>
+      <tr><td>4</td><td>Accounts, privileges and UAC behaviour on DGS-WS01</td><td><span class="pill task">Practical task</span></td><td>Windows local users</td><td><span class="att">T1078</span></td></tr>
+      <tr><td>5</td><td>CIA triad and security control mapping worksheet</td><td><span class="pill self">Self-paced</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>6</td><td>Linux filesystem, users and permissions on DGS-LNX01</td><td><span class="pill guided">Guided</span></td><td>bash</td><td>&mdash;</td></tr>
+      <tr><td>7</td><td>PowerShell for analysts — processes, services, event log queries</td><td><span class="pill guided">Guided</span></td><td>PowerShell</td><td>&mdash;</td></tr>
+      <tr><td>8</td><td>Service and log inspection with `systemctl` and `journalctl`</td><td><span class="pill task">Practical task</span></td><td>journalctl</td><td>&mdash;</td></tr>
+      <tr><td>9</td><td>Bash triage one-liners on `auth.log`</td><td><span class="pill self">Self-paced</span></td><td>bash</td><td><span class="att">T1110</span></td></tr>
+      <tr><td>10</td><td>Python script to parse an alert CSV</td><td><span class="pill self">Self-paced</span></td><td>Python</td><td>&mdash;</td></tr>
+      <tr><td>11</td><td>IP addressing and subnet plan for the DGS lab</td><td><span class="pill guided">Guided</span></td><td>ipcalc</td><td>&mdash;</td></tr>
+      <tr><td>12</td><td>Capture and dissect a TCP handshake and HTTP request</td><td><span class="pill guided">Guided</span></td><td>Wireshark</td><td>&mdash;</td></tr>
+      <tr><td>13</td><td>DNS and DHCP traffic analysis from a provided capture</td><td><span class="pill task">Practical task</span></td><td>Wireshark</td><td><span class="att">T1071.004</span></td></tr>
+      <tr><td>14</td><td>Identify SMB and RDP sessions in traffic</td><td><span class="pill task">Practical task</span></td><td>Wireshark</td><td><span class="att">T1021</span></td></tr>
+      <tr><td>15</td><td>OSI layer mapping drill with tcpdump filters</td><td><span class="pill self">Self-paced</span></td><td>tcpdump</td><td>&mdash;</td></tr>
+      <tr><td>16</td><td>Domain join and AD object tour — users, groups, OUs, GPO</td><td><span class="pill guided">Guided</span></td><td>AD DS, ADUC</td><td>&mdash;</td></tr>
+      <tr><td>17</td><td>Kerberos authentication observed — `klist` and Event IDs 4768/4769</td><td><span class="pill guided">Guided</span></td><td>Event Viewer</td><td>&mdash;</td></tr>
+      <tr><td>18</td><td>NTLM vs Kerberos from captured authentication logs</td><td><span class="pill task">Practical task</span></td><td>Event Viewer</td><td><span class="att">T1550</span></td></tr>
+      <tr><td>19</td><td>LDAP queries and enumeration awareness</td><td><span class="pill self">Self-paced</span></td><td>ldapsearch</td><td><span class="att">T1087.002</span></td></tr>
+      <tr><td>20</td><td>Windows logon investigation — 4624 / 4625 / 4672</td><td><span class="pill guided">Guided</span></td><td>Event Viewer</td><td><span class="att">T1078</span></td></tr>
+      <tr><td>21</td><td>HTTP anatomy and web server log reading</td><td><span class="pill guided">Guided</span></td><td>Apache logs, dev tools</td><td>&mdash;</td></tr>
+      <tr><td>22</td><td>Linux authentication and syslog investigation</td><td><span class="pill task">Practical task</span></td><td>journalctl</td><td><span class="att">T1110</span></td></tr>
+      <tr><td>23</td><td>Spot the attack in a provided web access log</td><td><span class="pill task">Practical task</span></td><td>Apache logs</td><td><span class="att">T1190</span></td></tr>
+      <tr><td>24</td><td>OWASP Top 10 awareness map — attack to log evidence</td><td><span class="pill self">Self-paced</span></td><td>DVWA</td><td><span class="att">T1190</span></td></tr>
     </tbody></table></div>
-
-  <h2 id="m2"><span class="tag m2">Module 2</span> Security Operations & SIEM</h2>
-  <p class="meta">18 labs</p>
+</section><section class="wrap section-sm" id="m2">
+  <div class="sec-head"><span class="tag m2">Module 2</span><h2>Security Operations &amp; SIEM</h2>
+    <span class="note">18 labs</span></div>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead><tbody>
-      <tr><td>1</td><td>Triage workflow on five sample alerts</td><td>Guided</td><td>Wazuh alerts</td><td>&mdash;</td></tr>
-      <tr><td>2</td><td>TheHive case creation — observables, tasks, closure</td><td>Guided</td><td>TheHive</td><td>&mdash;</td></tr>
-      <tr><td>3</td><td>TP / FP classification of ten alerts with justification</td><td>Practical task</td><td>TheHive</td><td>&mdash;</td></tr>
-      <tr><td>4</td><td>Severity and escalation matrix exercise</td><td>Self-paced</td><td>&mdash;</td><td>&mdash;</td></tr>
-      <tr><td>5</td><td>Sysmon event inspection and process tree reconstruction</td><td>Guided</td><td>Sysmon</td><td>T1059</td></tr>
-      <tr><td>6</td><td>Correlate an authentication failure burst across Windows, Linux and web logs</td><td>Guided</td><td>Event Viewer, journalctl</td><td>T1110</td></tr>
-      <tr><td>7</td><td>Build a 60-minute timeline from three log sources</td><td>Practical task</td><td>&mdash;</td><td>&mdash;</td></tr>
-      <tr><td>8</td><td>Splunk data onboarding — index, sourcetype, field extraction</td><td>Guided</td><td>Splunk</td><td>&mdash;</td></tr>
-      <tr><td>9</td><td>SPL fundamentals — search, stats, timechart on lab data</td><td>Guided</td><td>Splunk SPL</td><td>&mdash;</td></tr>
-      <tr><td>10</td><td>Investigate a brute-force scenario in a public BOTS dataset</td><td>Practical task</td><td>Splunk</td><td>T1110</td></tr>
-      <tr><td>11</td><td>Build a failed-logon dashboard</td><td>Self-paced</td><td>Splunk</td><td>&mdash;</td></tr>
-      <tr><td>12</td><td>Wazuh agent enrolment and log flow verification</td><td>Guided</td><td>Wazuh</td><td>&mdash;</td></tr>
-      <tr><td>13</td><td>Decoder and custom rule creation with alert test</td><td>Guided</td><td>Wazuh</td><td>&mdash;</td></tr>
-      <tr><td>14</td><td>Write three Wazuh rules for lab attack simulations</td><td>Practical task</td><td>Wazuh</td><td>T1059, T1110</td></tr>
-      <tr><td>15</td><td>Wazuh dashboards and alert triage view</td><td>Self-paced</td><td>Wazuh</td><td>&mdash;</td></tr>
-      <tr><td>16</td><td>Sigma rule anatomy — write one from a log sample</td><td>Guided</td><td>Sigma</td><td>&mdash;</td></tr>
-      <tr><td>17</td><td>Convert Sigma to SPL and to Wazuh, test both</td><td>Guided</td><td>sigma-cli</td><td>&mdash;</td></tr>
-      <tr><td>18</td><td>Convert and validate three public Sigma rules</td><td>Practical task</td><td>sigma-cli</td><td>&mdash;</td></tr>
+    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Triage workflow on five sample alerts</td><td><span class="pill guided">Guided</span></td><td>Wazuh alerts</td><td>&mdash;</td></tr>
+      <tr><td>2</td><td>TheHive case creation — observables, tasks, closure</td><td><span class="pill guided">Guided</span></td><td>TheHive</td><td>&mdash;</td></tr>
+      <tr><td>3</td><td>TP / FP classification of ten alerts with justification</td><td><span class="pill task">Practical task</span></td><td>TheHive</td><td>&mdash;</td></tr>
+      <tr><td>4</td><td>Severity and escalation matrix exercise</td><td><span class="pill self">Self-paced</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>5</td><td>Sysmon event inspection and process tree reconstruction</td><td><span class="pill guided">Guided</span></td><td>Sysmon</td><td><span class="att">T1059</span></td></tr>
+      <tr><td>6</td><td>Correlate an authentication failure burst across Windows, Linux and web logs</td><td><span class="pill guided">Guided</span></td><td>Event Viewer, journalctl</td><td><span class="att">T1110</span></td></tr>
+      <tr><td>7</td><td>Build a 60-minute timeline from three log sources</td><td><span class="pill task">Practical task</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>8</td><td>Splunk data onboarding — index, sourcetype, field extraction</td><td><span class="pill guided">Guided</span></td><td>Splunk</td><td>&mdash;</td></tr>
+      <tr><td>9</td><td>SPL fundamentals — search, stats, timechart on lab data</td><td><span class="pill guided">Guided</span></td><td>Splunk SPL</td><td>&mdash;</td></tr>
+      <tr><td>10</td><td>Investigate a brute-force scenario in a public BOTS dataset</td><td><span class="pill task">Practical task</span></td><td>Splunk</td><td><span class="att">T1110</span></td></tr>
+      <tr><td>11</td><td>Build a failed-logon dashboard</td><td><span class="pill self">Self-paced</span></td><td>Splunk</td><td>&mdash;</td></tr>
+      <tr><td>12</td><td>Wazuh agent enrolment and log flow verification</td><td><span class="pill guided">Guided</span></td><td>Wazuh</td><td>&mdash;</td></tr>
+      <tr><td>13</td><td>Decoder and custom rule creation with alert test</td><td><span class="pill guided">Guided</span></td><td>Wazuh</td><td>&mdash;</td></tr>
+      <tr><td>14</td><td>Write three Wazuh rules for lab attack simulations</td><td><span class="pill task">Practical task</span></td><td>Wazuh</td><td><span class="att">T1059, T1110</span></td></tr>
+      <tr><td>15</td><td>Wazuh dashboards and alert triage view</td><td><span class="pill self">Self-paced</span></td><td>Wazuh</td><td>&mdash;</td></tr>
+      <tr><td>16</td><td>Sigma rule anatomy — write one from a log sample</td><td><span class="pill guided">Guided</span></td><td>Sigma</td><td>&mdash;</td></tr>
+      <tr><td>17</td><td>Convert Sigma to SPL and to Wazuh, test both</td><td><span class="pill guided">Guided</span></td><td>sigma-cli</td><td>&mdash;</td></tr>
+      <tr><td>18</td><td>Convert and validate three public Sigma rules</td><td><span class="pill task">Practical task</span></td><td>sigma-cli</td><td>&mdash;</td></tr>
     </tbody></table></div>
-
-  <h2 id="m3"><span class="tag m3">Module 3</span> Detection Engineering</h2>
-  <p class="meta">14 labs</p>
+</section><section class="wrap section-sm" id="m3">
+  <div class="sec-head"><span class="tag m3">Module 3</span><h2>Detection Engineering</h2>
+    <span class="note">14 labs</span></div>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead><tbody>
-      <tr><td>1</td><td>Detection logic quality review of five rules</td><td>Practical task</td><td>&mdash;</td><td>&mdash;</td></tr>
-      <tr><td>2</td><td>Detection lifecycle documentation exercise</td><td>Self-paced</td><td>&mdash;</td><td>&mdash;</td></tr>
-      <tr><td>3</td><td>Atomic Red Team execution and its Sysmon evidence</td><td>Guided</td><td>Atomic Red Team, Sysmon</td><td>T1059.001</td></tr>
-      <tr><td>4</td><td>Persistence — run key and scheduled task, with detection</td><td>Guided</td><td>Sysmon, Wazuh</td><td>T1547.001, T1053.005</td></tr>
-      <tr><td>5</td><td>Kerberoasting simulation and 4769 detection</td><td>Practical task</td><td>Event Viewer, Wazuh</td><td>T1558.003</td></tr>
-      <tr><td>6</td><td>Credential access awareness — LSASS handle events in logs</td><td>Self-paced</td><td>Sysmon</td><td>T1003.001</td></tr>
-      <tr><td>7</td><td>Nmap scan against the lab and its detection in packets and logs</td><td>Guided</td><td>Nmap, Wireshark</td><td>T1046</td></tr>
-      <tr><td>8</td><td>SQL injection on DVWA and its access-log fingerprint</td><td>Guided</td><td>DVWA, Apache logs</td><td>T1190</td></tr>
-      <tr><td>9</td><td>Detect exfiltration patterns in a provided capture</td><td>Practical task</td><td>Wireshark</td><td>T1048</td></tr>
-      <tr><td>10</td><td>XSS and path traversal log signatures</td><td>Self-paced</td><td>Apache logs</td><td>T1190</td></tr>
-      <tr><td>11</td><td>Write a full detection use case document from one alert</td><td>Guided</td><td>&mdash;</td><td>&mdash;</td></tr>
-      <tr><td>12</td><td>Tune a noisy Wazuh rule with before/after evidence</td><td>Guided</td><td>Wazuh</td><td>&mdash;</td></tr>
-      <tr><td>13</td><td>Reduce false positives on three provided rules and document it</td><td>Practical task</td><td>Wazuh, Splunk</td><td>&mdash;</td></tr>
-      <tr><td>14</td><td>Multi-event correlation rule design exercise</td><td>Self-paced</td><td>Splunk</td><td>&mdash;</td></tr>
+    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Detection logic quality review of five rules</td><td><span class="pill task">Practical task</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>2</td><td>Detection lifecycle documentation exercise</td><td><span class="pill self">Self-paced</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>3</td><td>Atomic Red Team execution and its Sysmon evidence</td><td><span class="pill guided">Guided</span></td><td>Atomic Red Team, Sysmon</td><td><span class="att">T1059.001</span></td></tr>
+      <tr><td>4</td><td>Persistence — run key and scheduled task, with detection</td><td><span class="pill guided">Guided</span></td><td>Sysmon, Wazuh</td><td><span class="att">T1547.001, T1053.005</span></td></tr>
+      <tr><td>5</td><td>Kerberoasting simulation and 4769 detection</td><td><span class="pill task">Practical task</span></td><td>Event Viewer, Wazuh</td><td><span class="att">T1558.003</span></td></tr>
+      <tr><td>6</td><td>Credential access awareness — LSASS handle events in logs</td><td><span class="pill self">Self-paced</span></td><td>Sysmon</td><td><span class="att">T1003.001</span></td></tr>
+      <tr><td>7</td><td>Nmap scan against the lab and its detection in packets and logs</td><td><span class="pill guided">Guided</span></td><td>Nmap, Wireshark</td><td><span class="att">T1046</span></td></tr>
+      <tr><td>8</td><td>SQL injection on DVWA and its access-log fingerprint</td><td><span class="pill guided">Guided</span></td><td>DVWA, Apache logs</td><td><span class="att">T1190</span></td></tr>
+      <tr><td>9</td><td>Detect exfiltration patterns in a provided capture</td><td><span class="pill task">Practical task</span></td><td>Wireshark</td><td><span class="att">T1048</span></td></tr>
+      <tr><td>10</td><td>XSS and path traversal log signatures</td><td><span class="pill self">Self-paced</span></td><td>Apache logs</td><td><span class="att">T1190</span></td></tr>
+      <tr><td>11</td><td>Write a full detection use case document from one alert</td><td><span class="pill guided">Guided</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>12</td><td>Tune a noisy Wazuh rule with before/after evidence</td><td><span class="pill guided">Guided</span></td><td>Wazuh</td><td>&mdash;</td></tr>
+      <tr><td>13</td><td>Reduce false positives on three provided rules and document it</td><td><span class="pill task">Practical task</span></td><td>Wazuh, Splunk</td><td>&mdash;</td></tr>
+      <tr><td>14</td><td>Multi-event correlation rule design exercise</td><td><span class="pill self">Self-paced</span></td><td>Splunk</td><td>&mdash;</td></tr>
     </tbody></table></div>
-
-  <h2 id="m4"><span class="tag m4">Module 4</span> Threat Hunting & Intelligence</h2>
-  <p class="meta">10 labs</p>
+</section><section class="wrap section-sm" id="m4">
+  <div class="sec-head"><span class="tag m4">Module 4</span><h2>Threat Hunting &amp; Intelligence</h2>
+    <span class="note">10 labs</span></div>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead><tbody>
-      <tr><td>1</td><td>Build a hunt hypothesis from a threat report</td><td>Guided</td><td>Hunt template</td><td>&mdash;</td></tr>
-      <tr><td>2</td><td>ATT&CK Navigator coverage map of the lab detections</td><td>Guided</td><td>ATT&CK Navigator</td><td>&mdash;</td></tr>
-      <tr><td>3</td><td>D3FEND countermeasure mapping for five techniques</td><td>Practical task</td><td>D3FEND</td><td>&mdash;</td></tr>
-      <tr><td>4</td><td>Endpoint hunt in Sysmon data</td><td>Practical task</td><td>Splunk, Sysmon</td><td>T1059</td></tr>
-      <tr><td>5</td><td>Network hunt — beaconing detection drill</td><td>Self-paced</td><td>Splunk</td><td>T1071</td></tr>
-      <tr><td>6</td><td>Log-based hunt for rare parent-child process pairs</td><td>Self-paced</td><td>Wazuh</td><td>T1055</td></tr>
-      <tr><td>7</td><td>VirusTotal enrichment of hashes, domains and IPs from a case</td><td>Guided</td><td>VirusTotal</td><td>&mdash;</td></tr>
-      <tr><td>8</td><td>OTX pulse review and IOC extraction to a watchlist</td><td>Guided</td><td>AlienVault OTX</td><td>&mdash;</td></tr>
-      <tr><td>9</td><td>MISP event creation and attribute tagging</td><td>Practical task</td><td>MISP</td><td>&mdash;</td></tr>
-      <tr><td>10</td><td>Turn a threat intel report into hunt queries</td><td>Self-paced</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Build a hunt hypothesis from a threat report</td><td><span class="pill guided">Guided</span></td><td>Hunt template</td><td>&mdash;</td></tr>
+      <tr><td>2</td><td>ATT&CK Navigator coverage map of the lab detections</td><td><span class="pill guided">Guided</span></td><td>ATT&CK Navigator</td><td>&mdash;</td></tr>
+      <tr><td>3</td><td>D3FEND countermeasure mapping for five techniques</td><td><span class="pill task">Practical task</span></td><td>D3FEND</td><td>&mdash;</td></tr>
+      <tr><td>4</td><td>Endpoint hunt in Sysmon data</td><td><span class="pill task">Practical task</span></td><td>Splunk, Sysmon</td><td><span class="att">T1059</span></td></tr>
+      <tr><td>5</td><td>Network hunt — beaconing detection drill</td><td><span class="pill self">Self-paced</span></td><td>Splunk</td><td><span class="att">T1071</span></td></tr>
+      <tr><td>6</td><td>Log-based hunt for rare parent-child process pairs</td><td><span class="pill self">Self-paced</span></td><td>Wazuh</td><td><span class="att">T1055</span></td></tr>
+      <tr><td>7</td><td>VirusTotal enrichment of hashes, domains and IPs from a case</td><td><span class="pill guided">Guided</span></td><td>VirusTotal</td><td>&mdash;</td></tr>
+      <tr><td>8</td><td>OTX pulse review and IOC extraction to a watchlist</td><td><span class="pill guided">Guided</span></td><td>AlienVault OTX</td><td>&mdash;</td></tr>
+      <tr><td>9</td><td>MISP event creation and attribute tagging</td><td><span class="pill task">Practical task</span></td><td>MISP</td><td>&mdash;</td></tr>
+      <tr><td>10</td><td>Turn a threat intel report into hunt queries</td><td><span class="pill self">Self-paced</span></td><td>&mdash;</td><td>&mdash;</td></tr>
     </tbody></table></div>
-
-  <h2 id="m5"><span class="tag m5">Module 5</span> Incident Response & Forensics</h2>
-  <p class="meta">10 labs</p>
+</section><section class="wrap section-sm" id="m5">
+  <div class="sec-head"><span class="tag m5">Module 5</span><h2>Incident Response &amp; Forensics</h2>
+    <span class="note">10 labs</span></div>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead><tbody>
-      <tr><td>1</td><td>IR lifecycle walkthrough on a live lab incident</td><td>Guided</td><td>Playbook template</td><td>&mdash;</td></tr>
-      <tr><td>2</td><td>Triage and scoping — how far did it spread</td><td>Guided</td><td>Wazuh, TheHive</td><td>&mdash;</td></tr>
-      <tr><td>3</td><td>Containment decision exercise with Wazuh active response</td><td>Practical task</td><td>Wazuh</td><td>&mdash;</td></tr>
-      <tr><td>4</td><td>Live response collection run and output review</td><td>Practical task</td><td>PowerShell</td><td>T1005</td></tr>
-      <tr><td>5</td><td>Order of volatility and chain of custody exercise</td><td>Self-paced</td><td>&mdash;</td><td>&mdash;</td></tr>
-      <tr><td>6</td><td>Memory triage with Volatility 3 — pslist, netscan, malfind</td><td>Guided</td><td>Volatility 3</td><td>T1055</td></tr>
-      <tr><td>7</td><td>Windows artefact analysis in Autopsy — prefetch, registry, MFT</td><td>Guided</td><td>Autopsy</td><td>&mdash;</td></tr>
-      <tr><td>8</td><td>Build a forensic timeline from artefacts</td><td>Practical task</td><td>Autopsy</td><td>&mdash;</td></tr>
-      <tr><td>9</td><td>Extract and analyse persistence from a registry hive</td><td>Practical task</td><td>Registry Explorer</td><td>T1547</td></tr>
-      <tr><td>10</td><td>USB and user activity artefacts exercise</td><td>Self-paced</td><td>Autopsy</td><td>T1091</td></tr>
+    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>IR lifecycle walkthrough on a live lab incident</td><td><span class="pill guided">Guided</span></td><td>Playbook template</td><td>&mdash;</td></tr>
+      <tr><td>2</td><td>Triage and scoping — how far did it spread</td><td><span class="pill guided">Guided</span></td><td>Wazuh, TheHive</td><td>&mdash;</td></tr>
+      <tr><td>3</td><td>Containment decision exercise with Wazuh active response</td><td><span class="pill task">Practical task</span></td><td>Wazuh</td><td>&mdash;</td></tr>
+      <tr><td>4</td><td>Live response collection run and output review</td><td><span class="pill task">Practical task</span></td><td>PowerShell</td><td><span class="att">T1005</span></td></tr>
+      <tr><td>5</td><td>Order of volatility and chain of custody exercise</td><td><span class="pill self">Self-paced</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>6</td><td>Memory triage with Volatility 3 — pslist, netscan, malfind</td><td><span class="pill guided">Guided</span></td><td>Volatility 3</td><td><span class="att">T1055</span></td></tr>
+      <tr><td>7</td><td>Windows artefact analysis in Autopsy — prefetch, registry, MFT</td><td><span class="pill guided">Guided</span></td><td>Autopsy</td><td>&mdash;</td></tr>
+      <tr><td>8</td><td>Build a forensic timeline from artefacts</td><td><span class="pill task">Practical task</span></td><td>Autopsy</td><td>&mdash;</td></tr>
+      <tr><td>9</td><td>Extract and analyse persistence from a registry hive</td><td><span class="pill task">Practical task</span></td><td>Registry Explorer</td><td><span class="att">T1547</span></td></tr>
+      <tr><td>10</td><td>USB and user activity artefacts exercise</td><td><span class="pill self">Self-paced</span></td><td>Autopsy</td><td><span class="att">T1091</span></td></tr>
     </tbody></table></div>
-
-  <h2 id="m6"><span class="tag m6">Module 6</span> Malware Triage</h2>
-  <p class="meta">3 labs</p>
+</section><section class="wrap section-sm" id="m6">
+  <div class="sec-head"><span class="tag m6">Module 6</span><h2>Malware Triage</h2>
+    <span class="note">3 labs</span></div>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead><tbody>
-      <tr><td>1</td><td>Static triage — hashes, strings, PE inspection, IOC extraction</td><td>Guided</td><td>strings, PE viewer, VirusTotal</td><td>&mdash;</td></tr>
-      <tr><td>2</td><td>Dynamic behaviour reading from a sandbox report and Sysmon</td><td>Guided</td><td>Sandbox report, Sysmon</td><td>T1204</td></tr>
-      <tr><td>3</td><td>Full triage report on a provided simulated sample</td><td>Practical task</td><td>All M6 tools</td><td>&mdash;</td></tr>
+    <thead><tr><th>#</th><th>Lab</th><th>Format</th><th>Primary tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Static triage — hashes, strings, PE inspection, IOC extraction</td><td><span class="pill guided">Guided</span></td><td>strings, PE viewer, VirusTotal</td><td>&mdash;</td></tr>
+      <tr><td>2</td><td>Dynamic behaviour reading from a sandbox report and Sysmon</td><td><span class="pill guided">Guided</span></td><td>Sandbox report, Sysmon</td><td><span class="att">T1204</span></td></tr>
+      <tr><td>3</td><td>Full triage report on a provided simulated sample</td><td><span class="pill task">Practical task</span></td><td>All M6 tools</td><td>&mdash;</td></tr>
     </tbody></table></div>
-  <div class="box box-lab" style="margin-top:30px">
-    <div class="box-title">Lab</div>
-    Lab files, datasets and captures are published on this site with a SHA-256 hash so you can verify what you downloaded.
-  </div>
+</section>
+<section class="wrap section-sm">
+  <div class="box box-lab"><div class="box-title">Lab files</div>
+  Lab files, datasets and captures are published on this site with a SHA-256 hash, so you can verify what you
+  downloaded before you open it.</div>
+</section>
 </main>
 
-<footer class="site"><div class="wrap">
-  <div>DGS Academy &mdash; Cyber Security Diploma</div>
-  <div>Instructor: Ebrahim Mohamed Ahmed</div>
-</div></footer>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="plate"><img src="../assets/img/dgs-logo.png" alt="DGS Academy"></span>
+    <span>Cyber Security Diploma &middot; Blue Team / Security Operations track</span>
+    <span>Instructor: Ebrahim Mohamed Ahmed</span>
+  </div>
+</footer>
 </body>
 </html>

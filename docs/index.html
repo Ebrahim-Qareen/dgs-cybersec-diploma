@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cyber Security Diploma — DGS Academy</title>
 <meta name="description" content="DGS Academy Cyber Security Diploma — Blue Team and Security Operations track. 192 training hours, 79 hands-on labs, 6 real projects.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="stylesheet" href="assets/css/dgs.css">
 </head>
 <body>
-<header class="top">
-  <div class="wrap">
-    <div class="brand"><span class="dot"></span> DGS ACADEMY</div>
-    <nav class="main">
-      <a href="index.html" class="active">Home</a>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="plate"><img src="assets/img/dgs-logo.png" alt="DGS Academy"></span>
+      <span class="brand-text"><b>Cyber Security Diploma</b><span>DGS Academy</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="roadmap.html">Curriculum</a>
       <a href="labs/index.html">Labs</a>
       <a href="projects/index.html">Projects</a>
@@ -22,86 +26,134 @@
   </div>
 </header>
 
-<main class="wrap">
-  <section class="hero">
-    <div class="eyebrow">Professional Diploma</div>
-    <h1>Cyber Security Diploma</h1>
-    <p class="lead">A hands-on, career-focused program that trains you to monitor, detect, investigate and respond to real cyber threats — built entirely around practical labs and real investigations.</p>
-    <p><span class="tag m2">Blue Team</span><span class="tag m2">Security Operations Track</span></p>
-  </section>
+<main>
+<section class="wrap hero">
+  <div class="hero-grid">
+    <div>
+      <span class="kicker">Professional Diploma</span>
+      <h1>Cyber Security Diploma<br><span class="accent">Blue Team &amp; Security Operations</span></h1>
+      <p class="lead">A hands-on, career-focused program that trains you to monitor, detect, investigate and
+      respond to real cyber threats — built entirely around practical labs and real investigations.</p>
+      <div class="badges">
+        <span class="badge">6 months</span><span class="badge">2 sessions / week</span>
+        <span class="badge">No prerequisites</span><span class="badge">Portfolio on graduation</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="roadmap.html">Explore the curriculum</a>
+        <a class="btn" href="labs/index.html">See the 79 labs</a>
+      </div>
+    </div>
+    <div class="hero-badge"><img src="assets/img/dgs-logo.png" alt="DGS Academy"></div>
+  </div>
+</section>
 
-  <section class="stats">
+<section class="wrap section-sm">
+  <div class="stats">
     <div class="stat"><div class="n">192</div><div class="l">Training hours</div></div>
     <div class="stat"><div class="n">48</div><div class="l">Live sessions</div></div>
     <div class="stat"><div class="n">79</div><div class="l">Practical labs</div></div>
     <div class="stat"><div class="n">6</div><div class="l">Real projects</div></div>
-  </section>
+  </div>
+</section>
 
-  <h2>The learning journey</h2>
+<section class="wrap section">
+  <div class="sec-head"><h2>The learning journey</h2>
+    <span class="note">Six modules, 35 topics, every one practised in the lab</span></div>
   <div class="grid">
-    <div class="card">
+    <article class="card">
+      <span class="rail m1-rail"></span>
       <span class="tag m1">Module 1</span>
-      <h3>Foundation</h3>
-      <p class="meta">64 hours · 24 labs · 1 project</p>
+      <h3>Foundation Phase</h3>
+      <p class="meta">64 hours &middot; 16 sessions &middot; 24 labs &middot; 1 project</p>
       <p>Computers, operating systems, networking, PowerShell and Bash, Active Directory, log analysis and web technology — the ground every analyst stands on.</p>
-      <a href="roadmap.html#m1">View topics →</a>
-    </div>
-    <div class="card">
+      <a class="more" href="roadmap.html#m1">View topics &rarr;</a>
+    </article>
+    <article class="card">
+      <span class="rail m2-rail"></span>
       <span class="tag m2">Module 2</span>
       <h3>Security Operations &amp; SIEM</h3>
-      <p class="meta">40 hours · 18 labs · 1 project</p>
-      <p>SOC workflow, alert triage, incident handling, event correlation, Splunk, Wazuh and Sigma rules across both platforms.</p>
-      <a href="roadmap.html#m2">View topics →</a>
-    </div>
-    <div class="card">
+      <p class="meta">40 hours &middot; 10 sessions &middot; 18 labs &middot; 1 project</p>
+      <p>How a SOC runs: alert triage, incident handling, event correlation, then Splunk and Wazuh end to end and one Sigma rule that runs on both.</p>
+      <a class="more" href="roadmap.html#m2">View topics &rarr;</a>
+    </article>
+    <article class="card">
+      <span class="rail m3-rail"></span>
       <span class="tag m3">Module 3</span>
       <h3>Detection Engineering</h3>
-      <p class="meta">32 hours · 14 labs · 1 project</p>
-      <p>Endpoint, Active Directory, network and web attacks — each paired with the detection that catches it, then use cases and alert tuning.</p>
-      <a href="roadmap.html#m3">View topics →</a>
-    </div>
-    <div class="card">
+      <p class="meta">32 hours &middot; 8 sessions &middot; 14 labs &middot; 1 project</p>
+      <p>Endpoint, Active Directory, network and web attacks — each one paired with the detection that catches it, then use cases, correlation and alert tuning.</p>
+      <a class="more" href="roadmap.html#m3">View topics &rarr;</a>
+    </article>
+    <article class="card">
+      <span class="rail m4-rail"></span>
       <span class="tag m4">Module 4</span>
       <h3>Threat Hunting &amp; Intelligence</h3>
-      <p class="meta">24 hours · 10 labs · 1 project</p>
-      <p>Hypothesis-driven hunting, MITRE ATT&amp;CK and adversary behaviour, IOC hunting, threat intelligence platforms and enrichment.</p>
-      <a href="roadmap.html#m4">View topics →</a>
-    </div>
-    <div class="card">
+      <p class="meta">24 hours &middot; 6 sessions &middot; 10 labs &middot; 1 project</p>
+      <p>Hypothesis-driven hunting, MITRE ATT&amp;CK and adversary behaviour, IOC hunting and enrichment with MISP, OTX and VirusTotal.</p>
+      <a class="more" href="roadmap.html#m4">View topics &rarr;</a>
+    </article>
+    <article class="card">
+      <span class="rail m5-rail"></span>
       <span class="tag m5">Module 5</span>
       <h3>Incident Response &amp; Forensics</h3>
-      <p class="meta">24 hours · 10 labs · 1 project</p>
-      <p>The IR lifecycle, triage and containment, live response, memory forensics and Windows artefact analysis.</p>
-      <a href="roadmap.html#m5">View topics →</a>
-    </div>
-    <div class="card">
+      <p class="meta">24 hours &middot; 6 sessions &middot; 10 labs &middot; 1 project</p>
+      <p>The IR lifecycle under pressure: triage, scoping, containment, live response, memory forensics and Windows artefact analysis.</p>
+      <a class="more" href="roadmap.html#m5">View topics &rarr;</a>
+    </article>
+    <article class="card">
+      <span class="rail m6-rail"></span>
       <span class="tag m6">Module 6</span>
       <h3>Malware Triage</h3>
-      <p class="meta">8 hours · 3 labs · 1 project</p>
-      <p>Static analysis and IOC extraction, dynamic behaviour and sandbox reports — malware analysis at the level an analyst actually needs.</p>
-      <a href="roadmap.html#m6">View topics →</a>
-    </div>
+      <p class="meta">8 hours &middot; 2 sessions &middot; 3 labs &middot; 1 project</p>
+      <p>Malware analysis at the level an analyst actually needs: safe static triage, sandbox behaviour and a written verdict.</p>
+      <a class="more" href="roadmap.html#m6">View topics &rarr;</a>
+    </article>
   </div>
+</section>
 
-  <h2>What you graduate with</h2>
-  <div class="box box-analyst">
-    <div class="box-title">Analyst view</div>
-    A portfolio of investigations, working detection rules you wrote and tested yourself, six completed projects and a documented incident report — the evidence an interviewer asks for.
+<section class="wrap section">
+  <div class="sec-head"><h2>How every topic is taught</h2>
+    <span class="note">The same shape, every session — so nothing stays abstract</span></div>
+  <div class="grid grid-2">
+    <div class="box box-why"><div class="box-title">Why it matters</div>
+      The real impact first — a breach, a number, a case. You never learn a control before you know what it costs to skip it.</div>
+    <div class="box box-attacker"><div class="box-title">Attacker view</div>
+      How the technique is abused, and the human reason it works: why people click, why admins misconfigure, why alerts get closed too fast.</div>
+    <div class="box box-evidence"><div class="box-title">Evidence &mdash; Sysmon EID 1 &mdash; T1059.001</div>
+      ParentImage=WINWORD.EXE &rarr; Image=powershell.exe CommandLine="powershell -enc ..."</div>
+    <div class="box box-analyst"><div class="box-title">Analyst view</div>
+      What the SOC concludes from that evidence, what it does next, and the detection that would have caught it earlier.</div>
+    <div class="box box-lab"><div class="box-title">Lab</div>
+      You run it yourself. Every attack shown is paired with its detection and its MITRE ATT&amp;CK technique.</div>
+    <div class="box box-take"><div class="box-title">Key takeaways</div>
+      Then a practical task on data you have not seen before — because recognising an attack is a skill, not a fact.</div>
   </div>
+</section>
 
+<section class="wrap section">
+  <div class="sec-head"><h2>What you graduate with</h2></div>
   <div class="grid">
-    <div class="card"><h3>Jobs after graduation</h3>
+    <div class="card"><span class="rail m2-rail"></span><h3>Jobs you can apply for</h3>
       <p>SOC Analyst — Tier 1<br>Security Monitoring Analyst<br>Junior Incident Responder<br>SIEM Support Analyst</p></div>
-    <div class="card"><h3>Tools you will master</h3>
-      <p>Splunk · Wazuh · Sigma · TheHive · Sysmon · Windows Event Viewer · Linux audit logs · MITRE ATT&amp;CK Navigator · D3FEND · MISP · OTX · VirusTotal · Volatility 3 · Autopsy · PowerShell · Bash · Python</p></div>
-    <div class="card"><h3>Recommended certifications</h3>
-      <p>Free track: TryHackMe Pre Security, Cyber Security 101, SOC Level 1 · Cisco Intro to Cyber, Networking Basics, Endpoint Security<br><br>Growth track: CompTIA Security+ · Microsoft SC-200 · BTL1</p></div>
+    <div class="card"><span class="rail m3-rail"></span><h3>Tools you will master</h3>
+      <p>Splunk &middot; Wazuh &middot; Sigma &middot; TheHive &middot; Sysmon &middot; Windows Event Viewer &middot; Linux audit logs &middot;
+      MITRE ATT&amp;CK Navigator &middot; D3FEND &middot; MISP &middot; AlienVault OTX &middot; VirusTotal &middot; Volatility 3 &middot;
+      Autopsy &middot; PowerShell &middot; Bash &middot; Python</p>
+      <a class="more" href="resources/tools.html">Full tool stack &rarr;</a></div>
+    <div class="card"><span class="rail m4-rail"></span><h3>Your portfolio</h3>
+      <p>Six completed investigations, detection rules you wrote and tested yourself, and a full incident
+      report — the evidence an interviewer actually asks for.</p>
+      <a class="more" href="projects/index.html">See the projects &rarr;</a></div>
   </div>
+</section>
 </main>
 
-<footer class="site"><div class="wrap">
-  <div>DGS Academy — Cyber Security Diploma</div>
-  <div>Instructor: Ebrahim Mohamed Ahmed</div>
-</div></footer>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="plate"><img src="assets/img/dgs-logo.png" alt="DGS Academy"></span>
+    <span>Cyber Security Diploma &middot; Blue Team / Security Operations track</span>
+    <span>Instructor: Ebrahim Mohamed Ahmed</span>
+  </div>
+</footer>
 </body>
 </html>

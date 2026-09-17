@@ -1,40 +1,82 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Projects — DGS Cyber Security Diploma</title>
 <meta name="description" content="The six real projects of the DGS Academy Cyber Security Diploma.">
-<link rel="stylesheet" href="../assets/css/dgs.css"></head><body>
-<header class="top"><div class="wrap">
-  <div class="brand"><span class="dot"></span> DGS ACADEMY</div>
-  <nav class="main">
-    <a href="../index.html">Home</a>
-    <a href="../roadmap.html">Curriculum</a>
-    <a href="../labs/index.html">Labs</a>
-    <a href="../projects/index.html" class="active">Projects</a>
-    <a href="../resources/tools.html">Tools</a>
-    <a href="../resources/practice.html">Practice</a>
-  </nav>
-</div></header>
-<main class="wrap">
-<section class="hero"><div class="eyebrow">Assessment</div>
-<h1>Six real projects</h1>
-<p class="lead">Each module ends with work you do yourself, on evidence you have not seen before, written up the way a security team would expect to receive it.</p></section>
-<div class="grid">
-<div class="card"><span class="tag m1">Module 1</span><h3>Foundation Investigation</h3><p class="meta">Individual · written report</p><p>Investigate a provided set of Windows, Linux and web evidence. Establish what happened, when, and what proves it.</p></div>
-<div class="card"><span class="tag m2">Module 2</span><h3>SOC Triage Case Work</h3><p class="meta">Individual · TheHive case</p><p>Take five alerts from raw detection to closed case: triage, enrich, decide true or false positive, document the reasoning.</p></div>
-<div class="card"><span class="tag m3">Module 3</span><h3>Detection Development</h3><p class="meta">Individual · rule set + evidence</p><p>Write, convert and test detections across both SIEM platforms, then prove each one fires on the attack and stays quiet otherwise.</p></div>
-<div class="card"><span class="tag m4">Module 4</span><h3>Threat Hunting Investigation</h3><p class="meta">Individual · hunt report</p><p>Turn a published threat report into a hypothesis, hunt for it in real data, and report your findings and indicators.</p></div>
-<div class="card"><span class="tag m5">Module 5</span><h3>Incident Investigation</h3><p class="meta">Individual · incident report</p><p>Work a full incident from first alert through containment to lessons learned, with a defensible timeline.</p></div>
-<div class="card"><span class="tag m6">Final</span><h3>End-to-End Investigation</h3><p class="meta">Team · report + presentation</p><p>A staged multi-source attack: phishing, execution, lateral movement and exfiltration. Investigate it, detect it, present it.</p></div>
-</div>
-<h2>How projects are marked</h2>
-<div class="table-wrap"><table><thead><tr><th>Criterion</th><th>What is assessed</th></tr></thead><tbody>
-<tr><td>Method</td><td>A logical, repeatable approach — not guessing</td></tr>
-<tr><td>Findings</td><td>What actually happened, stated as fact</td></tr>
-<tr><td>Evidence</td><td>Every finding traced to a log line, packet or artefact</td></tr>
-<tr><td>Detection quality</td><td>Rules that fire on the attack and stay quiet on normal activity</td></tr>
-<tr><td>Communication</td><td>A report a manager can act on and an analyst can reproduce</td></tr>
-</tbody></table></div>
-<div class="box box-note"><div class="box-title">Note</div>
-Findings and interpretation are always separated in your report: what the evidence shows, then what you conclude from it.</div>
+<link rel="icon" href="../assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="../assets/css/dgs.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../index.html">
+      <span class="plate"><img src="../assets/img/dgs-logo.png" alt="DGS Academy"></span>
+      <span class="brand-text"><b>Cyber Security Diploma</b><span>DGS Academy</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="../roadmap.html">Curriculum</a>
+      <a href="../labs/index.html">Labs</a>
+      <a href="../projects/index.html" aria-current="page">Projects</a>
+      <a href="../resources/tools.html">Tools</a>
+      <a href="../resources/practice.html">Practice</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="wrap hero">
+  <span class="kicker">Assessment</span>
+  <h1>Six real projects</h1>
+  <p class="lead">Each module ends with work you do yourself, on evidence you have not seen before, written
+  up the way a security team would expect to receive it.</p>
+</section>
+<section class="wrap section-sm">
+  <div class="grid">
+    <article class="card"><span class="rail m1-rail"></span>
+      <span class="tag m1">Module 1</span>
+      <h3>Foundation Investigation</h3><p class="meta">Individual &middot; written report</p><p>Investigate a provided set of Windows, Linux and web evidence. Establish what happened, when, and what proves it.</p></article>
+    <article class="card"><span class="rail m2-rail"></span>
+      <span class="tag m2">Module 2</span>
+      <h3>SOC Triage Case Work</h3><p class="meta">Individual &middot; TheHive case</p><p>Take five alerts from raw detection to closed case: triage, enrich, decide true or false positive, document the reasoning.</p></article>
+    <article class="card"><span class="rail m3-rail"></span>
+      <span class="tag m3">Module 3</span>
+      <h3>Detection Development</h3><p class="meta">Individual &middot; rule set + evidence</p><p>Write, convert and test detections across both SIEM platforms, then prove each one fires on the attack and stays quiet otherwise.</p></article>
+    <article class="card"><span class="rail m4-rail"></span>
+      <span class="tag m4">Module 4</span>
+      <h3>Threat Hunting Investigation</h3><p class="meta">Individual &middot; hunt report</p><p>Turn a published threat report into a hypothesis, hunt for it in real data, and report your findings and indicators.</p></article>
+    <article class="card"><span class="rail m5-rail"></span>
+      <span class="tag m5">Module 5</span>
+      <h3>Incident Investigation</h3><p class="meta">Individual &middot; incident report</p><p>Work a full incident from first alert through containment to lessons learned, with a defensible timeline.</p></article>
+    <article class="card"><span class="rail m6-rail"></span>
+      <span class="tag m6">Final</span>
+      <h3>End-to-End Investigation</h3><p class="meta">Team &middot; report + presentation</p><p>A staged multi-source attack: phishing, execution, lateral movement and exfiltration. Investigate it, detect it, present it.</p></article>
+  </div>
+</section>
+<section class="wrap section">
+  <div class="sec-head"><h2>How projects are marked</h2></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Criterion</th><th>What is assessed</th></tr></thead><tbody>
+    <tr><td>Method</td><td>A logical, repeatable approach — not guessing</td></tr>
+    <tr><td>Findings</td><td>What actually happened, stated as fact</td></tr>
+    <tr><td>Evidence</td><td>Every finding traced to a log line, packet or artefact</td></tr>
+    <tr><td>Detection quality</td><td>Rules that fire on the attack and stay quiet on normal activity</td></tr>
+    <tr><td>Communication</td><td>A report a manager can act on and an analyst can reproduce</td></tr>
+    </tbody></table></div>
+  <div class="box box-note" style="margin-top:20px"><div class="box-title">Note</div>
+  Findings and interpretation stay separated in every report you write: what the evidence shows, then what
+  you conclude from it. That habit is what makes an analyst trusted.</div>
+</section>
 </main>
-<footer class="site"><div class="wrap"><div>DGS Academy &mdash; Cyber Security Diploma</div><div>Instructor: Ebrahim Mohamed Ahmed</div></div></footer></body></html>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="plate"><img src="../assets/img/dgs-logo.png" alt="DGS Academy"></span>
+    <span>Cyber Security Diploma &middot; Blue Team / Security Operations track</span>
+    <span>Instructor: Ebrahim Mohamed Ahmed</span>
+  </div>
+</footer>
+</body>
+</html>

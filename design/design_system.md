@@ -2,20 +2,38 @@
 
 > Owner skill: `dgs-session-html`. One stylesheet: `docs/assets/css/dgs.css`. No page may define its own colours.
 
-## Palette (sampled from the DGS brochure — **[CONFIRM exact brand hex]**)
+## Palette — sampled from the DGS Academy logo
+
+The logo is the source of truth: letter navy `#0C3060`, circuit blue `#185490`/`#18609C`, swoosh orange
+`#E48424`. Surfaces are darker than the logo navy so the logo reads on top of them.
 
 | Token | Hex | Use |
 |---|---|---|
-| `--navy` | `#061A33` | Page background |
-| `--deep` | `#0A2547` | Card / panel background |
-| `--line` | `#123A66` | Borders, dividers |
-| `--blue` | `#0B5CC7` | Primary actions, links, module accents |
-| `--sky` | `#1AA3E0` | Highlights, diagram strokes, hover |
-| `--orange` | `#F5821F` | Accent — attacker view, warnings, active nav |
-| `--green` | `#27C08A` | Analyst view, correct answer, success |
-| `--red` | `#E5484D` | Red flag, false positive, danger |
-| `--text` | `#E6EEF8` | Body text |
-| `--muted` | `#8FA6C0` | Secondary text, captions |
+| `--bg` | `#060E1C` | Page background |
+| `--bg-alt` | `#0A1729` | Footer, inset bands |
+| `--panel` | `#0E2140` | Cards, boxes, tables |
+| `--panel-2` | `#12305A` | Table headers, raised rows |
+| `--line` / `--line-soft` | `#1B3A66` / `#27528C` | Borders, dividers |
+| `--navy` | `#0C3060` | The logo's letter navy |
+| `--orange` | `#E48424` | **Primary brand accent** — kickers, active nav, "why it matters", primary button |
+| `--orange-soft` / `--orange-dim` | `#F7A94A` / `#B9691A` | Hover, gradient end |
+| `--blue` | `#2E86DE` | Module 1, secondary accent |
+| `--sky` | `#4FB8F0` | Links, stat numbers, lab boxes, diagram strokes |
+| `--green` | `#2DD4A0` | Analyst view, verified, correct answer |
+| `--red` | `#FF5C6C` | Attacker view, red flag, danger |
+| `--purple` | `#A78BFA` | Activities, ATT&CK IDs |
+| `--amber` | `#FBBF24` | Key takeaway |
+| `--text` / `--text-2` / `--text-3` / `--text-4` | `#E6EEF8` / `#A8BBD6` / `#7E93B5` / `#5C7096` | Text ramp |
+
+**Module colours** (rails, tags): M1 blue · M2 sky · M3 orange · M4 green · M5 purple · M6 red.
+
+## Logo rules
+
+- Files: `docs/assets/img/dgs-logo.png` (760 px wide, transparent) and `favicon.png` (128 px).
+- The logo's letters are navy, so it **never sits directly on a dark surface** — always inside a white
+  plate (`.plate`, radius 10 px, 5–8 px padding) or the white hero badge.
+- Never recolour, rotate, outline or stretch the logo. Minimum width 78 px.
+- The logo is the only raster asset on the site; everything else is CSS or inline SVG.
 
 Contrast: body text on `--navy` ≥ 12:1; muted text ≥ 4.5:1. Never use `--orange` as a text colour on `--navy` below 16 px.
 
@@ -59,6 +77,11 @@ Every technique ends with an evidence block: real log line or packet row, the so
 ## Quiz
 
 Self-marking MCQ blocks — inline `<details>` for the answer, no external JS. 10 MCQ + 2 practical per session.
+
+## Build rule
+
+Pages under `docs/` are **generated** by `tools/build_site.py` from this system plus the `design/` data
+files — never hand-edited. Change the content in the builder, run it, then run `testing/verify.py`.
 
 ## Rules
 
