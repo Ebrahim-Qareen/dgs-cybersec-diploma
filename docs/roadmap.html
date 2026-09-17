@@ -6,13 +6,13 @@
 <title>Curriculum — DGS Cyber Security Diploma</title>
 <meta name="description" content="Full curriculum of the DGS Academy Cyber Security Diploma — six modules, 35 topics, 79 labs, 6 projects.">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
-<link rel="stylesheet" href="assets/css/dgs.css?v=97037e73">
+<link rel="stylesheet" href="assets/css/dgs.css?v=725a1602">
 </head>
 <body>
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="index.html">
-      <span class="plate"><img src="assets/img/dgs-logo.png" alt="DGS Academy"></span>
+      <span class="plate"><img src="assets/img/dgs-logo-dark.png" alt="DGS Academy"></span>
       <span class="brand-text"><b>Cyber Security Diploma</b><span>DGS Academy</span></span>
     </a>
     <nav class="nav" aria-label="Main">
@@ -33,18 +33,207 @@
   <h1>From foundations to incident response</h1>
   <p class="lead">Six modules, 35 topics, 79 labs. Each attack you learn is paired with the detection that
   catches it and its MITRE ATT&amp;CK technique — and nothing is taught twice.</p>
-  <div class="cta-row"><a class="btn btn-primary" href="labs/index.html">See the labs</a>
-    <a class="btn" href="projects/index.html">See the projects</a></div>
+  <div class="cta-row"><a class="btn btn-primary" href="sessions.html">Open the sessions</a>
+    <a class="btn" href="labs/index.html">See the labs</a></div>
   <div class="jump">
     <a href="#m1">01 Foundation</a><a href="#m2">02 SOC &amp; SIEM</a><a href="#m3">03 Detection</a>
     <a href="#m4">04 Hunting</a><a href="#m5">05 IR &amp; Forensics</a><a href="#m6">06 Malware</a>
   </div>
 </section>
+
+<section class="wrap section-sm">
+  <div class="sec-head"><h2>The climb</h2><span class="note">one path, six modules, one job at the top</span></div>
+<figure class="diagram reveal">
+<svg viewBox="0 0 1220 400" role="img" aria-label="The six modules as one rising path from foundation to malware triage">
+  <defs>
+    <linearGradient id="jg" x1="0" x2="1"><stop offset="0" stop-color="#2E86DE"/><stop offset="1" stop-color="#E48424"/></linearGradient>
+  </defs>
+  <path d="M110 300 C210.0 300 210.0 262 310 262 C410.0 262 410.0 224 510 224 C610.0 224 610.0 186 710 186 C810.0 186 810.0 148 910 148 C1010.0 148 1010.0 110 1110 110" fill="none" stroke="#1B3A66" stroke-width="10" stroke-linecap="round"/>
+  <path d="M110 300 C210.0 300 210.0 262 310 262 C410.0 262 410.0 224 510 224 C610.0 224 610.0 186 710 186 C810.0 186 810.0 148 910 148 C1010.0 148 1010.0 110 1110 110" fill="none" stroke="url(#jg)" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+  <path d="M110 300 C210.0 300 210.0 262 310 262 C410.0 262 410.0 224 510 224 C610.0 224 610.0 186 710 186 C810.0 186 810.0 148 910 148 C1010.0 148 1010.0 110 1110 110" fill="none" stroke="#E6EEF8" stroke-width="2.5" stroke-linecap="round" class="flow" opacity=".8"/>
+  <text x="60" y="360" fill="#7E93B5" font-size="12" class="mono">START &middot; no prerequisites</text>
+  <text x="1160" y="60" text-anchor="end" fill="#F7A94A" font-size="12" class="mono">JOB-READY &middot; SOC ANALYST T1</text>
+  <a class="node" href="#m1" style="color:#2E86DE">
+    <circle cx="110" cy="300" r="34" fill="#2E86DE" fill-opacity=".14" class="pulse"/>
+    <circle class="core" cx="110" cy="300" r="24" fill="#0E2140" stroke="#2E86DE" stroke-width="3"/>
+    <text x="110" y="300" dy="6" text-anchor="middle" fill="#2E86DE" font-size="18" font-weight="700" class="mono">1</text>
+    <text x="110" y="352" text-anchor="middle" fill="#E6EEF8" font-size="14" font-weight="650">Foundation</text>
+    <text x="110" y="370" text-anchor="middle" fill="#7E93B5" font-size="12" class="mono">64 h &middot; 24 labs</text>
+  </a>
+  <a class="node" href="#m2" style="color:#4FB8F0">
+    <circle cx="310" cy="262" r="34" fill="#4FB8F0" fill-opacity=".14" class="pulse"/>
+    <circle class="core" cx="310" cy="262" r="24" fill="#0E2140" stroke="#4FB8F0" stroke-width="3"/>
+    <text x="310" y="262" dy="6" text-anchor="middle" fill="#4FB8F0" font-size="18" font-weight="700" class="mono">2</text>
+    <text x="310" y="314" text-anchor="middle" fill="#E6EEF8" font-size="14" font-weight="650">SOC &amp; SIEM</text>
+    <text x="310" y="332" text-anchor="middle" fill="#7E93B5" font-size="12" class="mono">40 h &middot; 18 labs</text>
+  </a>
+  <a class="node" href="#m3" style="color:#E48424">
+    <circle cx="510" cy="224" r="34" fill="#E48424" fill-opacity=".14" class="pulse"/>
+    <circle class="core" cx="510" cy="224" r="24" fill="#0E2140" stroke="#E48424" stroke-width="3"/>
+    <text x="510" y="224" dy="6" text-anchor="middle" fill="#E48424" font-size="18" font-weight="700" class="mono">3</text>
+    <text x="510" y="276" text-anchor="middle" fill="#E6EEF8" font-size="14" font-weight="650">Detection</text>
+    <text x="510" y="294" text-anchor="middle" fill="#7E93B5" font-size="12" class="mono">32 h &middot; 14 labs</text>
+  </a>
+  <a class="node" href="#m4" style="color:#2DD4A0">
+    <circle cx="710" cy="186" r="34" fill="#2DD4A0" fill-opacity=".14" class="pulse"/>
+    <circle class="core" cx="710" cy="186" r="24" fill="#0E2140" stroke="#2DD4A0" stroke-width="3"/>
+    <text x="710" y="186" dy="6" text-anchor="middle" fill="#2DD4A0" font-size="18" font-weight="700" class="mono">4</text>
+    <text x="710" y="238" text-anchor="middle" fill="#E6EEF8" font-size="14" font-weight="650">Hunting &amp; CTI</text>
+    <text x="710" y="256" text-anchor="middle" fill="#7E93B5" font-size="12" class="mono">24 h &middot; 10 labs</text>
+  </a>
+  <a class="node" href="#m5" style="color:#A78BFA">
+    <circle cx="910" cy="148" r="34" fill="#A78BFA" fill-opacity=".14" class="pulse"/>
+    <circle class="core" cx="910" cy="148" r="24" fill="#0E2140" stroke="#A78BFA" stroke-width="3"/>
+    <text x="910" y="148" dy="6" text-anchor="middle" fill="#A78BFA" font-size="18" font-weight="700" class="mono">5</text>
+    <text x="910" y="200" text-anchor="middle" fill="#E6EEF8" font-size="14" font-weight="650">IR &amp; Forensics</text>
+    <text x="910" y="218" text-anchor="middle" fill="#7E93B5" font-size="12" class="mono">24 h &middot; 10 labs</text>
+  </a>
+  <a class="node" href="#m6" style="color:#FF5C6C">
+    <circle cx="1110" cy="110" r="34" fill="#FF5C6C" fill-opacity=".14" class="pulse"/>
+    <circle class="core" cx="1110" cy="110" r="24" fill="#0E2140" stroke="#FF5C6C" stroke-width="3"/>
+    <text x="1110" y="110" dy="6" text-anchor="middle" fill="#FF5C6C" font-size="18" font-weight="700" class="mono">6</text>
+    <text x="1110" y="162" text-anchor="middle" fill="#E6EEF8" font-size="14" font-weight="650">Malware triage</text>
+    <text x="1110" y="180" text-anchor="middle" fill="#7E93B5" font-size="12" class="mono">8 h &middot; 3 labs</text>
+  </a>
+</svg>
+<figcaption>Six modules, one climb. Each module only uses what the one before it taught — click a node to jump to it.</figcaption>
+</figure>
+</section>
+
+<section class="wrap section-sm">
+  <div class="split">
+    <div>
+      <div class="sec-head"><h2>What an analyst actually does</h2></div>
+      <p class="lead">Every alert goes round this loop. The diploma is built so that by the end you have done
+      each step yourself, on real evidence, more than once.</p>
+      <div class="box box-why"><div class="box-title">Why it matters</div>
+      Most junior analysts can name the steps. Very few have <em>run</em> them under time pressure with a
+      manager waiting for an answer. That is the gap this program closes.</div>
+    </div>
+<figure class="diagram reveal">
+<svg viewBox="0 0 600 420" role="img" aria-label="The analyst loop: detect, triage, investigate, respond, improve">
+  <path d="M300 70 A140 140 0 0 1 433 167 A140 140 0 0 1 382 323 A140 140 0 0 1 218 323 A140 140 0 0 1 167 167 A140 140 0 0 1 300 70" fill="none" stroke="#1B3A66" stroke-width="8"/>
+  <path d="M300 70 A140 140 0 0 1 433 167 A140 140 0 0 1 382 323 A140 140 0 0 1 218 323 A140 140 0 0 1 167 167 A140 140 0 0 1 300 70" fill="none" stroke="#4FB8F0" stroke-width="2.5" class="flow" opacity=".85"/>
+  <text x="300" y="210" dy="-6" text-anchor="middle" fill="#E6EEF8" font-size="15" font-weight="700">The analyst loop</text>
+  <text x="300" y="210" dy="14" text-anchor="middle" fill="#7E93B5" font-size="11.5">every module feeds one step</text>
+  <g class="node" style="color:#4FB8F0">
+    <circle cx="300" cy="70" r="40" fill="#4FB8F0" fill-opacity=".12"/>
+    <circle class="core" cx="300" cy="70" r="30" fill="#0E2140" stroke="#4FB8F0" stroke-width="3"/>
+    <text x="300" y="70" dy="5" text-anchor="middle" fill="#4FB8F0" font-size="13" font-weight="700">Detect</text>
+    <text x="300" y="8" text-anchor="middle" fill="#A8BBD6" font-size="11.5">SIEM alert, hunt hit, user report</text>
+  </g>
+  <g class="node" style="color:#E48424">
+    <circle cx="433" cy="167" r="40" fill="#E48424" fill-opacity=".12"/>
+    <circle class="core" cx="433" cy="167" r="30" fill="#0E2140" stroke="#E48424" stroke-width="3"/>
+    <text x="433" y="167" dy="5" text-anchor="middle" fill="#E48424" font-size="13" font-weight="700">Triage</text>
+    <text x="492" y="148" text-anchor="start" fill="#A8BBD6" font-size="11.5">True or false positive? How bad?</text>
+  </g>
+  <g class="node" style="color:#A78BFA">
+    <circle cx="382" cy="323" r="40" fill="#A78BFA" fill-opacity=".12"/>
+    <circle class="core" cx="382" cy="323" r="30" fill="#0E2140" stroke="#A78BFA" stroke-width="3"/>
+    <text x="382" y="323" dy="5" text-anchor="middle" fill="#A78BFA" font-size="13" font-weight="700">Investigate</text>
+    <text x="419" y="373" text-anchor="start" fill="#A8BBD6" font-size="11.5">Logs, packets, memory — what happened</text>
+  </g>
+  <g class="node" style="color:#FF5C6C">
+    <circle cx="218" cy="323" r="40" fill="#FF5C6C" fill-opacity=".12"/>
+    <circle class="core" cx="218" cy="323" r="30" fill="#0E2140" stroke="#FF5C6C" stroke-width="3"/>
+    <text x="218" y="323" dy="5" text-anchor="middle" fill="#FF5C6C" font-size="13" font-weight="700">Respond</text>
+    <text x="181" y="373" text-anchor="end" fill="#A8BBD6" font-size="11.5">Contain, eradicate, recover</text>
+  </g>
+  <g class="node" style="color:#2DD4A0">
+    <circle cx="167" cy="167" r="40" fill="#2DD4A0" fill-opacity=".12"/>
+    <circle class="core" cx="167" cy="167" r="30" fill="#0E2140" stroke="#2DD4A0" stroke-width="3"/>
+    <text x="167" y="167" dy="5" text-anchor="middle" fill="#2DD4A0" font-size="13" font-weight="700">Improve</text>
+    <text x="108" y="148" text-anchor="end" fill="#A8BBD6" font-size="11.5">New detection, tuned rule, lesson</text>
+  </g>
+</svg>
+<figcaption>Modules 2–5 each own one step of this loop; Module 1 gives you the ground to stand on and Module 6 sharpens the verdict.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="wrap section-sm">
+  <div class="sec-head"><h2>Why this order</h2><span class="note">each skill unlocks the next</span></div>
+<figure class="diagram reveal">
+<svg viewBox="0 0 840 392" role="img" aria-label="What each later skill depends on">
+  <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+    <path d="M0 0L10 5L0 10z" fill="#4FB8F0"/></marker></defs>
+  <text x="20" y="18" fill="#7E93B5" font-size="11" class="mono">YOU LEARN FIRST</text>
+  <text x="410" y="18" fill="#7E93B5" font-size="11" class="mono">SO THAT LATER YOU CAN</text>
+  <g class="reveal in">
+    <rect x="20" y="34" width="300" height="32" rx="8" fill="#2E86DE" fill-opacity=".12" stroke="#2E86DE" stroke-width="1.5"/>
+    <text x="34" y="55" fill="#E6EEF8" font-size="12.5" font-weight="600">Windows &amp; Linux internals</text>
+    <path d="M330 50 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="34" width="330" height="32" rx="8" fill="#4FB8F0" fill-opacity=".12" stroke="#4FB8F0" stroke-width="1.5"/>
+    <text x="424" y="55" fill="#E6EEF8" font-size="12.5" font-weight="600">Event IDs, Sysmon, log analysis</text>
+    <text x="760" y="55" fill="#7E93B5" font-size="11" class="mono">M1 → M2</text>
+  </g>
+  <g class="reveal in">
+    <rect x="20" y="78" width="300" height="32" rx="8" fill="#2E86DE" fill-opacity=".12" stroke="#2E86DE" stroke-width="1.5"/>
+    <text x="34" y="99" fill="#E6EEF8" font-size="12.5" font-weight="600">Kerberos &amp; NTLM</text>
+    <path d="M330 94 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="78" width="330" height="32" rx="8" fill="#E48424" fill-opacity=".12" stroke="#E48424" stroke-width="1.5"/>
+    <text x="424" y="99" fill="#E6EEF8" font-size="12.5" font-weight="600">4768 / 4769 / 4624 detections</text>
+    <text x="760" y="99" fill="#7E93B5" font-size="11" class="mono">M1 → M3</text>
+  </g>
+  <g class="reveal in">
+    <rect x="20" y="122" width="300" height="32" rx="8" fill="#2E86DE" fill-opacity=".12" stroke="#2E86DE" stroke-width="1.5"/>
+    <text x="34" y="143" fill="#E6EEF8" font-size="12.5" font-weight="600">Wireshark &amp; protocols</text>
+    <path d="M330 138 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="122" width="330" height="32" rx="8" fill="#E48424" fill-opacity=".12" stroke="#E48424" stroke-width="1.5"/>
+    <text x="424" y="143" fill="#E6EEF8" font-size="12.5" font-weight="600">Network attack detection</text>
+    <text x="760" y="143" fill="#7E93B5" font-size="11" class="mono">M1 → M3</text>
+  </g>
+  <g class="reveal in">
+    <rect x="20" y="166" width="300" height="32" rx="8" fill="#4FB8F0" fill-opacity=".12" stroke="#4FB8F0" stroke-width="1.5"/>
+    <text x="34" y="187" fill="#E6EEF8" font-size="12.5" font-weight="600">Splunk &amp; Wazuh pipelines</text>
+    <path d="M330 182 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="166" width="330" height="32" rx="8" fill="#E48424" fill-opacity=".12" stroke="#E48424" stroke-width="1.5"/>
+    <text x="424" y="187" fill="#E6EEF8" font-size="12.5" font-weight="600">Sigma → SPL / Wazuh conversion</text>
+    <text x="760" y="187" fill="#7E93B5" font-size="11" class="mono">M2 → M3</text>
+  </g>
+  <g class="reveal in">
+    <rect x="20" y="210" width="300" height="32" rx="8" fill="#E48424" fill-opacity=".12" stroke="#E48424" stroke-width="1.5"/>
+    <text x="34" y="231" fill="#E6EEF8" font-size="12.5" font-weight="600">Detections you tuned</text>
+    <path d="M330 226 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="210" width="330" height="32" rx="8" fill="#2DD4A0" fill-opacity=".12" stroke="#2DD4A0" stroke-width="1.5"/>
+    <text x="424" y="231" fill="#E6EEF8" font-size="12.5" font-weight="600">Hunting with your own coverage</text>
+    <text x="760" y="231" fill="#7E93B5" font-size="11" class="mono">M3 → M4</text>
+  </g>
+  <g class="reveal in">
+    <rect x="20" y="254" width="300" height="32" rx="8" fill="#4FB8F0" fill-opacity=".12" stroke="#4FB8F0" stroke-width="1.5"/>
+    <text x="34" y="275" fill="#E6EEF8" font-size="12.5" font-weight="600">Triage &amp; case work</text>
+    <path d="M330 270 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="254" width="330" height="32" rx="8" fill="#A78BFA" fill-opacity=".12" stroke="#A78BFA" stroke-width="1.5"/>
+    <text x="424" y="275" fill="#E6EEF8" font-size="12.5" font-weight="600">Incident response under pressure</text>
+    <text x="760" y="275" fill="#7E93B5" font-size="11" class="mono">M2 → M5</text>
+  </g>
+  <g class="reveal in">
+    <rect x="20" y="298" width="300" height="32" rx="8" fill="#A78BFA" fill-opacity=".12" stroke="#A78BFA" stroke-width="1.5"/>
+    <text x="34" y="319" fill="#E6EEF8" font-size="12.5" font-weight="600">Evidence preservation</text>
+    <path d="M330 314 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="298" width="330" height="32" rx="8" fill="#A78BFA" fill-opacity=".12" stroke="#A78BFA" stroke-width="1.5"/>
+    <text x="424" y="319" fill="#E6EEF8" font-size="12.5" font-weight="600">Memory &amp; artefact forensics</text>
+    <text x="760" y="319" fill="#7E93B5" font-size="11" class="mono">M5 → M5</text>
+  </g>
+  <g class="reveal in">
+    <rect x="20" y="342" width="300" height="32" rx="8" fill="#2DD4A0" fill-opacity=".12" stroke="#2DD4A0" stroke-width="1.5"/>
+    <text x="34" y="363" fill="#E6EEF8" font-size="12.5" font-weight="600">IOC extraction</text>
+    <path d="M330 358 H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="342" width="330" height="32" rx="8" fill="#FF5C6C" fill-opacity=".12" stroke="#FF5C6C" stroke-width="1.5"/>
+    <text x="424" y="363" fill="#E6EEF8" font-size="12.5" font-weight="600">Malware triage verdicts</text>
+    <text x="760" y="363" fill="#7E93B5" font-size="11" class="mono">M4 → M6</text>
+  </g>
+</svg>
+<figcaption>Nothing is taught twice and nothing arrives before what it needs — this is the order for a reason.</figcaption>
+</figure>
+</section>
 <section class="wrap section" id="m1">
-  <div class="sec-head sh-m1"><span class="tag m1">Module 1</span><h2>Foundation Phase</h2>
+  <div class="sec-head sh-m1 with-icon"><span class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E86DE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></span><span class="tag m1">Module 1</span><h2>Foundation Phase</h2>
     <span class="note">64 hours &middot; 16 sessions &middot; 24 labs &middot; 1 project</span></div>
   <p class="lead">Computer, OS, networking &amp; security fundamentals</p>
-  <div class="rail-list">
+  <div class="split">
+    <div class="rail-list reveal">
     <div class="node"><span class="n">Topic 1</span>
       <h3>Computer, Operating Systems &amp; Security Fundamentals</h3><p>How a machine boots and runs, virtualization, the CIA triad, authentication and authorization, and the language security teams use every day.</p></div>
     <div class="node"><span class="n">Topic 2</span>
@@ -61,12 +250,18 @@
       <h3>Web Technologies &amp; Common Attack Awareness</h3><p>HTTP end to end, the modern web stack, and the OWASP Top 10 seen from the defender's side.</p></div>
     <div class="node"><span class="n">Topic 8</span>
       <h3>Foundation Investigation &amp; Capstone</h3><p>Your first full investigation across Windows, Linux and web evidence, written up as a report.</p></div>
+    </div>
+    <div>
+      <div class="box box-lab reveal"><div class="box-title">Tools you meet here</div><div class="tool-band"><span>VMware</span><span>Windows</span><span>Linux</span><span>PowerShell</span><span>Bash</span><span>Wireshark</span><span>Event Viewer</span><span>AD DS</span></div></div>
+      <div class="box box-take reveal"><div class="box-title">You leave able to</div>Read a Windows event, a Linux log line and a packet capture and say what happened; explain how Kerberos and NTLM log a login; build and run your own lab.</div>
+    </div>
   </div>
 </section><section class="wrap section" id="m2">
-  <div class="sec-head sh-m2"><span class="tag m2">Module 2</span><h2>Security Operations &amp; SIEM</h2>
+  <div class="sec-head sh-m2 with-icon"><span class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4FB8F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg></span><span class="tag m2">Module 2</span><h2>Security Operations &amp; SIEM</h2>
     <span class="note">40 hours &middot; 10 sessions &middot; 18 labs &middot; 1 project</span></div>
   <p class="lead">SOC workflow, triage, Splunk, Wazuh, Sigma</p>
-  <div class="rail-list">
+  <div class="split">
+    <div class="rail-list reveal">
     <div class="node"><span class="n">Topic 1</span>
       <h3>SOC Operations, Alert Triage &amp; Incident Handling</h3><p>How a security operations centre runs, how an alert becomes a case, true positive versus false positive, severity and escalation, case work in TheHive.</p></div>
     <div class="node"><span class="n">Topic 2</span>
@@ -77,12 +272,18 @@
       <h3>Wazuh Deployment, Monitoring &amp; Detection</h3><p>Agents, decoders, rules and alerts — building the pipeline end to end and testing your own detections against it.</p></div>
     <div class="node"><span class="n">Topic 5</span>
       <h3>Sigma Rules &amp; Cross-SIEM Detection Engineering</h3><p>Writing one rule once and running it everywhere: Sigma syntax, conversion to SPL and Wazuh, and validating both.</p></div>
+    </div>
+    <div>
+      <div class="box box-lab reveal"><div class="box-title">Tools you meet here</div><div class="tool-band"><span>TheHive</span><span>Sysmon</span><span>Splunk</span><span>Wazuh</span><span>Sigma</span></div></div>
+      <div class="box box-take reveal"><div class="box-title">You leave able to</div>Triage an alert to a defensible verdict, open and close a case in TheHive, search both Splunk and Wazuh, and write one Sigma rule that runs on both.</div>
+    </div>
   </div>
 </section><section class="wrap section" id="m3">
-  <div class="sec-head sh-m3"><span class="tag m3">Module 3</span><h2>Detection Engineering</h2>
+  <div class="sec-head sh-m3 with-icon"><span class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E48424" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><span class="tag m3">Module 3</span><h2>Detection Engineering</h2>
     <span class="note">32 hours &middot; 8 sessions &middot; 14 labs &middot; 1 project</span></div>
   <p class="lead">Attack analysis &amp; detection development</p>
-  <div class="rail-list">
+  <div class="split">
+    <div class="rail-list reveal">
     <div class="node"><span class="n">Topic 1</span>
       <h3>Detection Engineering Fundamentals</h3><p>The detection lifecycle, what makes rule logic good or fragile, and how coverage is measured.</p></div>
     <div class="node"><span class="n">Topic 2</span>
@@ -99,12 +300,18 @@
       <h3>Alert Tuning &amp; False Positive Reduction</h3><p>Making a noisy rule useful with evidence before and after, and proving you did not break the detection.</p></div>
     <div class="node"><span class="n">Topic 8</span>
       <h3>Detection Development Project</h3><p>Build, test and document a set of working detections across both SIEM platforms.</p></div>
+    </div>
+    <div>
+      <div class="box box-lab reveal"><div class="box-title">Tools you meet here</div><div class="tool-band"><span>Atomic Red Team</span><span>Nmap</span><span>DVWA</span><span>Suricata</span><span>sigma-cli</span></div></div>
+      <div class="box box-take reveal"><div class="box-title">You leave able to</div>Simulate an endpoint, AD, network or web attack in the lab, find its evidence, write the detection that catches it, and tune it until it stays quiet on normal traffic.</div>
+    </div>
   </div>
 </section><section class="wrap section" id="m4">
-  <div class="sec-head sh-m4"><span class="tag m4">Module 4</span><h2>Threat Hunting &amp; Intelligence</h2>
+  <div class="sec-head sh-m4 with-icon"><span class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2DD4A0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L21 21"/><path d="M8 10h4M10 8v4"/></svg></span><span class="tag m4">Module 4</span><h2>Threat Hunting &amp; Intelligence</h2>
     <span class="note">24 hours &middot; 6 sessions &middot; 10 labs &middot; 1 project</span></div>
   <p class="lead">Hunting methodology, ATT&amp;CK, CTI</p>
-  <div class="rail-list">
+  <div class="split">
+    <div class="rail-list reveal">
     <div class="node"><span class="n">Topic 1</span>
       <h3>Threat Hunting Methodology</h3><p>Hypothesis, data, query, finding — hunting as a repeatable method rather than a search for luck.</p></div>
     <div class="node"><span class="n">Topic 2</span>
@@ -117,12 +324,18 @@
       <h3>Threat Intelligence Platforms &amp; Enrichment</h3><p>MISP events and attributes, feed quality, and wiring enrichment into the triage workflow.</p></div>
     <div class="node"><span class="n">Topic 6</span>
       <h3>Threat Hunting Investigation Project</h3><p>Run a full hunt from a published threat report and document what you found.</p></div>
+    </div>
+    <div>
+      <div class="box box-lab reveal"><div class="box-title">Tools you meet here</div><div class="tool-band"><span>ATT&amp;CK Navigator</span><span>D3FEND</span><span>VirusTotal</span><span>OTX</span><span>MISP</span></div></div>
+      <div class="box box-take reveal"><div class="box-title">You leave able to</div>Turn a threat report into a hunt, map your coverage on ATT&amp;CK, enrich indicators with VirusTotal, OTX and MISP, and report what you found.</div>
+    </div>
   </div>
 </section><section class="wrap section" id="m5">
-  <div class="sec-head sh-m5"><span class="tag m5">Module 5</span><h2>Incident Response &amp; Forensics</h2>
+  <div class="sec-head sh-m5 with-icon"><span class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M12 8v6M9 11h6"/></svg></span><span class="tag m5">Module 5</span><h2>Incident Response &amp; Forensics</h2>
     <span class="note">24 hours &middot; 6 sessions &middot; 10 labs &middot; 1 project</span></div>
   <p class="lead">IR lifecycle, live response, DFIR</p>
-  <div class="rail-list">
+  <div class="split">
+    <div class="rail-list reveal">
     <div class="node"><span class="n">Topic 1</span>
       <h3>Incident Response Lifecycle</h3><p>Preparation, detection, analysis, containment, eradication, recovery and lessons learned — with playbooks you can follow under pressure.</p></div>
     <div class="node"><span class="n">Topic 2</span>
@@ -135,16 +348,27 @@
       <h3>Windows Forensic Artifacts Analysis</h3><p>Prefetch, registry hives, the MFT, user activity and USB traces — building a timeline that holds up.</p></div>
     <div class="node"><span class="n">Topic 6</span>
       <h3>Incident Investigation Case Study</h3><p>A complete incident, investigated and reported from first alert to lessons learned.</p></div>
+    </div>
+    <div>
+      <div class="box box-lab reveal"><div class="box-title">Tools you meet here</div><div class="tool-band"><span>Wazuh active response</span><span>PowerShell</span><span>Volatility 3</span><span>Autopsy</span></div></div>
+      <div class="box box-take reveal"><div class="box-title">You leave able to</div>Run an incident from first alert to lessons learned, collect evidence without destroying it, and pull the story out of a memory image and Windows artefacts.</div>
+    </div>
   </div>
 </section><section class="wrap section" id="m6">
-  <div class="sec-head sh-m6"><span class="tag m6">Module 6</span><h2>Malware Triage</h2>
+  <div class="sec-head sh-m6 with-icon"><span class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF5C6C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="8" width="10" height="12" rx="5"/><path d="M12 8V5M9 5l3 3 3-3M3 12h4M17 12h4M4 18l3-2M20 18l-3-2M4 7l3 2M20 7l-3 2"/></svg></span><span class="tag m6">Module 6</span><h2>Malware Triage</h2>
     <span class="note">8 hours &middot; 2 sessions &middot; 3 labs &middot; 1 project</span></div>
   <p class="lead">Static, dynamic and IOC extraction</p>
-  <div class="rail-list">
+  <div class="split">
+    <div class="rail-list reveal">
     <div class="node"><span class="n">Topic 1</span>
       <h3>Static Malware Analysis &amp; IOC Extraction</h3><p>Hashes, strings, file structure and imports — what you can learn safely before anything runs.</p></div>
     <div class="node"><span class="n">Topic 2</span>
       <h3>Dynamic Analysis, Sandboxing &amp; Malware Triage</h3><p>Reading a sandbox report like an analyst, matching behaviour to endpoint telemetry, and writing the triage verdict.</p></div>
+    </div>
+    <div>
+      <div class="box box-lab reveal"><div class="box-title">Tools you meet here</div><div class="tool-band"><span>strings</span><span>PE viewer</span><span>VirusTotal</span><span>Sandbox report</span><span>Sysmon</span></div></div>
+      <div class="box box-take reveal"><div class="box-title">You leave able to</div>Give a safe static and behavioural verdict on a suspicious file, extract its indicators, and hand the SOC something it can block.</div>
+    </div>
   </div>
 </section>
 <section class="wrap section-sm">
@@ -156,10 +380,15 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <span class="plate"><img src="assets/img/dgs-logo.png" alt="DGS Academy"></span>
+    <span class="plate"><img src="assets/img/dgs-logo-dark.png" alt="DGS Academy"></span>
     <span>Cyber Security Diploma &middot; Blue Team / Security Operations track</span>
     <span>Instructor: Ebrahim Mohamed Ahmed</span>
   </div>
 </footer>
+<script>
+(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{threshold:.15});
+els.forEach(function(e){io.observe(e)});})();
+</script>
 </body>
 </html>

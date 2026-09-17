@@ -58,7 +58,7 @@ def layout(title, desc, active, depth, body, wide_footer=True):
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="{p}index.html">
-      <span class="plate"><img src="{p}assets/img/dgs-logo.png" alt="DGS Academy"></span>
+      <span class="plate"><img src="{p}assets/img/dgs-logo-dark.png" alt="DGS Academy"></span>
       <span class="brand-text"><b>Cyber Security Diploma</b><span>DGS Academy</span></span>
     </a>
     <nav class="nav" aria-label="Main">
@@ -71,11 +71,16 @@ def layout(title, desc, active, depth, body, wide_footer=True):
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <span class="plate"><img src="{p}assets/img/dgs-logo.png" alt="DGS Academy"></span>
+    <span class="plate"><img src="{p}assets/img/dgs-logo-dark.png" alt="DGS Academy"></span>
     <span>Cyber Security Diploma &middot; Blue Team / Security Operations track</span>
     <span>Instructor: Ebrahim Mohamed Ahmed</span>
   </div>
 </footer>
+<script>
+(function(){{var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){{els.forEach(function(e){{e.classList.add('in')}});return;}}
+var io=new IntersectionObserver(function(en){{en.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target);}}}})}},{{threshold:.15}});
+els.forEach(function(e){{io.observe(e)}});}})();
+</script>
 </body>
 </html>
 """
@@ -211,42 +216,204 @@ TOPICS = {
      ("Dynamic Analysis, Sandboxing &amp; Malware Triage", "Reading a sandbox report like an analyst, matching behaviour to endpoint telemetry, and writing the triage verdict.")],
 }
 
+MOD_COLOR = {1: "#2E86DE", 2: "#4FB8F0", 3: "#E48424", 4: "#2DD4A0", 5: "#A78BFA", 6: "#FF5C6C"}
+MOD_SHORT = {1: "Foundation", 2: "SOC &amp; SIEM", 3: "Detection", 4: "Hunting &amp; CTI",
+             5: "IR &amp; Forensics", 6: "Malware triage"}
+
+# simple inline icons, one per module (24x24 grid, stroked)
+MOD_ICON = {
+ 1: '<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/>',
+ 2: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>',
+ 3: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
+ 4: '<circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L21 21"/><path d="M8 10h4M10 8v4"/>',
+ 5: '<path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M12 8v6M9 11h6"/>',
+ 6: '<rect x="7" y="8" width="10" height="12" rx="5"/><path d="M12 8V5M9 5l3 3 3-3M3 12h4M17 12h4M4 18l3-2M20 18l-3-2M4 7l3 2M20 7l-3 2"/>',
+}
+def icon(m):
+    return ('<span class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="{}" stroke-width="1.7" '
+            'stroke-linecap="round" stroke-linejoin="round">{}</svg></span>').format(MOD_COLOR[m], MOD_ICON[m])
+
+def journey_svg():
+    xs = [110, 310, 510, 710, 910, 1110]; ys = [300, 262, 224, 186, 148, 110]
+    d = "M{} {}".format(xs[0], ys[0])
+    for i in range(1, 6):
+        cx = (xs[i-1] + xs[i]) / 2
+        d += " C{} {} {} {} {} {}".format(cx, ys[i-1], cx, ys[i], xs[i], ys[i])
+    nodes = []
+    for i, (m, name, sub, hours, sess, labs, _b) in enumerate(MODULES):
+        x, y, c = xs[i], ys[i], MOD_COLOR[m]
+        nodes.append("""
+  <a class="node" href="#m{m}" style="color:{c}">
+    <circle cx="{x}" cy="{y}" r="34" fill="{c}" fill-opacity=".14" class="pulse"/>
+    <circle class="core" cx="{x}" cy="{y}" r="24" fill="#0E2140" stroke="{c}" stroke-width="3"/>
+    <text x="{x}" y="{y}" dy="6" text-anchor="middle" fill="{c}" font-size="18" font-weight="700" class="mono">{m}</text>
+    <text x="{x}" y="{ly}" text-anchor="middle" fill="#E6EEF8" font-size="14" font-weight="650">{short}</text>
+    <text x="{x}" y="{ly2}" text-anchor="middle" fill="#7E93B5" font-size="12" class="mono">{hours} h &middot; {labs} labs</text>
+  </a>""".format(m=m, c=c, x=x, y=y, ly=y+52, ly2=y+70, short=MOD_SHORT[m], hours=hours, labs=labs))
+    return """<figure class="diagram reveal">
+<svg viewBox="0 0 1220 400" role="img" aria-label="The six modules as one rising path from foundation to malware triage">
+  <defs>
+    <linearGradient id="jg" x1="0" x2="1"><stop offset="0" stop-color="#2E86DE"/><stop offset="1" stop-color="#E48424"/></linearGradient>
+  </defs>
+  <path d="{d}" fill="none" stroke="#1B3A66" stroke-width="10" stroke-linecap="round"/>
+  <path d="{d}" fill="none" stroke="url(#jg)" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+  <path d="{d}" fill="none" stroke="#E6EEF8" stroke-width="2.5" stroke-linecap="round" class="flow" opacity=".8"/>
+  <text x="60" y="360" fill="#7E93B5" font-size="12" class="mono">START &middot; no prerequisites</text>
+  <text x="1160" y="60" text-anchor="end" fill="#F7A94A" font-size="12" class="mono">JOB-READY &middot; SOC ANALYST T1</text>{nodes}
+</svg>
+<figcaption>Six modules, one climb. Each module only uses what the one before it taught — click a node to jump to it.</figcaption>
+</figure>""".format(d=d, nodes="".join(nodes))
+
+def loop_svg():
+    import math
+    steps = [("Detect", "#4FB8F0", "SIEM alert, hunt hit, user report"),
+             ("Triage", "#E48424", "True or false positive? How bad?"),
+             ("Investigate", "#A78BFA", "Logs, packets, memory — what happened"),
+             ("Respond", "#FF5C6C", "Contain, eradicate, recover"),
+             ("Improve", "#2DD4A0", "New detection, tuned rule, lesson")]
+    cx, cy, r = 300, 210, 140
+    out = []
+    pts = []
+    for i, (name, c, sub) in enumerate(steps):
+        a = -math.pi/2 + i * 2*math.pi/5
+        x, y = cx + r*math.cos(a), cy + r*math.sin(a)
+        pts.append((x, y))
+        tx = x + 62*math.cos(a); ty = y + 62*math.sin(a)
+        anchor = "middle" if abs(math.cos(a)) < .3 else ("start" if math.cos(a) > 0 else "end")
+        out.append("""
+  <g class="node" style="color:{c}">
+    <circle cx="{x:.0f}" cy="{y:.0f}" r="40" fill="{c}" fill-opacity=".12"/>
+    <circle class="core" cx="{x:.0f}" cy="{y:.0f}" r="30" fill="#0E2140" stroke="{c}" stroke-width="3"/>
+    <text x="{x:.0f}" y="{y:.0f}" dy="5" text-anchor="middle" fill="{c}" font-size="13" font-weight="700">{name}</text>
+    <text x="{tx:.0f}" y="{ty:.0f}" text-anchor="{anchor}" fill="#A8BBD6" font-size="11.5">{sub}</text>
+  </g>""".format(c=c, x=x, y=y, tx=tx, ty=ty, anchor=anchor, name=name, sub=sub))
+    ring = 'M{:.0f} {:.0f} '.format(*pts[0]) + " ".join(
+        "A{r} {r} 0 0 1 {:.0f} {:.0f}".format(*pts[(i+1) % 5], r=r) for i in range(5))
+    return """<figure class="diagram reveal">
+<svg viewBox="0 0 600 420" role="img" aria-label="The analyst loop: detect, triage, investigate, respond, improve">
+  <path d="{ring}" fill="none" stroke="#1B3A66" stroke-width="8"/>
+  <path d="{ring}" fill="none" stroke="#4FB8F0" stroke-width="2.5" class="flow" opacity=".85"/>
+  <text x="{cx}" y="{cy}" dy="-6" text-anchor="middle" fill="#E6EEF8" font-size="15" font-weight="700">The analyst loop</text>
+  <text x="{cx}" y="{cy}" dy="14" text-anchor="middle" fill="#7E93B5" font-size="11.5">every module feeds one step</text>{nodes}
+</svg>
+<figcaption>Modules 2–5 each own one step of this loop; Module 1 gives you the ground to stand on and Module 6 sharpens the verdict.</figcaption>
+</figure>""".format(ring=ring, cx=cx, cy=cy, nodes="".join(out))
+
+def deps_svg():
+    rows = [("Windows &amp; Linux internals", 1, "Event IDs, Sysmon, log analysis", 2),
+            ("Kerberos &amp; NTLM", 1, "4768 / 4769 / 4624 detections", 3),
+            ("Wireshark &amp; protocols", 1, "Network attack detection", 3),
+            ("Splunk &amp; Wazuh pipelines", 2, "Sigma → SPL / Wazuh conversion", 3),
+            ("Detections you tuned", 3, "Hunting with your own coverage", 4),
+            ("Triage &amp; case work", 2, "Incident response under pressure", 5),
+            ("Evidence preservation", 5, "Memory &amp; artefact forensics", 5),
+            ("IOC extraction", 4, "Malware triage verdicts", 6)]
+    g = []
+    for i, (a, ma, b, mb) in enumerate(rows):
+        y = 34 + i*44
+        g.append("""
+  <g class="reveal in">
+    <rect x="20" y="{y0}" width="300" height="32" rx="8" fill="{ca}" fill-opacity=".12" stroke="{ca}" stroke-width="1.5"/>
+    <text x="34" y="{yt}" fill="#E6EEF8" font-size="12.5" font-weight="600">{a}</text>
+    <path d="M330 {yc} H 400" stroke="#4FB8F0" stroke-width="2" class="flow" marker-end="url(#arr)"/>
+    <rect x="410" y="{y0}" width="330" height="32" rx="8" fill="{cb}" fill-opacity=".12" stroke="{cb}" stroke-width="1.5"/>
+    <text x="424" y="{yt}" fill="#E6EEF8" font-size="12.5" font-weight="600">{b}</text>
+    <text x="760" y="{yt}" fill="#7E93B5" font-size="11" class="mono">M{ma} → M{mb}</text>
+  </g>""".format(y0=y, yt=y+21, yc=y+16, a=a, b=b, ca=MOD_COLOR[ma], cb=MOD_COLOR[mb], ma=ma, mb=mb))
+    return """<figure class="diagram reveal">
+<svg viewBox="0 0 840 {h}" role="img" aria-label="What each later skill depends on">
+  <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+    <path d="M0 0L10 5L0 10z" fill="#4FB8F0"/></marker></defs>
+  <text x="20" y="18" fill="#7E93B5" font-size="11" class="mono">YOU LEARN FIRST</text>
+  <text x="410" y="18" fill="#7E93B5" font-size="11" class="mono">SO THAT LATER YOU CAN</text>{g}
+</svg>
+<figcaption>Nothing is taught twice and nothing arrives before what it needs — this is the order for a reason.</figcaption>
+</figure>""".format(h=34 + len(rows)*44 + 6, g="".join(g))
+
+MOD_TOOLS = {1: ["VMware", "Windows", "Linux", "PowerShell", "Bash", "Wireshark", "Event Viewer", "AD DS"],
+             2: ["TheHive", "Sysmon", "Splunk", "Wazuh", "Sigma"],
+             3: ["Atomic Red Team", "Nmap", "DVWA", "Suricata", "sigma-cli"],
+             4: ["ATT&amp;CK Navigator", "D3FEND", "VirusTotal", "OTX", "MISP"],
+             5: ["Wazuh active response", "PowerShell", "Volatility 3", "Autopsy"],
+             6: ["strings", "PE viewer", "VirusTotal", "Sandbox report", "Sysmon"]}
+
 def build_roadmap():
     secs = []
     for m, name, sub, hours, sess, labs, _blurb in MODULES:
-        nodes = "\n".join(f"""    <div class="node"><span class="n">Topic {i}</span>
-      <h3>{t}</h3><p>{d}</p></div>""" for i, (t, d) in enumerate(TOPICS[m], 1))
-        secs.append(f"""<section class="wrap section" id="m{m}">
-  <div class="sec-head sh-m{m}"><span class="tag m{m}">Module {m}</span><h2>{name}</h2>
+        nodes = "\n".join("""    <div class="node"><span class="n">Topic {}</span>
+      <h3>{}</h3><p>{}</p></div>""".format(i, tt, td) for i, (tt, td) in enumerate(TOPICS[m], 1))
+        tools = "".join("<span>{}</span>".format(x) for x in MOD_TOOLS[m])
+        secs.append("""<section class="wrap section" id="m{m}">
+  <div class="sec-head sh-m{m} with-icon">{icon}<span class="tag m{m}">Module {m}</span><h2>{name}</h2>
     <span class="note">{hours} hours &middot; {sess} sessions &middot; {labs} labs &middot; 1 project</span></div>
   <p class="lead">{sub}</p>
-  <div class="rail-list">
+  <div class="split">
+    <div class="rail-list reveal">
 {nodes}
+    </div>
+    <div>
+      <div class="box box-lab reveal"><div class="box-title">Tools you meet here</div><div class="tool-band">{tools}</div></div>
+      <div class="box box-take reveal"><div class="box-title">You leave able to</div>{outcome}</div>
+    </div>
   </div>
-</section>""")
-    body = f"""<main>
+</section>""".format(m=m, icon=icon(m), name=name, hours=hours, sess=sess, labs=labs, sub=sub,
+                      nodes=nodes, tools=tools, outcome=MOD_OUTCOME[m]))
+    body = """<main>
 <section class="wrap hero">
   <span class="kicker">Curriculum</span>
   <h1>From foundations to incident response</h1>
   <p class="lead">Six modules, 35 topics, 79 labs. Each attack you learn is paired with the detection that
   catches it and its MITRE ATT&amp;CK technique — and nothing is taught twice.</p>
-  <div class="cta-row"><a class="btn btn-primary" href="labs/index.html">See the labs</a>
-    <a class="btn" href="projects/index.html">See the projects</a></div>
+  <div class="cta-row"><a class="btn btn-primary" href="sessions.html">Open the sessions</a>
+    <a class="btn" href="labs/index.html">See the labs</a></div>
   <div class="jump">
     <a href="#m1">01 Foundation</a><a href="#m2">02 SOC &amp; SIEM</a><a href="#m3">03 Detection</a>
     <a href="#m4">04 Hunting</a><a href="#m5">05 IR &amp; Forensics</a><a href="#m6">06 Malware</a>
   </div>
 </section>
-{"".join(secs)}
+
+<section class="wrap section-sm">
+  <div class="sec-head"><h2>The climb</h2><span class="note">one path, six modules, one job at the top</span></div>
+{journey}
+</section>
+
+<section class="wrap section-sm">
+  <div class="split">
+    <div>
+      <div class="sec-head"><h2>What an analyst actually does</h2></div>
+      <p class="lead">Every alert goes round this loop. The diploma is built so that by the end you have done
+      each step yourself, on real evidence, more than once.</p>
+      <div class="box box-why"><div class="box-title">Why it matters</div>
+      Most junior analysts can name the steps. Very few have <em>run</em> them under time pressure with a
+      manager waiting for an answer. That is the gap this program closes.</div>
+    </div>
+{loop}
+  </div>
+</section>
+
+<section class="wrap section-sm">
+  <div class="sec-head"><h2>Why this order</h2><span class="note">each skill unlocks the next</span></div>
+{deps}
+</section>
+{secs}
 <section class="wrap section-sm">
   <div class="box box-note"><div class="box-title">Note</div>
   Every module ends with a project. Projects use fictional companies, documentation IP ranges and simulated
   attacks — no real malware and no real personal data.</div>
 </section>
-</main>"""
+</main>""".format(journey=journey_svg(), loop=loop_svg(), deps=deps_svg(), secs="".join(secs))
     write("roadmap.html", layout("Curriculum — DGS Cyber Security Diploma",
         "Full curriculum of the DGS Academy Cyber Security Diploma — six modules, 35 topics, 79 labs, 6 projects.",
         "roadmap", "", body))
+
+MOD_OUTCOME = {
+ 1: "Read a Windows event, a Linux log line and a packet capture and say what happened; explain how Kerberos and NTLM log a login; build and run your own lab.",
+ 2: "Triage an alert to a defensible verdict, open and close a case in TheHive, search both Splunk and Wazuh, and write one Sigma rule that runs on both.",
+ 3: "Simulate an endpoint, AD, network or web attack in the lab, find its evidence, write the detection that catches it, and tune it until it stays quiet on normal traffic.",
+ 4: "Turn a threat report into a hunt, map your coverage on ATT&amp;CK, enrich indicators with VirusTotal, OTX and MISP, and report what you found.",
+ 5: "Run an incident from first alert to lessons learned, collect evidence without destroying it, and pull the story out of a memory image and Windows artefacts.",
+ 6: "Give a safe static and behavioural verdict on a suspicious file, extract its indicators, and hand the SOC something it can block.",
+}
 
 # ----------------------------------------------------------------- labs
 def build_labs():
