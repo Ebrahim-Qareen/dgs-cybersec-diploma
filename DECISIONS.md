@@ -1,0 +1,15 @@
+# DECISIONS.md
+
+Append-only. One line per decision or in-place change. Newest at the bottom.
+
+| ID | Date | Area | Decision / change | Reason |
+|---|---|---|---|---|
+| D1 | 2026-09-17 | scope | The **6-month roadmap** (48 sessions · 192 h · 79 labs · 6 projects) is the contract. The 12-week / 96 h roadmap is superseded and kept for reference only | Instructor decision |
+| D2 | 2026-09-17 | scope | Program facts in Part 1 of `00_INSTRUCTIONS.md` are locked to the published brochure | Student contract |
+| D3 | 2026-09-17 | delivery | Real delivery compressed to 18 live sessions × 6 h over 9 weeks, 2 sessions/week; remaining 84 published hours delivered as self-study and task packs | Instructor teaches the diploma in 2 months |
+| D4 | 2026-09-17 | delivery | The compression is **instructor-private** — no student-facing file may mention it | Brochure integrity |
+| D5 | 2026-09-17 | language | All written material in professional simple English; delivery in Egyptian Arabic with English technical terms | Instructor decision |
+| D6 | 2026-09-17 | repo | Repo `Ebrahim-Qareen/dgs-cybersec-diploma`, public, GitHub Pages from `docs/` | Instructor decision |
+| D7 | 2026-09-17 | design | DGS brand dark theme (navy / blue / orange) sampled from the brochure, not the eCDFP theme | Instructor decision |
+| D8 | 2026-09-17 | structure | Project instructions rebuilt as one file `00_INSTRUCTIONS.md`, merging the two earlier drafts; `PROJECT.md` becomes live status only | Two overlapping instruction files caused drift |
+| D9 | 2026-09-17 | teaching | In-class teaching order compressed to 8 of the 12 framework parts; case study, deep dive, quiz and transition move to the student pack | Fit 4 published hours into 3 live hours |

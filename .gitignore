@@ -1,0 +1,24 @@
+Resources/
+Claude outputs/
+*.pdf
+!docs/**/*.pdf
+*.vmdk
+*.vmx
+*.ova
+*.iso
+*.E01
+*.raw
+*.mem
+*.dmp
+*.pcapng
+*.pcap
+!docs/downloads/*.pcapng
+*.rar
+*.7z
+*.exe
+*.dll
+*.bin
+scratch/
+tmp/
+.DS_Store
+Thumbs.db

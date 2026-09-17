@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Curriculum — DGS Cyber Security Diploma</title>
+<meta name="description" content="Full curriculum of the DGS Academy Cyber Security Diploma — six modules, 35 topics, 79 labs, 6 projects.">
+<link rel="stylesheet" href="assets/css/dgs.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand"><span class="dot"></span> DGS ACADEMY</div>
+  <nav class="main">
+    <a href="index.html">Home</a>
+    <a href="roadmap.html" class="active">Curriculum</a>
+    <a href="labs/index.html">Labs</a>
+    <a href="projects/index.html">Projects</a>
+    <a href="resources/tools.html">Tools</a>
+    <a href="resources/practice.html">Practice</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Curriculum</div>
+    <h1>From foundations to incident response</h1>
+    <p class="lead">Six modules, 35 topics, every one taught with a lab. Each attack you learn is paired with the detection that catches it and its MITRE ATT&amp;CK technique.</p>
+  </section>
+
+  <h2 id="m1"><span class="tag m1">Module 1</span> Foundation Phase</h2>
+  <p class="meta">64 hours · 24 labs · 1 project — computer, OS, networking and security fundamentals</p>
+  <div class="track">
+    <div class="node"><h3>1. Computer, Operating Systems &amp; Security Fundamentals</h3><p>How a machine boots and runs, virtualization, the CIA triad, authentication and authorization, and the language security teams use.</p></div>
+    <div class="node"><h3>2. Windows Internals &amp; Linux Fundamentals</h3><p>Processes, services, the registry and privileges on Windows; the filesystem, users, permissions and services on Linux.</p></div>
+    <div class="node"><h3>3. Networking Fundamentals &amp; Protocol Analysis</h3><p>IP addressing and subnetting, the OSI and TCP/IP models, encapsulation, and reading DNS, HTTP, SMB and RDP on the wire.</p></div>
+    <div class="node"><h3>4. PowerShell &amp; Bash for Security Operations</h3><p>The commands an analyst actually uses: querying processes, services and event logs, and automating repetitive triage.</p></div>
+    <div class="node"><h3>5. Active Directory &amp; Authentication Fundamentals</h3><p>Domains, objects and group policy; how NTLM, Kerberos and LDAP authenticate a user and what each one writes to the logs.</p></div>
+    <div class="node"><h3>6. Windows, Linux &amp; Web Log Analysis</h3><p>Event IDs that matter, syslog and journald, and web server access and error logs — where the evidence lives.</p></div>
+    <div class="node"><h3>7. Web Technologies &amp; Common Attack Awareness</h3><p>HTTP end to end, the modern web stack, and the OWASP Top 10 seen from the defender's side.</p></div>
+    <div class="node"><h3>8. Foundation Investigation &amp; Capstone</h3><p>Your first full investigation across Windows, Linux and web evidence, written up as a report.</p></div>
+  </div>
+
+  <h2 id="m2"><span class="tag m2">Module 2</span> Security Operations &amp; SIEM</h2>
+  <p class="meta">40 hours · 18 labs · 1 project</p>
+  <div class="track">
+    <div class="node"><h3>1. SOC Operations, Alert Triage &amp; Incident Handling</h3><p>How a security operations centre runs, how an alert becomes a case, true positive versus false positive, severity and escalation, case work in TheHive.</p></div>
+    <div class="node"><h3>2. Log Analysis &amp; Event Correlation</h3><p>Reconstructing a process tree from Sysmon, and correlating one event across endpoint, network and web sources.</p></div>
+    <div class="node"><h3>3. Splunk Investigation &amp; Detection Development</h3><p>Indexing and sourcetypes, SPL from first search to statistics and dashboards, investigating a real attack dataset.</p></div>
+    <div class="node"><h3>4. Wazuh Deployment, Monitoring &amp; Detection</h3><p>Agents, decoders, rules and alerts — building the pipeline end to end and testing your own detections against it.</p></div>
+    <div class="node"><h3>5. Sigma Rules &amp; Cross-SIEM Detection Engineering</h3><p>Writing one rule once and running it everywhere: Sigma syntax, conversion to SPL and Wazuh, and validating both.</p></div>
+  </div>
+
+  <h2 id="m3"><span class="tag m3">Module 3</span> Attack Analysis &amp; Detection Engineering</h2>
+  <p class="meta">32 hours · 14 labs · 1 project</p>
+  <div class="track">
+    <div class="node"><h3>1. Detection Engineering Fundamentals</h3><p>The detection lifecycle, what makes rule logic good or fragile, and how coverage is measured.</p></div>
+    <div class="node"><h3>2. Endpoint Attacks &amp; Detection Techniques</h3><p>Execution, persistence and defence evasion simulated in the lab, each one traced back to its Sysmon and event-log evidence.</p></div>
+    <div class="node"><h3>3. Active Directory Attacks &amp; Detection</h3><p>Credential access and lateral movement inside a domain, and the authentication events that expose them.</p></div>
+    <div class="node"><h3>4. Network Attacks &amp; Detection Techniques</h3><p>Scanning, interception and exfiltration patterns as they appear in packets, firewall logs and IDS alerts.</p></div>
+    <div class="node"><h3>5. Web Attacks &amp; Detection Techniques</h3><p>Injection, cross-site scripting and traversal — what each leaves behind in a web server log.</p></div>
+    <div class="node"><h3>6. Detection Use Cases &amp; Correlation Logic</h3><p>Turning a threat into a documented use case, and writing logic that needs more than one event to fire.</p></div>
+    <div class="node"><h3>7. Alert Tuning &amp; False Positive Reduction</h3><p>Making a noisy rule useful with evidence before and after, and proving you did not break the detection.</p></div>
+    <div class="node"><h3>8. Detection Development Project</h3><p>Build, test and document a set of working detections across both SIEM platforms.</p></div>
+  </div>
+
+  <h2 id="m4"><span class="tag m4">Module 4</span> Threat Hunting &amp; Threat Intelligence</h2>
+  <p class="meta">24 hours · 10 labs · 1 project</p>
+  <div class="track">
+    <div class="node"><h3>1. Threat Hunting Methodology</h3><p>Hypothesis, data, query, finding — hunting as a repeatable method rather than a search for luck.</p></div>
+    <div class="node"><h3>2. MITRE ATT&amp;CK &amp; Adversary Behaviors</h3><p>Tactics, techniques and procedures, the Pyramid of Pain, ATT&amp;CK Navigator and D3FEND countermeasures.</p></div>
+    <div class="node"><h3>3. Endpoint, Network &amp; Log-Based Hunting</h3><p>Practical hunts per data source: rare process ancestry, beaconing patterns, anomalous authentication.</p></div>
+    <div class="node"><h3>4. IOC Hunting &amp; Threat Intelligence</h3><p>Indicator types and their lifetime, enrichment with VirusTotal and OTX, and turning intel into watchlists.</p></div>
+    <div class="node"><h3>5. Threat Intelligence Platforms &amp; Enrichment</h3><p>MISP events and attributes, feed quality, and wiring enrichment into the triage workflow.</p></div>
+    <div class="node"><h3>6. Threat Hunting Investigation Project</h3><p>Run a full hunt from a published threat report and document what you found.</p></div>
+  </div>
+
+  <h2 id="m5"><span class="tag m5">Module 5</span> Incident Response &amp; Digital Forensics</h2>
+  <p class="meta">24 hours · 10 labs · 1 project</p>
+  <div class="track">
+    <div class="node"><h3>1. Incident Response Lifecycle</h3><p>Preparation, detection, analysis, containment, eradication, recovery and lessons learned — with playbooks you can follow under pressure.</p></div>
+    <div class="node"><h3>2. Triage, Scoping &amp; Containment</h3><p>Deciding how far an incident spread and what to isolate first, without destroying the evidence.</p></div>
+    <div class="node"><h3>3. Live Response &amp; Evidence Collection</h3><p>Order of volatility, collecting from a running system, and chain of custody done properly.</p></div>
+    <div class="node"><h3>4. Memory Forensics</h3><p>Volatility 3 against a real memory image: processes, network connections and injected code.</p></div>
+    <div class="node"><h3>5. Windows Forensic Artifacts Analysis</h3><p>Prefetch, registry hives, the MFT, user activity and USB traces — building a timeline that holds up.</p></div>
+    <div class="node"><h3>6. Incident Investigation Case Study</h3><p>A complete incident, investigated and reported from first alert to lessons learned.</p></div>
+  </div>
+
+  <h2 id="m6"><span class="tag m6">Module 6</span> Malware Analysis for Analysts</h2>
+  <p class="meta">8 hours · 3 labs · 1 project</p>
+  <div class="track">
+    <div class="node"><h3>1. Static Malware Analysis &amp; IOC Extraction</h3><p>Hashes, strings, file structure and imports — what you can learn safely before anything runs.</p></div>
+    <div class="node"><h3>2. Dynamic Analysis, Sandboxing &amp; Malware Triage</h3><p>Reading a sandbox report like an analyst, matching behaviour to endpoint telemetry, and writing the triage verdict.</p></div>
+  </div>
+
+  <div class="box box-note" style="margin-top:36px">
+    <div class="box-title">Note</div>
+    Every module ends with a project. Projects use fictional companies, documentation IP ranges and simulated attacks — no real malware and no real personal data.
+  </div>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div>DGS Academy — Cyber Security Diploma</div>
+  <div>Instructor: Ebrahim Mohamed Ahmed</div>
+</div></footer>
+</body>
+</html>
