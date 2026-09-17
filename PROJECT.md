@@ -8,7 +8,7 @@
 | Published program | 6 modules · 48 sessions × 4 h · 192 h · 79 labs · 6 projects |
 | Live delivery | 18 sessions × 6 h over 9 weeks (instructor-private) |
 | Repo | `Ebrahim-Qareen/dgs-cybersec-diploma` (public) |
-| Site | GitHub Pages from `docs/` |
+| Site | https://ebrahim-qareen.github.io/dgs-cybersec-diploma/ |
 | Last updated | 2026-09-17 |
 
 ## Build status
@@ -21,7 +21,7 @@
 | Phase 2 — lab setup guide | NOT STARTED |
 | Phase 3 — sessions L01–L18 | NOT STARTED |
 | Phase 4 — projects P1–P6 | NOT STARTED |
-| Phase 5 — publish | First local commit `0b9cfde` · remote set · **not pushed yet** |
+| Phase 5 — publish | Pushed to `Ebrahim-Qareen/dgs-cybersec-diploma` (public) · Pages live from `main` /docs |
 
 ## Session status
 
