@@ -8,6 +8,9 @@
 - L01 sources extracted: 13 of 13 (complete)
 - `knowledge_base/Session_01.md` written — condensed L01 note (topics in teaching order, attack↔detection↔MITRE table, diagram ideas, lab seeds, THM rooms, cut list)
 
+- L01 THM rooms fetched (logged-in browser) → `Resources/extract/L01/thm/L01_thm_notes.md` (condensed; WinFund 1/2/3 mirror Windows.pdf, all free-tier)
+- L01 visual assets built: 8 original inline SVGs + 7 CC0 brand logos under `docs/assets/{svg,img}/L01/`, licenses logged in `docs/assets/L01_ASSET_LICENSES.md`
+
 **Doing**
 - L01 note done. Next: extract + condense L02 sources into `knowledge_base/Session_02.md`
 

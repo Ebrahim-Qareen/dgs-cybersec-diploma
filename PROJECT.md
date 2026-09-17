@@ -57,7 +57,7 @@ knowledge_base/     00_source_inventory.md · Session_01.md
 lab/                (empty)
 packages/           (empty)
 projects/           (empty)
-docs/               index.html · roadmap.html · labs/ · projects/ · resources/tools.html · resources/practice.html · assets/css/dgs.css · downloads/ · .nojekyll
+docs/               index.html · assets/svg/L01/ (8 SVGs) · assets/img/L01/logos/ (7) · assets/L01_ASSET_LICENSES.md · index.html · roadmap.html · labs/ · projects/ · resources/tools.html · resources/practice.html · assets/css/dgs.css · downloads/ · .nojekyll
 testing/            verify.py (quality gate)
 tools/              build_site.py · extract_source.py · extract_all.py · extract_manifest.txt
 ```
