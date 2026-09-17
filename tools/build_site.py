@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 
 NAV = [("Home", "index.html", "home"), ("Curriculum", "roadmap.html", "roadmap"),
+       ("Sessions", "sessions.html", "sessions"),
        ("Labs", "labs/index.html", "labs"), ("Projects", "projects/index.html", "projects"),
        ("Tools", "resources/tools.html", "tools"), ("Practice", "resources/practice.html", "practice")]
 
@@ -94,22 +95,19 @@ def build_home():
 
     body = f"""<main>
 <section class="wrap hero">
-  <div class="hero-grid">
-    <div>
-      <span class="kicker">Professional Diploma</span>
-      <h1>Cyber Security Diploma<br><span class="accent">Blue Team &amp; Security Operations</span></h1>
-      <p class="lead">A hands-on, career-focused program that trains you to monitor, detect, investigate and
-      respond to real cyber threats — built entirely around practical labs and real investigations.</p>
-      <div class="badges">
-        <span class="badge">6 months</span><span class="badge">2 sessions / week</span>
-        <span class="badge">No prerequisites</span><span class="badge">Portfolio on graduation</span>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="roadmap.html">Explore the curriculum</a>
-        <a class="btn" href="labs/index.html">See the 79 labs</a>
-      </div>
-    </div>
-    <div class="hero-badge"><img src="assets/img/dgs-logo.png" alt="DGS Academy"></div>
+  <span class="kicker">Professional Diploma</span>
+  <h1>Cyber Security Diploma — <span class="accent">Blue Team &amp; Security Operations</span></h1>
+  <p class="lead">A hands-on, career-focused program that trains you to monitor, detect, investigate and
+  respond to real cyber threats — built entirely around practical labs and real investigations. You finish
+  with detections you wrote yourself and investigations you can show an interviewer.</p>
+  <div class="badges">
+    <span class="badge">6 months</span><span class="badge">2 sessions / week</span>
+    <span class="badge">No prerequisites</span><span class="badge">Portfolio on graduation</span>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="sessions.html">Open the sessions</a>
+    <a class="btn" href="roadmap.html">Explore the curriculum</a>
+    <a class="btn" href="labs/index.html">See the 79 labs</a>
   </div>
 </section>
 
@@ -454,6 +452,145 @@ def build_practice():
         "Where to keep practising: platforms, free rooms and the certifications to aim for next.",
         "practice", "../", body))
 
+# ------------------------------------------------------------- sessions
+# (session number, module, title, [(module, topic index)], gate note)
+SESSIONS = [
+ (1,  1, "Security Foundations &amp; Windows Internals", [(1,1),(1,2)], ""),
+ (2,  1, "Linux Fundamentals &amp; Scripting for Security Operations", [(1,2),(1,4)], ""),
+ (3,  1, "Networking Fundamentals &amp; Protocol Analysis", [(1,3)], ""),
+ (4,  1, "Active Directory &amp; Authentication", [(1,5)], ""),
+ (5,  1, "Log Analysis, Web Technologies &amp; Attack Awareness", [(1,6),(1,7)], "Project 1 starts"),
+ (6,  2, "SOC Operations, Alert Triage &amp; Incident Handling", [(2,1)], "Project 1 review"),
+ (7,  2, "Log Analysis &amp; Event Correlation", [(2,2)], ""),
+ (8,  2, "Splunk Investigation &amp; Detection Development", [(2,3)], ""),
+ (9,  2, "Wazuh Deployment, Monitoring &amp; Detection", [(2,4)], "Project 2 starts"),
+ (10, 2, "Sigma, Cross-SIEM Rules &amp; Detection Engineering", [(2,5),(3,1)], "Project 2 review"),
+ (11, 3, "Endpoint &amp; Active Directory Attacks and Detection", [(3,2),(3,3)], ""),
+ (12, 3, "Network &amp; Web Attacks and Detection", [(3,4),(3,5)], ""),
+ (13, 3, "Detection Use Cases, Correlation &amp; Alert Tuning", [(3,6),(3,7)], "Project 3 starts"),
+ (14, 4, "Threat Hunting Methodology, ATT&amp;CK &amp; Hunting Practice", [(4,1),(4,2),(4,3)], "Project 3 review"),
+ (15, 4, "IOC Hunting, Threat Intelligence &amp; Enrichment", [(4,4),(4,5)], "Project 4 starts"),
+ (16, 5, "Incident Response Lifecycle, Triage &amp; Live Response", [(5,1),(5,2),(5,3)], "Project 4 review"),
+ (17, 5, "Memory Forensics &amp; Windows Forensic Artifacts", [(5,4),(5,5)], "Project 5 starts"),
+ (18, 6, "Malware Triage — Static, Dynamic &amp; IOC Extraction", [(6,1),(6,2)], "Project 5 review &middot; final project"),
+]
+
+def _labs_by_session():
+    reg = (ROOT / "design/lab_register.md").read_text(encoding="utf-8")
+    rows = re.findall(r'\| LAB-L(\d\d)-([A-F]) \| L\d\d \| (.+?) \| (LIVE|TASK|SELF) \| (.+?) \| (.+?) \|', reg)
+    kind = {"LIVE": ("Guided", "guided"), "TASK": ("Practical task", "task"), "SELF": ("Self-paced", "self")}
+    out = {}
+    for n, letter, title, tag, tool, att in rows:
+        out.setdefault(int(n), []).append((letter, title, kind[tag], tool, att))
+    return out
+
+def _cell(v):
+    return "&mdash;" if v.strip() == "—" else v
+
+def build_sessions_index():
+    cards = []
+    for n, m, title, topics, gate in SESSIONS:
+        cards.append(
+            '    <a class="sess-card" href="session-{:02d}/index.html"><span class="rail m{}-rail"></span>'
+            '<span class="num">{:02d}</span><span class="tag m{}">Module {}</span>'
+            '<h3>{}</h3><p class="meta">{} topic{}{}</p></a>'.format(
+                n, m, n, m, m, title, len(topics), "" if len(topics) == 1 else "s",
+                " &middot; " + gate if gate else ""))
+    body = """<main>
+<section class="wrap hero">
+  <span class="kicker">Sessions</span>
+  <h1>Every session, in order</h1>
+  <p class="lead">Each session page carries what you need for that class: the topics, the labs you will run,
+  the evidence you will read and the task that follows. Sessions build on each other — nothing is taught
+  twice, and nothing appears before what it depends on.</p>
+</section>
+<section class="wrap section-sm">
+  <div class="sess-grid">
+{}
+  </div>
+</section>
+<section class="wrap section-sm">
+  <div class="box box-note"><div class="box-title">Note</div>
+  A session page is published once its material is built and reviewed. Files, datasets and captures are
+  published with a SHA-256 hash so you can verify what you downloaded.</div>
+</section>
+</main>""".format("\n".join(cards))
+    write("sessions.html", layout("Sessions — DGS Cyber Security Diploma",
+        "All sessions of the DGS Academy Cyber Security Diploma, in teaching order.",
+        "sessions", "", body))
+
+def build_session_pages():
+    labs = _labs_by_session()
+    for idx, (n, m, title, topics, gate) in enumerate(SESSIONS):
+        mod_name = [x[1] for x in MODULES if x[0] == m][0]
+        blocks = []
+        for i, (tm, ti) in enumerate(topics, 1):
+            t_title, t_desc = TOPICS[tm][ti - 1]
+            blocks.append("""    <div class="topic-block">
+      <span class="t-no">Topic {}</span>
+      <h3>{}</h3>
+      <p>{}</p>
+    </div>""".format(i, t_title, t_desc))
+        rows = "\n".join(
+            '      <tr><td>{}</td><td>{}</td><td><span class="pill {}">{}</span></td><td>{}</td><td>{}</td></tr>'
+            .format(letter, lt, cls, label, _cell(tool),
+                    _cell(att) if att.strip() == "—" else '<span class="att">' + att + '</span>')
+            for letter, lt, (label, cls), tool, att in labs.get(n, []))
+        labs_tbl = """  <div class="table-wrap"><table>
+    <thead><tr><th>Lab</th><th>What you do</th><th>Format</th><th>Tool</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+{}
+    </tbody></table></div>""".format(rows) if rows else ""
+        prev_a = ('    <a class="prev" href="../session-{:02d}/index.html"><span>Previous</span>'
+                  'Session {:02d}</a>'.format(SESSIONS[idx-1][0], SESSIONS[idx-1][0])) if idx > 0 else \
+                 '    <a class="prev" href="../sessions.html"><span>Back to</span>All sessions</a>'
+        next_a = ('    <a class="next" href="../session-{:02d}/index.html"><span>Next</span>'
+                  'Session {:02d}</a>'.format(SESSIONS[idx+1][0], SESSIONS[idx+1][0])) if idx < len(SESSIONS)-1 else \
+                 '    <a class="next" href="../projects/index.html"><span>Finish with</span>The final project</a>'
+        gate_box = ('  <div class="box box-take"><div class="box-title">Project gate</div>{}</div>\n'
+                    .format(gate)) if gate else ""
+        body = """<main>
+<section class="wrap hero">
+  <div class="sess-hero">
+    <span class="sess-no">{n:02d}</span>
+    <div>
+      <span class="kicker">Session {n:02d}</span>
+      <h1>{title}</h1>
+      <div class="sess-meta"><span class="tag m{m}">Module {m} &middot; {mod}</span>
+        <span class="badge">{nt} topic{s}</span><span class="badge">{nl} labs</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section-sm">
+  <div class="sec-head sh-m{m}"><h2>What this session covers</h2></div>
+{blocks}
+</section>
+
+<section class="wrap section-sm">
+  <div class="sec-head sh-m{m}"><h2>Labs in this session</h2>
+    <span class="note">Guided in class, then yours to finish</span></div>
+{labs}
+</section>
+
+<section class="wrap section-sm">
+{gate}  <div class="box box-lab"><div class="box-title">Session pack</div>
+  The slides, lab guide, datasets and the practical task for this session are published here once the
+  material is reviewed.</div>
+  <div class="prevnext">
+{prev}
+{next}
+  </div>
+</section>
+</main>""".format(n=n, title=title, m=m, mod=mod_name, nt=len(topics),
+                  s="" if len(topics) == 1 else "s", nl=len(labs.get(n, [])),
+                  blocks="\n".join(blocks), labs=labs_tbl, gate=gate_box,
+                  prev=prev_a, next=next_a)
+        write("session-{:02d}/index.html".format(n),
+              layout("Session {:02d} — {} — DGS Cyber Security Diploma".format(n, re.sub("&[a-z]+;", "&", title)),
+                     "Session {:02d} of the DGS Academy Cyber Security Diploma.".format(n),
+                     "sessions", "../", body))
+
 # ------------------------------------------------------------------ 404
 def build_404():
     body = """<main>
@@ -472,5 +609,6 @@ def build_404():
 
 if __name__ == "__main__":
     print("building docs/ ...")
-    build_home(); build_roadmap(); build_labs(); build_projects(); build_tools(); build_practice(); build_404()
+    build_home(); build_roadmap(); build_labs(); build_projects(); build_tools(); build_practice()
+    build_sessions_index(); build_session_pages(); build_404()
     print("done.")

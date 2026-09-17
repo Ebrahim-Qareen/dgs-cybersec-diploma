@@ -35,7 +35,7 @@ for t in tools:
 
 print("\n== no secrets / no private leakage in docs/ ==")
 pat = re.compile(r'(?i)(password\s*[:=]|api[_-]?key|secret\s*[:=]|BEGIN [A-Z ]*PRIVATE KEY|xox[baprs]-|AKIA[0-9A-Z]{16})')
-leak = re.compile(r'(?i)(2 month|two month|18 (live )?session|6[- ]hour session|compress)')
+leak = re.compile(r'(?i)(2 month|two month|two-month|6[- ]hour session|compress|because of time)')
 ip = re.compile(r'\b(?!10\.10\.10\.)(?!127\.0\.0\.1)(?!0\.0\.0\.0)(?:\d{1,3}\.){3}\d{1,3}\b')
 for p in sorted((ROOT/"docs").rglob("*.html")):
     txt = p.read_text(encoding="utf-8")
@@ -43,6 +43,12 @@ for p in sorted((ROOT/"docs").rglob("*.html")):
     chk(not pat.search(txt), f"no credentials in {rel}")
     chk(not leak.search(txt), f"no private delivery details in {rel}")
     chk(not ip.search(txt), f"no out-of-range IPs in {rel}")
+
+print("\n== session pages ==")
+sess = sorted((ROOT/"docs").glob("session-*/index.html"))
+chk(len(sess) == 18, f"18 session pages exist (found {len(sess)})")
+for i in range(1, 19):
+    chk((ROOT/f"docs/session-{i:02d}/index.html").exists(), f"docs/session-{i:02d}/index.html")
 
 print("\n== html links ==")
 for p in sorted((ROOT/"docs").rglob("*.html")):
