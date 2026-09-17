@@ -685,6 +685,48 @@ def build_sessions_index():
         "All sessions of the DGS Academy Cyber Security Diploma, in teaching order.",
         "sessions", "", body))
 
+def inline_svg(n, name):
+    p = DOCS / ("assets/svg/L%02d" % n) / (name + ".svg")
+    return p.read_text(encoding="utf-8").strip()
+
+def _expand_session_body(raw, labs_tbl, prevnext, n):
+    """Expand tokens, then (if the body is written as <section class="page" data-title=...> blocks)
+    wrap it in the paged layout: sticky left agenda, one page shown at a time, prev/next pager."""
+    raw = raw.replace("{{LABS}}", labs_tbl).replace("{{PREVNEXT}}", prevnext)
+    raw = re.sub(r"\{\{SVG:([a-z0-9-]+)\}\}", lambda mm: inline_svg(n, mm.group(1)), raw)
+    titles = re.findall(r'<section class="page" data-title="([^"]*)">', raw)
+    if not titles:
+        return raw
+    i = [0]
+    def _id(mm):
+        i[0] += 1
+        return '<section class="page" id="p{}" data-title="{}">'.format(i[0], mm.group(1))
+    raw = re.sub(r'<section class="page" data-title="([^"]*)">', _id, raw)
+    agenda = "\n".join('      <a data-page href="#p{0}"><span class="n">{0:02d}</span><span>{1}</span></a>'
+                       .format(k + 1, t) for k, t in enumerate(titles))
+    return """<main>
+<div class="wrap section-sm">
+  <div class="progress"><span></span></div>
+  <button class="btn agenda-toggle" type="button">Agenda</button>
+  <div class="page-layout">
+    <nav class="agenda" aria-label="Session agenda">
+      <div class="agenda-title">Session {n:02d} &middot; agenda</div>
+{agenda}
+    </nav>
+    <div class="pages">
+{raw}
+      <div class="pager">
+        <button class="prev" type="button">&larr; Previous</button>
+        <span class="count"></span>
+        <button class="next" type="button">Next &rarr;</button>
+      </div>
+      <div class="kbd-hint">Use &larr; &rarr; arrow keys to move between pages</div>
+    </div>
+  </div>
+</div>
+</main>
+<script src="../assets/js/session.js"></script>""".format(n=n, agenda=agenda, raw=raw)
+
 def build_session_pages():
     labs = _labs_by_session()
     for idx, (n, m, title, topics, gate) in enumerate(SESSIONS):
@@ -715,7 +757,7 @@ def build_session_pages():
                  '    <a class="next" href="../projects/index.html"><span>Finish with</span>The final project</a>'
         gate_box = ('  <div class="box box-take"><div class="box-title">Project gate</div>{}</div>\n'
                     .format(gate)) if gate else ""
-        body = """<main>
+        placeholder_body = """<main>
 <section class="wrap hero">
   <div class="sess-hero">
     <span class="sess-no">{n:02d}</span>
@@ -752,6 +794,11 @@ def build_session_pages():
                   s="" if len(topics) == 1 else "s", nl=len(labs.get(n, [])),
                   blocks="\n".join(blocks), labs=labs_tbl, gate=gate_box,
                   prev=prev_a, next=next_a)
+        _custom = ROOT / "design" / ("session%02d_body.html" % n)
+        if _custom.exists():
+            body = _expand_session_body(_custom.read_text(encoding="utf-8"), labs_tbl, prev_a + "\n" + next_a, n)
+        else:
+            body = placeholder_body
         write("session-{:02d}/index.html".format(n),
               layout("Session {:02d} — {} — DGS Cyber Security Diploma".format(n, re.sub("&[a-z]+;", "&", title)),
                      "Session {:02d} of the DGS Academy Cyber Security Diploma.".format(n),

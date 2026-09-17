@@ -304,3 +304,66 @@ details.q[open]{border-color:var(--green)}
   border:1px solid var(--line);color:var(--text-2)}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
 @media (max-width:900px){.split{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- session content: logos, steps, cheat sheet ---------- */
+.logo-band{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.logo-band .chip{background:#fff;border-radius:10px;padding:9px 13px;display:flex;align-items:center;
+  gap:8px;min-width:92px;box-shadow:var(--depth)}
+.logo-band .chip img{width:24px;height:24px;display:block}
+.logo-band .chip b{font:600 .8rem/1 var(--mono);color:#0C3060}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0 0}
+ol.steps li{position:relative;padding:9px 0 9px 40px;border-bottom:1px solid var(--line);color:var(--text-2)}
+ol.steps li:last-child{border-bottom:0}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:8px;width:26px;
+  height:26px;border-radius:50%;background:var(--panel-2);color:var(--sky);font:700 .8rem/26px var(--mono);text-align:center}
+ol.steps b{color:var(--text)}
+.cheat{overflow-x:auto}
+.cheat table{font-size:.9rem}
+code{font-family:var(--mono);color:var(--sky);font-size:.9em}
+kbd{font:600 .78rem/1 var(--mono);background:var(--panel-2);border:1px solid var(--line-soft);
+  border-radius:6px;padding:3px 7px;color:var(--text);white-space:nowrap}
+.free{font:700 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--green);
+  border:1px solid var(--green);border-radius:999px;padding:3px 8px;margin-left:8px;vertical-align:middle}
+
+/* ---------- paged session: left agenda + one page at a time ---------- */
+.page-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start;margin-top:22px}
+.page-layout > *{min-width:0}
+.agenda{position:sticky;top:76px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 10px;box-shadow:var(--depth);max-height:calc(100vh - 96px);overflow:auto}
+.agenda .agenda-title{font:700 .66rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);
+  padding:6px 10px 10px}
+.agenda a{display:flex;gap:10px;align-items:baseline;padding:8px 10px;border-radius:8px;color:var(--text-2);font-size:.9rem;
+  border-left:3px solid transparent}
+.agenda a:hover{background:var(--bg-alt);text-decoration:none;color:var(--text)}
+.agenda a.active{background:var(--bg-alt);border-left-color:var(--orange);color:var(--text);font-weight:600}
+.agenda a .n{font:700 .7rem/1 var(--mono);color:var(--text-4);min-width:22px}
+.agenda a.active .n{color:var(--orange)}
+.agenda-toggle{display:none}
+.progress{height:4px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:14px}
+.progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--orange));transition:width .25s}
+.js section.page{display:none}
+.js section.page.active{display:block;animation:fadeup .35s ease both}
+section.page > :first-child{margin-top:0}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+.pager button{appearance:none;cursor:pointer;font:600 .92rem/1 var(--font);color:var(--text);background:var(--panel);
+  border:1px solid var(--line-soft);border-radius:var(--radius);padding:12px 20px;display:inline-flex;gap:10px;align-items:center}
+.pager button:hover:not(:disabled){border-color:var(--sky);color:var(--sky)}
+.pager button:disabled{opacity:.35;cursor:default}
+.pager button.next{background:var(--orange);border-color:var(--orange);color:#0b1220}
+.pager button.next:hover:not(:disabled){background:var(--orange-soft);color:#0b1220}
+.pager .count{font:700 .8rem/1 var(--mono);color:var(--text-3)}
+.kbd-hint{text-align:center;font:.78rem/1.4 var(--mono);color:var(--text-4);margin-top:10px}
+.btn-print{appearance:none;cursor:pointer;font:600 .85rem/1 var(--mono);color:var(--sky);background:transparent;
+  border:1px solid var(--sky);border-radius:999px;padding:8px 14px}
+@media (max-width:1000px){
+  .page-layout{grid-template-columns:minmax(0,1fr)}
+  .agenda{position:static;max-height:none;display:none}
+  body.agenda-open .agenda{display:block}
+  .agenda-toggle{display:inline-flex;margin-top:16px}
+}
+@media print{
+  .agenda,.pager,.kbd-hint,.progress,.agenda-toggle,.btn-print{display:none!important}
+  .js section.page{display:none}
+  .js section.page.active{display:block}
+  .page-layout{display:block}
+}

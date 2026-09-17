@@ -1,4 +1,4 @@
-# Step 5 — Build the sessions  ·  NEXT
+# Step 5 — Build the sessions  ·  IN PROGRESS
 
 **Goal** — 18 sessions students can learn from and you can deliver from, each heavy on diagrams, SVGs, screenshots and icons, in simple short English.
 
@@ -10,8 +10,9 @@
 5. **Gate** — `testing/verify.py` + Part 9 checklist
 6. You review → approve → publish → next session
 
-**Done** — none yet.
+**Done**
+- **L01** — package (`packages/session-01/`, 10 files incl. cheat_sheet + challenge) · paged student page (`docs/session-01/index.html`, 17 pages, left agenda, prev/next, 7 inline SVGs, labs A/B in class, free at-home task, challenge, cheat sheet, 10+2 quiz) · gate: ALL CHECKS PASSED · rendered at 1400 and 480
 
-**Doing** — waiting for L01 note from Step 4.
+**Doing** — L01 awaiting your review (outline gate + content in one pass, per your "build it all" instruction). Labs not yet tested on real VMs (Phase 2).
 
-**Next** — Session 01 outline.
+**Next** — your L01 review → fixes → then L02 (intake note first).

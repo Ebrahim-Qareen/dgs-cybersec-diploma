@@ -1,0 +1,343 @@
+<section class="page" data-title="Cover">
+  <div class="sess-hero">
+    <span class="sess-no">01</span>
+    <div>
+      <span class="kicker">Session 01</span>
+      <h1>Security Foundations &amp; Windows Internals</h1>
+      <div class="sess-meta"><span class="tag m1">Module 1 &middot; Foundation Phase</span>
+        <span class="badge">2 topics</span><span class="badge">5 labs</span><span class="badge">No prerequisites</span></div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:22px">Your first session. Two parts: the ideas every security job is built on, then
+  the inside of Windows &mdash; the system most alerts come from. Use the agenda on the left or the Next button to move
+  through the pages.</p>
+  <div class="grid grid-2">
+    <div class="box box-why"><div class="box-title">Part A</div>Security foundations &mdash; CIA triad, the four words, malware, the SOC.</div>
+    <div class="box box-lab"><div class="box-title">Part B</div>Windows internals &mdash; processes, persistence, Event IDs, your first triage.</div>
+  </div>
+</section>
+
+<section class="page" data-title="Objectives">
+  <div class="sec-head sh-m1"><h2>By the end of this session you can</h2></div>
+  <div class="box box-take"><div class="box-title">Objectives</div>
+  <ul>
+    <li>Explain the CIA triad and name the pillar each attack breaks.</li>
+    <li>Use the words vulnerability, threat, exploit and risk correctly.</li>
+    <li>Read a Windows process tree and spot a suspicious parent &rarr; child.</li>
+    <li>Point to the Windows Event IDs an analyst watches, and say what each one means.</li>
+    <li>Find where malware hides to survive a reboot (persistence).</li>
+    <li>Run your first triage on a Windows endpoint with built-in and Sysinternals tools.</li>
+  </ul></div>
+  <div class="box box-note"><div class="box-title">How the session runs</div>
+  Teach &rarr; see it &rarr; do it. Two teaching blocks, two labs in class, one challenge, then a free task to finish at home.</div>
+</section>
+
+<section class="page" data-title="Why it matters">
+  <div class="sec-head sh-m1"><h2>Why this matters</h2><span class="note">the cost of skipping the basics</span></div>
+  <div class="box box-why"><div class="box-title">Why it matters</div>
+  In 2017 <b>WannaCry</b> locked over 300,000 computers in 150+ countries in a few days &mdash; hospitals sent
+  patients home. The same year, attackers quietly stole data on <b>147 million</b> people from Equifax over
+  several months. Both started on Windows. Both were preventable. The analyst who spots the early signs is the
+  difference between a blocked alert and a headline.</div>
+  <div class="stats">
+    <div class="stat"><div class="n">90%+</div><div class="l">Enterprise desktops run Windows</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">Event IDs you will memorise today</div></div>
+    <div class="stat"><div class="n">24/7</div><div class="l">A SOC never stops watching</div></div>
+  </div>
+  <div class="box box-attacker"><div class="box-title">Attacker view</div>
+  Both attacks used weaknesses that were already public and already patched. Attackers count on the gap between
+  &ldquo;a fix exists&rdquo; and &ldquo;the fix is installed&rdquo;. That gap is where you work.</div>
+</section>
+
+<section class="page" data-title="A · The CIA triad">
+  <div class="sec-head sh-m1"><span class="tag m1">Part A</span><h2>The CIA triad</h2></div>
+  <p class="lead">Security protects three things about your data: keep it private, keep it correct, keep it
+  reachable. Think of your bank account.</p>
+  {{SVG:cia-triad}}
+  <div class="grid grid-2">
+    <div class="box"><b>Confidentiality</b> &mdash; only you see your balance. Broken by data theft.</div>
+    <div class="box"><b>Integrity</b> &mdash; your balance shows the right number. Broken by tampering.</div>
+    <div class="box"><b>Availability</b> &mdash; the ATM works when you need it. Broken by DoS or ransomware.</div>
+    <div class="box box-note"><div class="box-title">Remember</div>Every attack you will ever triage breaks
+    at least one of these three. Name the pillar first &mdash; it tells you how bad it is.</div>
+  </div>
+</section>
+
+<section class="page" data-title="A · Four words &amp; the SOC">
+  <div class="sec-head sh-m1"><span class="tag m1">Part A</span><h2>The four words analysts use every day</h2></div>
+  {{SVG:vuln-threat-exploit-risk}}
+  <p>A <b>vulnerability</b> is a weakness (a broken lock). A <b>threat</b> is who might use it (a burglar
+  nearby). An <b>exploit</b> is the actual break-in. <b>Risk</b> is the harm when it works. Weakness plus a
+  motivated attacker plus a working exploit equals risk.</p>
+  <div class="box box-attacker"><div class="box-title">Attacker view</div>
+  Attackers use malware to do the work: a <b>virus</b> or <b>worm</b> spreads, a <b>trojan</b> hides in
+  something you trust, a <b>RAT</b> gives remote control, a <b>keylogger</b> steals what you type, and
+  <b>ransomware</b> encrypts your files for money. The people behind it range from bored script kiddies to
+  paid criminal crews and nation-state teams. Most attacks still start with one person clicking one thing &mdash;
+  urgency, authority and curiosity are the levers they pull.</div>
+  <div class="box box-analyst"><div class="box-title">Analyst view</div>
+  A Security Operations Centre (SOC) is the room that watches an organisation 24/7. Its whole job is to
+  protect the CIA of the data: watch who opens sensitive files, catch changes that should not happen, and keep
+  services online. You are training for the Tier 1 seat where alerts land first.</div>
+</section>
+
+<section class="page" data-title="B · Inside Windows">
+  <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Inside Windows</h2></div>
+  <p class="lead">Windows runs almost every corporate desktop, so it is where most alerts come from. You do not
+  need to know every part &mdash; you need to know what <em>normal</em> looks like, so <em>abnormal</em> jumps out.</p>
+  {{SVG:windows-arch-stack}}
+  <p>Your programs run in <b>user mode</b>. The kernel and drivers run below, in <b>kernel mode</b>, talking to
+  the hardware through the <b>HAL</b>. Malware wants to move down this stack &mdash; the lower it gets, the
+  harder it is to see and remove.</p>
+  <div class="box box-note"><div class="box-title">Places to know</div>
+  <code>C:\Windows\System32</code> holds the core system files &mdash; a fake file with a near-identical name
+  hides well here. <code>C:\Users\&lt;you&gt;\AppData</code> is hidden by default and is a favourite drop spot.
+  The <b>Registry</b> (<code>HKLM</code>, <code>HKCU</code>) is the settings database malware writes to for persistence.</div>
+</section>
+
+<section class="page" data-title="B · The process tree">
+  <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Processes and the process tree</h2></div>
+  <p>Every program that runs is a <b>process</b>, and each process is started by another one &mdash; its
+  <b>parent</b>. Drawn out, this is the <b>process tree</b>. Attackers hide inside trusted names, so the
+  <em>shape</em> of the tree gives them away.</p>
+  {{SVG:process-tree}}
+  <div class="box box-flag"><div class="box-title">Red flag</div>
+  <ul>
+    <li>Office app starting a shell: <code>WINWORD.EXE &rarr; powershell.exe</code></li>
+    <li>A program running from <code>AppData\Temp</code> or <code>C:\Users\Public</code></li>
+    <li>No company name / unsigned, with a name close to a real one (<code>svch0st.exe</code>)</li>
+    <li>A PowerShell command line full of Base64 (<code>-enc</code>) or <code>-w hidden</code></li>
+  </ul></div>
+  <div class="box box-analyst"><div class="box-title">Analyst view</div>
+  Four checks on any process, always in this order: <b>path</b> &rarr; <b>signature</b> &rarr; <b>command line</b>
+  &rarr; <b>parent</b>. Process Explorer shows all four in one window.</div>
+</section>
+
+<section class="page" data-title="B · Persistence">
+  <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Persistence &mdash; how malware survives a reboot</h2></div>
+  <p>Attackers do not want to run once; they want to run every time the machine starts. They plant themselves
+  in a handful of known places. One tool, <b>Autoruns</b>, checks all of them.</p>
+  {{SVG:persistence-map}}
+  <div class="grid grid-2">
+    <div class="box box-attacker"><div class="box-title">Attacker view</div>
+    The easiest win is a <b>Run key</b> or the <b>Startup folder</b> &mdash; no admin needed. With admin they prefer
+    a <b>service</b> or a <b>scheduled task</b> dressed as an update.</div>
+    <div class="box box-flag"><div class="box-title">Red flag</div>
+    An auto-start entry with <b>no publisher</b>, pointing to <code>Temp</code>, <code>Public</code> or a missing file.</div>
+  </div>
+</section>
+
+<section class="page" data-title="B · What the SOC sees">
+  <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>What the SOC actually sees</h2></div>
+  <div class="box box-evidence"><div class="box-title">Evidence &mdash; Windows Security log &mdash; Event ID 4688 &mdash; T1059.001</div>
+  4688 New Process &nbsp;|&nbsp; Account: DGS\j.hassan &nbsp;|&nbsp; Host: DGS-WS01 (10.10.10.21)<br>
+  New Process: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe<br>
+  Parent Process: C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE<br>
+  Command Line: powershell -nop -w hidden -enc SQBFAFgAKABJAFcAUgApAA==</div>
+  <div class="box box-analyst"><div class="box-title">Analyst view</div>
+  A Word document started a hidden, encoded PowerShell command. That is not something a document should ever
+  do. This is the classic macro-to-PowerShell start of an attack &mdash; raise it, do not close it.</div>
+  <div class="table-wrap"><table>
+    <caption>The six Security-log Event IDs to memorise</caption>
+    <thead><tr><th>Event ID</th><th>Means</th><th>Why the analyst cares</th></tr></thead>
+    <tbody>
+      <tr><td><span class="att">4624</span></td><td>Logon success</td><td>Who signed in, from where, what type</td></tr>
+      <tr><td><span class="att">4625</span></td><td>Logon failed</td><td>Bursts = password guessing / brute force</td></tr>
+      <tr><td><span class="att">4672</span></td><td>Privileged logon</td><td>An admin-level session just started</td></tr>
+      <tr><td><span class="att">4688</span></td><td>New process</td><td>What ran, and its parent &mdash; the tree</td></tr>
+      <tr><td><span class="att">4720</span></td><td>User account created</td><td>New account right after an attack = backdoor</td></tr>
+      <tr><td><span class="att">7045</span></td><td>New service installed</td><td>A common persistence and lateral-movement trick</td></tr>
+    </tbody></table></div>
+</section>
+
+<section class="page" data-title="B · Attack ↔ detection">
+  <div class="sec-head sh-m1"><span class="tag m1">Part B</span><h2>Every attack has a detection</h2></div>
+  <p>This is the rule for the whole diploma: you never learn an attack without the thing that catches it and
+  its MITRE ATT&amp;CK ID.</p>
+  {{SVG:attack-eventid-timeline}}
+  <div class="table-wrap"><table>
+    <thead><tr><th>Attacker does&hellip;</th><th>The SOC sees&hellip;</th><th>ATT&amp;CK</th></tr></thead>
+    <tbody>
+      <tr><td>Macro starts PowerShell</td><td>4688: WINWORD.EXE &rarr; powershell.exe, Base64 command</td><td><span class="att">T1059.001</span></td></tr>
+      <tr><td>Plants a Run key / Startup / task</td><td>Autoruns shows an unsigned entry from Temp</td><td><span class="att">T1547 / T1053</span></td></tr>
+      <tr><td>Installs a service to stay</td><td>7045: new service, unsigned binary</td><td><span class="att">T1543.003</span></td></tr>
+      <tr><td>Creates a hidden admin</td><td>4720 account created, then 4672 privileged logon</td><td><span class="att">T1136 / T1078</span></td></tr>
+      <tr><td>Calls out to a control server</td><td>TCPView: powershell.exe to an outside address on an odd port</td><td><span class="att">T1071</span></td></tr>
+    </tbody></table></div>
+</section>
+
+<section class="page" data-title="Your lab &amp; tools">
+  <div class="sec-head sh-m1"><h2>Your lab</h2><span class="note">where you will do all of this</span></div>
+  {{SVG:hypervisor}}
+  <div class="box box-note"><div class="box-title">Note</div>
+  You run everything inside a virtual machine (a full computer inside your computer) using <b>VMware</b>. This
+  session uses <b>DGS-WS01</b>, a Windows endpoint on the isolated lab network <code>10.10.10.0/24</code>.
+  Nothing you do touches a real network. Bring the prepared lab image ready to start &mdash; setup is done
+  before class, not in it.</div>
+  <h3>Tools you will use</h3>
+  <div class="logo-band">
+    <span class="chip"><img src="../assets/img/L01/logos/vmware.svg" alt=""><b>VMware</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/linux.svg" alt=""><b>Linux</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/ubuntu.svg" alt=""><b>Ubuntu</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/kalilinux.svg" alt=""><b>Kali</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/python.svg" alt=""><b>Python</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/gnubash.svg" alt=""><b>Bash</b></span>
+    <span class="chip"><img src="../assets/img/L01/logos/wireshark.svg" alt=""><b>Wireshark</b></span>
+  </div>
+  <p class="muted" style="margin-top:12px">Built-in Windows tools (Task Manager, Event Viewer, Registry Editor)
+  and the free Microsoft Sysinternals tools (Process Explorer, Autoruns, TCPView) are used from inside the VM.</p>
+</section>
+
+<section class="page" data-title="Labs in class">
+  <div class="sec-head sh-m1"><h2>Labs in this session</h2><span class="note">guided in class, then yours to finish</span></div>
+{{LABS}}
+  <div class="box box-lab"><div class="box-title">Lab A &mdash; in class &middot; get the lab running</div>
+  <ol class="steps">
+    <li><b>Start the VM.</b> Open VMware, power on <b>DGS-WS01</b>, and log in.</li>
+    <li><b>Confirm the network.</b> Open a command prompt and run <code>ipconfig</code>. Your address should be
+    on <code>10.10.10.0/24</code>.</li>
+    <li><b>Take a snapshot</b> called <code>CLEAN</code>, so you can always return to a known-good state.</li>
+    <li><b>Read the system.</b> Run <code>systeminfo</code> and <code>whoami /priv</code>. Note the OS version
+    and your privileges.</li>
+  </ol></div>
+  <div class="box box-lab"><div class="box-title">Lab B &mdash; in class &middot; normal vs suspicious process</div>
+  <ol class="steps">
+    <li>Open <b>Process Explorer</b> as administrator and find the process tree.</li>
+    <li>Pick any process. Check four things: <b>path</b>, <b>company / signature</b>, <b>command line</b>,
+    <b>parent</b>.</li>
+    <li>Right-click &rarr; <b>Properties</b>. Look at the <b>Image</b> and <b>TCP/IP</b> tabs.</li>
+    <li>Write one sentence: is it normal or suspicious, and <em>why</em>. Evidence, then conclusion.</li>
+  </ol></div>
+</section>
+
+<section class="page" data-title="At-home task (free)">
+  <div class="sec-head sh-m1"><h2>At-home task</h2><span class="note">free &middot; finish before next session</span></div>
+  <div class="box box-lab"><div class="box-title">Your task<span class="free">free lab</span></div>
+  Finish these after class on the same VM, then bring your notes to the next session.
+  <ol class="steps">
+    <li><b>Persistence hunt.</b> Open <b>Autoruns</b>, turn on <em>Hide Microsoft entries</em>, and list every
+    unsigned start-up item. For each, write its location and whether it looks safe.</li>
+    <li><b>Accounts &amp; UAC.</b> Run <code>net user</code> and <code>net localgroup administrators</code>.
+    Note who is an admin. Then trigger a UAC prompt and describe when Windows asks for approval.</li>
+    <li><b>Free practice room.</b> Complete <b>TryHackMe &mdash; Windows Fundamentals 1</b> (free) and note the
+    keyboard shortcut that opens Task Manager.</li>
+  </ol></div>
+  <div class="box box-take"><div class="box-title">What to hand in</div>
+  One page: your Autoruns table, the admin list, and one sentence on UAC. Findings first, your opinion second.</div>
+</section>
+
+<section class="page" data-title="Challenge">
+  <div class="sec-head sh-m1"><h2>Challenge &mdash; first triage</h2><span class="note">put it together</span></div>
+  <div class="box box-flag"><div class="box-title">The scenario</div>
+  An alert fires on <b>DGS-WS01</b>. A user opened an email attachment named <code>invoice.docx</code>. Minutes
+  later the SOC sees this on the host:
+  <ul>
+    <li>Process tree: <code>WINWORD.EXE &rarr; powershell.exe &rarr; cmd.exe</code></li>
+    <li>Event <span class="att">4688</span>: <code>powershell.exe</code> with a long <code>-enc</code> command line</li>
+    <li>Autoruns: a new unsigned entry <code>update.exe</code> in <code>C:\Users\Public</code></li>
+    <li>Event <span class="att">4720</span>: a new local account <code>svc-helper</code></li>
+  </ul>
+  <b>Your job:</b> which CIA pillars are at risk? Which ATT&amp;CK techniques do you see? What do you do next,
+  and would you close this or escalate it?</div>
+  <details class="q"><summary>Show a model answer</summary>
+  <p><b>CIA:</b> Confidentiality and Integrity at risk (remote control + a new account); Availability could
+  follow if it turns to ransomware.<br>
+  <b>Technique chain:</b> phishing (T1566.001) &rarr; PowerShell execution (T1059.001) &rarr; persistence via
+  the Public-folder entry (T1547) &rarr; new account (T1136.001).<br>
+  <b>Next steps:</b> do not close it. Isolate the host, capture the running processes and network connections
+  (Process Explorer, TCPView), collect the 4688/4720 events, and <b>escalate</b> &mdash; this is a live
+  intrusion, not noise. Write findings (what you saw) separately from your conclusion (what it means).</p></details>
+</section>
+
+<section class="page" data-title="Cheat sheet">
+  <div class="sec-head sh-m1"><h2>Cheat sheet</h2><span class="note">fits one page</span>
+    <button class="btn-print" type="button" data-print>Print</button></div>
+  <div class="split">
+    <div class="box"><div class="box-title" style="color:var(--sky)">Commands</div>
+    <div class="cheat"><table><tbody>
+      <tr><td><code>systeminfo</code></td><td>OS, version, patches</td></tr>
+      <tr><td><code>tasklist</code></td><td>running processes</td></tr>
+      <tr><td><code>whoami /priv</code></td><td>your privileges</td></tr>
+      <tr><td><code>net user</code></td><td>local accounts</td></tr>
+      <tr><td><code>net localgroup administrators</code></td><td>who is admin</td></tr>
+      <tr><td><code>Get-Process</code></td><td>processes (PowerShell)</td></tr>
+      <tr><td><code>Get-WinEvent -LogName Security</code></td><td>read the Security log</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd></td><td>open Task Manager</td></tr>
+    </tbody></table></div></div>
+    <div>
+      <div class="box"><div class="box-title" style="color:var(--purple)">Event IDs</div>
+      <div class="cheat"><table><tbody>
+        <tr><td><code>4624</code> logon ok</td><td><code>4625</code> logon failed</td></tr>
+        <tr><td><code>4672</code> admin logon</td><td><code>4688</code> new process</td></tr>
+        <tr><td><code>4720</code> new account</td><td><code>7045</code> new service</td></tr>
+      </tbody></table></div></div>
+      <div class="box box-flag"><div class="box-title">Suspicious paths</div>
+      <code>AppData\Temp</code> &middot; <code>C:\Users\Public</code> &middot; <code>ProgramData\&lt;random&gt;</code>
+      &middot; anything unsigned that looks like a system file</div>
+      <div class="box box-lab"><div class="box-title">Triage tools</div>
+      Process Explorer (tree) &middot; Autoruns (persistence) &middot; TCPView (connections) &middot;
+      Event Viewer (the log)</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" data-title="Check yourself">
+  <div class="sec-head sh-m1"><h2>Check yourself</h2><span class="note">answers hidden &mdash; try first</span></div>
+  <details class="q"><summary>1. Which part of the CIA triad does ransomware attack most directly?</summary>
+  Availability &mdash; it makes your files unusable until you pay. It can hit Integrity too.</details>
+  <details class="q"><summary>2. A burglar is nearby and your lock is broken. Which is the threat and which is the vulnerability?</summary>
+  The burglar is the <b>threat</b>; the broken lock is the <b>vulnerability</b>. The break-in is the exploit.</details>
+  <details class="q"><summary>3. You see <code>WINWORD.EXE &rarr; powershell.exe</code>. Why is that suspicious?</summary>
+  A document should not launch a shell. It is the classic macro-to-PowerShell start of an attack (T1059.001).</details>
+  <details class="q"><summary>4. Which Event ID tells you a new process was created?</summary>
+  <b>4688</b> &mdash; it also shows the parent process, which lets you rebuild the tree.</details>
+  <details class="q"><summary>5. Many 4625 events in a short time suggest what?</summary>
+  Repeated failed logons &mdash; password guessing or a brute-force attempt.</details>
+  <details class="q"><summary>6. Which tool shows you all the places malware can auto-start?</summary>
+  Autoruns (Sysinternals) &mdash; it checks Run keys, Startup, Scheduled Tasks, Services, drivers and more.</details>
+  <details class="q"><summary>7. A program runs from <code>C:\Users\Public\update.exe</code> with no publisher. Verdict?</summary>
+  Suspicious &mdash; odd location plus unsigned. Investigate the command line, parent and network before deciding.</details>
+  <details class="q"><summary>8. What does <code>whoami /priv</code> show, and why care?</summary>
+  Your account's privileges. Powerful ones (like SeDebugPrivilege) let an attacker dump credentials.</details>
+  <details class="q"><summary>9. Event 4720 followed by 4672 &mdash; what story does that tell?</summary>
+  A new account was created and then used with admin rights &mdash; a likely backdoor. Escalate.</details>
+  <details class="q"><summary>10. Why keep findings and interpretation separate in your notes?</summary>
+  So others can trust the facts and check your reasoning. Facts first (the log line), conclusion second.</details>
+  <details class="q"><summary>Practical 1 &mdash; on DGS-WS01</summary>
+  Open Event Viewer &rarr; Security. Find one <code>4624</code> and one <code>4688</code> event. Write down the
+  account, the logon type, and (for 4688) the parent process.</details>
+  <details class="q"><summary>Practical 2 &mdash; on DGS-WS01</summary>
+  In Process Explorer, find a process running from a user folder. Record its path, publisher, command line and
+  parent, then give a one-line verdict with your reason.</details>
+</section>
+
+<section class="page" data-title="Takeaways &amp; next">
+  <div class="sec-head sh-m1"><h2>Key takeaways</h2></div>
+  <div class="box box-take"><div class="box-title">Remember</div>
+  <ul>
+    <li>Every attack breaks a CIA pillar &mdash; name it first.</li>
+    <li>Vulnerability &rarr; threat &rarr; exploit &rarr; risk.</li>
+    <li>The <em>shape</em> of the process tree gives attackers away: path, signature, command line, parent.</li>
+    <li>Persistence lives in a few known places &mdash; Autoruns sees them all.</li>
+    <li>Six Event IDs: 4624 &middot; 4625 &middot; 4672 &middot; 4688 &middot; 4720 &middot; 7045.</li>
+    <li>Every attack has a detection and an ATT&amp;CK ID. Findings first, conclusion second.</li>
+  </ul></div>
+  <div class="sec-head sh-m1"><h3>Keep practising &mdash; free rooms</h3></div>
+  <div class="grid">
+    <article class="card"><span class="rail m1-rail"></span><h3>Windows Fundamentals 1 &amp; 2</h3>
+      <p class="meta">TryHackMe &middot; free</p><p>The desktop, file system, accounts, UAC and the built-in tools &mdash; hands-on.</p>
+      <a class="more" href="https://tryhackme.com/room/windowsfundamentals1xbx" rel="noopener">Open room &rarr;</a></article>
+    <article class="card"><span class="rail m1-rail"></span><h3>Core Windows Processes</h3>
+      <p class="meta">TryHackMe &middot; free</p><p>Learn what normal system processes look like &mdash; the baseline for Lab B.</p>
+      <a class="more" href="https://tryhackme.com/room/btwindowsinternals" rel="noopener">Open room &rarr;</a></article>
+    <article class="card"><span class="rail m1-rail"></span><h3>Intro to Defensive Security</h3>
+      <p class="meta">TryHackMe &middot; free</p><p>What a SOC is and what a Tier 1 analyst does all day.</p>
+      <a class="more" href="https://tryhackme.com/room/defensivesecurity" rel="noopener">Open room &rarr;</a></article>
+  </div>
+  <div class="box box-note" style="margin-top:18px"><div class="box-title">Next session</div>
+  Session 02 &mdash; Linux fundamentals and the shell (Bash and PowerShell) you will use to script triage. The other
+  half of nearly every SOC environment.</div>
+  <div class="prevnext">
+{{PREVNEXT}}
+  </div>
+</section>

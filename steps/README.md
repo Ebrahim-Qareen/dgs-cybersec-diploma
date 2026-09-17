@@ -8,7 +8,7 @@ One file per step. Each file has the same four parts: **Goal · Done · Doing ·
 | 2 | Design the course (map, labs, look) | `02_design.md` | DONE — map awaiting your formal OK |
 | 3 | Build and publish the site | `03_site.md` | DONE — kept current with each session |
 | 4 | Collect the material (intake) | `04_intake.md` | IN PROGRESS |
-| 5 | Build sessions 01 → 18 | `05_sessions.md` | NEXT |
+| 5 | Build sessions 01 → 18 | `05_sessions.md` | IN PROGRESS — L01 built, awaiting review |
 | 6 | Projects and lab pack | `06_projects_lab.md` | LATER |
 | 7 | Final check and handover | `07_handover.md` | LATER |
 
