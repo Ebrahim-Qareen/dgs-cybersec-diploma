@@ -191,7 +191,7 @@ section[id]{scroll-margin-top:86px}
 .box{background:var(--panel);border:1px solid var(--line);border-left-width:3px;
   border-left-style:solid;border-radius:var(--radius-sm);padding:14px 18px;margin:0 0 1em}
 .box > :last-child{margin-bottom:0}
-.box .box-title{display:inline-block;margin-bottom:6px;font:700 .68rem/1 var(--mono);
+.box .box-title{display:block;margin-bottom:6px;font:700 .68rem/1 var(--mono);
   letter-spacing:.11em;text-transform:uppercase}
 .box-why{border-left-color:var(--orange)}       .box-why .box-title{color:var(--orange)}
 .box-attacker{border-left-color:var(--red)}     .box-attacker .box-title{color:var(--red)}
@@ -212,7 +212,7 @@ section[id]{scroll-margin-top:86px}
 table{border-collapse:collapse;width:100%;font-size:.93rem}
 caption{text-align:left;padding:14px 18px 0;color:var(--text-3);font-size:.85rem}
 th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:top}
-th{position:sticky;top:68px;background:var(--panel-2);color:var(--sky);font:700 .74rem/1.4 var(--mono);
+th{background:var(--panel-2);color:var(--sky);font:700 .74rem/1.4 var(--mono);
   letter-spacing:.09em;text-transform:uppercase;z-index:1}
 tbody tr:last-child td{border-bottom:0}
 tbody tr:hover{background:rgba(79,184,240,.055)}
